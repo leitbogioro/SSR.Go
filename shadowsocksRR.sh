@@ -375,7 +375,7 @@ firewall_set(){
     echo -e "[${green}Info${plain}] firewall set completed..."
 }
 
-# Config ShadowsocksR
+# Config ShadowsocksRR
 config_shadowsocks(){
     cat > /etc/shadowsocks.json<<-EOF
 {
