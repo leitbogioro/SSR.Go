@@ -13,4 +13,4 @@ then 重新安装：
 ### 更新历史：
 - 添加对 salsa20 xchacha20 xsalsa20 加密方式的支持（2017.10.15）；
 - 添加对 auth_chain_e和add auth_chain_f 协议的支持（2017.10.15）；
-- 添加对 auth_chain_c和add auth_chain_d 协议的支持（2017.10.15）；
+- 添加对 auth_chain_c和add auth_chain_d 协议的支持（2017.10.15）。
