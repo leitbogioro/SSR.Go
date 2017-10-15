@@ -3,7 +3,7 @@ PATH=/bin:/sbin:/usr/bin:/usr/sbin:/usr/local/bin:/usr/local/sbin:~/bin
 export PATH
 #=================================================================#
 #   System Required:  CentOS 6,7, Debian, Ubuntu                  #
-#   Description: One click Install ShadowsocksR Server            #
+#   Description: One click Install ShadowsocksRR Server           #
 #   Author: MollyLau                                              #
 #   Thanks: @breakwa11 <https://twitter.com/breakwa11> & TeddySun #
 #   Intro:  https://goo.gl/SjXFKi                                 #
@@ -12,7 +12,7 @@ export PATH
 clear
 echo
 echo "#############################################################"
-echo "# One click Install ShadowsocksR Server                     #"
+echo "# One click Install ShadowsocksRR Server                    #"
 echo "# Intro: https://goo.gl/SjXFKi                              #"
 echo "# Author: MollyLau                                          #"
 echo "# Github: https://github.com/shadowsocksrr                  #"
@@ -189,8 +189,8 @@ pre_install(){
         echo -e "[${red}Error${plain}] Your OS is not supported. please change OS to CentOS/Debian/Ubuntu and try again."
         exit 1
     fi
-    # Set ShadowsocksR config password
-    echo "Please input password for ShadowsocksR:"
+    # Set ShadowsocksRR config password
+    echo "Please input password for ShadowsocksRR:"
     read -p "(Default password: MollyLau):" shadowsockspwd
     [ -z "${shadowsockspwd}" ] && shadowsockspwd="MollyLau"
     echo
@@ -198,10 +198,10 @@ pre_install(){
     echo "password = ${shadowsockspwd}"
     echo "---------------------------"
     echo
-    # Set ShadowsocksR config port
+    # Set ShadowsocksRR config port
     while true
     do
-    echo -e "Please input port for ShadowsocksR [1-65535]:"
+    echo -e "Please input port for ShadowsocksRR [1-65535]:"
     read -p "(Default port: 8989):" shadowsocksport
     [ -z "${shadowsocksport}" ] && shadowsocksport="8989"
     expr ${shadowsocksport} + 1 &>/dev/null
@@ -221,10 +221,10 @@ pre_install(){
     fi
     done
 
-    # Set shadowsocksR config stream ciphers
+    # Set shadowsocksRR config stream ciphers
     while true
     do
-    echo -e "Please select stream cipher for ShadowsocksR:"
+    echo -e "Please select stream cipher for ShadowsocksRR:"
     for ((i=1;i<=${#ciphers[@]};i++ )); do
         hint="${ciphers[$i-1]}"
         echo -e "${green}${i}${plain}) ${hint}"
@@ -249,10 +249,10 @@ pre_install(){
     break
     done
 
-    # Set shadowsocksR config protocol
+    # Set shadowsocksRR config protocol
     while true
     do
-    echo -e "Please select protocol for ShadowsocksR:"
+    echo -e "Please select protocol for ShadowsocksRR:"
     for ((i=1;i<=${#protocols[@]};i++ )); do
         hint="${protocols[$i-1]}"
         echo -e "${green}${i}${plain}) ${hint}"
@@ -277,10 +277,10 @@ pre_install(){
     break
     done
 
-    # Set shadowsocksR config obfs
+    # Set shadowsocksRR config obfs
     while true
     do
-    echo -e "Please select obfs for ShadowsocksR:"
+    echo -e "Please select obfs for ShadowsocksRR:"
     for ((i=1;i<=${#obfs[@]};i++ )); do
         hint="${obfs[$i-1]}"
         echo -e "${green}${i}${plain}) ${hint}"
@@ -321,24 +321,24 @@ pre_install(){
 # Download files
 download_files(){
     # Download libsodium file
-    if ! wget --no-check-certificate -O libsodium-1.0.13.tar.gz https://github.com/jedisct1/libsodium/releases/download/1.0.13/libsodium-1.0.13.tar.gz; then
-        echo -e "[${red}Error${plain}] Failed to download libsodium-1.0.13.tar.gz!"
+    if ! wget --no-check-certificate -O libsodium-1.0.15.tar.gz https://github.com/jedisct1/libsodium/releases/download/1.0.15/libsodium-1.0.15.tar.gz; then
+        echo -e "[${red}Error${plain}] Failed to download libsodium-1.0.15.tar.gz!"
         exit 1
     fi
-    # Download ShadowsocksR file
-    if ! wget --no-check-certificate -O manyuser.zip https://github.com/leitbogioro/-SSR-/releases/download/archive/manyuser.zip; then
-        echo -e "[${red}Error${plain}] Failed to download ShadowsocksR file!"
+    # Download ShadowsocksRR file
+    if ! wget --no-check-certificate -O manyuser.zip https://github.com/leitbogioro/ShadowsocksRR-Install/releases/download/archive/manyuser.zip; then
+        echo -e "[${red}Error${plain}] Failed to download ShadowsocksRR file!"
         exit 1
     fi
-    # Download ShadowsocksR init script
+    # Download ShadowsocksRR init script
     if check_sys packageManager yum; then
         if ! wget --no-check-certificate https://raw.githubusercontent.com/leitbogioro/shadowsocks_install/master/shadowsocksR -O /etc/init.d/shadowsocks; then
-            echo -e "[${red}Error${plain}] Failed to download ShadowsocksR chkconfig file!"
+            echo -e "[${red}Error${plain}] Failed to download ShadowsocksRR chkconfig file!"
             exit 1
         fi
     elif check_sys packageManager apt; then
         if ! wget --no-check-certificate https://raw.githubusercontent.com/leitbogioro/shadowsocks_install/master/shadowsocksR-debian -O /etc/init.d/shadowsocks; then
-            echo -e "[${red}Error${plain}] Failed to download ShadowsocksR chkconfig file!"
+            echo -e "[${red}Error${plain}] Failed to download ShadowsocksRR chkconfig file!"
             exit 1
         fi
     fi
@@ -399,13 +399,13 @@ config_shadowsocks(){
 EOF
 }
 
-# Install ShadowsocksR
+# Install ShadowsocksRR
 install(){
     # Install libsodium
     if [ ! -f /usr/lib/libsodium.a ]; then
         cd ${cur_dir}
-        tar zxf libsodium-1.0.13.tar.gz
-        cd libsodium-1.0.13
+        tar zxf libsodium-1.0.15.tar.gz
+        cd libsodium-1.0.15
         ./configure --prefix=/usr && make && make install
         if [ $? -ne 0 ]; then
             echo -e "[${red}Error${plain}] libsodium install failed!"
@@ -415,7 +415,7 @@ install(){
     fi
 
     ldconfig
-    # Install ShadowsocksR
+    # Install ShadowsocksRR
     cd ${cur_dir}
     unzip -q manyuser.zip
     mv shadowsocksr-manyuser/shadowsocks /usr/local/
@@ -431,7 +431,7 @@ install(){
 
         clear
         echo
-        echo -e "Congratulations, ShadowsocksR server install completed!"
+        echo -e "Congratulations, ShadowsocksRR server install completed!"
         echo -e "Your Server IP        : \033[41;37m $(get_ip) \033[0m"
         echo -e "Your Server Port      : \033[41;37m ${shadowsocksport} \033[0m"
         echo -e "Your Password         : \033[41;37m ${shadowsockspwd} \033[0m"
@@ -439,11 +439,11 @@ install(){
         echo -e "Your obfs             : \033[41;37m ${shadowsockobfs} \033[0m"
         echo -e "Your Encryption Method: \033[41;37m ${shadowsockscipher} \033[0m"
         echo
-        echo "Welcome to visit:https://shadowsocks.be/9.html"
+        echo "Welcome to visit:https://git.io/vdMTQ"
         echo "Enjoy it!"
         echo
     else
-        echo "ShadowsocksR install failed, please Email to Teddysun <i@teddysun.com> and contact"
+        echo "ShadowsocksRR install failed, please send private messages to <https://goo.gl/SjXFKi> and contact me"
         install_cleanup
         exit 1
     fi
@@ -452,13 +452,13 @@ install(){
 # Install cleanup
 install_cleanup(){
     cd ${cur_dir}
-    rm -rf manyuser.zip shadowsocksr-manyuser libsodium-1.0.13.tar.gz libsodium-1.0.13
+    rm -rf manyuser.zip shadowsocksr-manyuser libsodium-1.0.15.tar.gz libsodium-1.0.15
 }
 
 
-# Uninstall ShadowsocksR
+# Uninstall ShadowsocksRR
 uninstall_shadowsocksr(){
-    printf "Are you sure uninstall ShadowsocksR? (y/n)"
+    printf "Are you sure uninstall ShadowsocksRR? (y/n)"
     printf "\n"
     read -p "(Default: n):" answer
     [ -z ${answer} ] && answer="n"
@@ -476,7 +476,7 @@ uninstall_shadowsocksr(){
         rm -f /etc/init.d/shadowsocks
         rm -f /var/log/shadowsocks.log
         rm -rf /usr/local/shadowsocks
-        echo "ShadowsocksR uninstall success!"
+        echo "ShadowsocksRR uninstall success!"
     else
         echo
         echo "uninstall cancelled, nothing to do..."
@@ -484,7 +484,7 @@ uninstall_shadowsocksr(){
     fi
 }
 
-# Install ShadowsocksR
+# Install ShadowsocksRR
 install_shadowsocksr(){
     disable_selinux
     pre_install
