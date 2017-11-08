@@ -203,8 +203,8 @@ pre_install(){
     while true
     do
     echo -e "Please input port for ShadowsocksRR [1-65535]:"
-    read -p "(Default port: 8989):" shadowsocksport
-    [ -z "${shadowsocksport}" ] && shadowsocksport="8989"
+    read -p "(Recommended/Default port: 443):" shadowsocksport
+    [ -z "${shadowsocksport}" ] && shadowsocksport="443"
     expr ${shadowsocksport} + 1 &>/dev/null
     if [ $? -eq 0 ]; then
         if [ ${shadowsocksport} -ge 1 ] && [ ${shadowsocksport} -le 65535 ]; then
