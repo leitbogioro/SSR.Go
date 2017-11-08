@@ -35,9 +35,10 @@ aes-192-ctr
 aes-128-ctr
 chacha20-ietf
 chacha20
-salsa20
 xchacha20
+salsa20
 xsalsa20
+rc4
 rc4-md5
 rc4-md5-6
 )
@@ -69,6 +70,7 @@ tls1.2_ticket_auth
 tls1.2_ticket_auth_compatible
 tls1.2_ticket_fastauth
 tls1.2_ticket_fastauth_compatible
+random_head
 )
 # Color
 red='\033[0;31m'
@@ -384,7 +386,7 @@ config_shadowsocks(){
     "local_address":"127.0.0.1",
     "local_port":1080,
     "password":"${shadowsockspwd}",
-    "timeout":120,
+    "timeout":300,
     "method":"${shadowsockscipher}",
     "protocol":"${shadowsockprotocol}",
     "protocol_param":"",
