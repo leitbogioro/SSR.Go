@@ -25,22 +25,19 @@ cur_dir=`pwd`
 ciphers=(
 none
 aes-256-cfb
-aes-192-cfb
-aes-128-cfb
 aes-256-cfb8
-aes-192-cfb8
-aes-128-cfb8
 aes-256-ctr
-aes-192-ctr
-aes-128-ctr
+bf-cfb
+camellia-256-cfb
+cast5-cfb
 chacha20-ietf
 chacha20
-xchacha20
+idea-cfb
 salsa20
-xsalsa20
-rc4
+seed-cfb
 rc4-md5
 rc4-md5-6
+table
 )
 # Reference URL:
 # https://github.com/shadowsocksrr/shadowsocks-rss/blob/master/readme.md
@@ -55,6 +52,7 @@ auth_aes128_md5
 auth_aes128_sha1
 auth_chain_a
 auth_chain_b
+auth_chain_c
 auth_chain_d
 auth_chain_e
 auth_chain_f
@@ -322,8 +320,8 @@ pre_install(){
 # Download files
 download_files(){
     # Download libsodium file
-    if ! wget --no-check-certificate -O libsodium-1.0.15.tar.gz https://github.com/jedisct1/libsodium/releases/download/1.0.15/libsodium-1.0.15.tar.gz; then
-        echo -e "[${red}Error${plain}] Failed to download libsodium-1.0.15.tar.gz!"
+    if ! wget --no-check-certificate -O libsodium-1.0.16.tar.gz https://github.com/jedisct1/libsodium/releases/download/1.0.16/libsodium-1.0.16.tar.gz; then
+        echo -e "[${red}Error${plain}] Failed to download libsodium-1.0.16.tar.gz!"
         exit 1
     fi
     # Download ShadowsocksRR file
@@ -405,8 +403,8 @@ install(){
     # Install libsodium
     if [ ! -f /usr/lib/libsodium.a ]; then
         cd ${cur_dir}
-        tar zxf libsodium-1.0.15.tar.gz
-        cd libsodium-1.0.15
+        tar zxf libsodium-1.0.16.tar.gz
+        cd libsodium-1.0.16
         ./configure --prefix=/usr && make && make install
         if [ $? -ne 0 ]; then
             echo -e "[${red}Error${plain}] libsodium install failed!"
@@ -453,7 +451,7 @@ install(){
 # Install cleanup
 install_cleanup(){
     cd ${cur_dir}
-    rm -rf manyuser.zip shadowsocksr-manyuser libsodium-1.0.15.tar.gz libsodium-1.0.15
+    rm -rf manyuser.zip shadowsocksr-manyuser libsodium-1.0.16.tar.gz libsodium-1.0.16
 }
 
 
