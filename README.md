@@ -16,9 +16,9 @@
 <pre><code> ./shadowsocksRR.sh uninstall </code></pre>
 2. 删除原脚本：
 <pre><code> find . -name shadowsocksRR.sh -delete </code></pre>
-then 重复上述“使用方法”中的第2、3步
+3. 重复上述“使用方法”中的第2、3步
 <br />
-<br /
+<br />
 
 ### 更新历史：
 - 来自https://github.com/AkaneAkaza 的dev通道底包更新说明：https://github.com/shadowsocksrr/shadowsocksr/commits/akkariiin/dev （长期置顶）
