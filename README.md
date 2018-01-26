@@ -10,7 +10,7 @@
 3. 安装完成后，推荐重启一下SSRR服务：
 <pre><code>/etc/init.d/shadowsocks restart</code></pre>
 <br />
-<br />
+
 ### 重新安装/更新：
 1. if 安装过我这个脚本，请先卸载：
 <pre><code> ./shadowsocksRR.sh uninstall </code></pre>
@@ -18,7 +18,7 @@
 <pre><code> find . -name shadowsocksRR.sh -delete </code></pre>
 then 重复上述“使用方法”中的第2. 、 3. 步
 <br />
-<br />
+
 ### 更新历史：
 - 来自https://github.com/AkaneAkaza 的dev通道底包更新说明：https://github.com/shadowsocksrr/shadowsocksr/commits/akkariiin/dev （长期置顶）
 - 底包切换至https://github.com/shadowsocksrr/shadowsocksr/tree/akkariiin/dev 通道https://github.com/shadowsocksrr/shadowsocksr/archive/akkariiin/dev.zip 并重新解压打包至上传（2018.1.27）；
