@@ -19,12 +19,12 @@
 3. <a href="https://toutyrater.github.io/">v2ray白话文教程</a>。
 - 脑子和搜索能力是个好东西，希望在座的各位和我一样拥有。
 <br />
-<br />
+
 # 以下内容已永久进入历史的垃圾堆，不再维护和更新
 # 酸酸仁乳（ShadowsocksRR）一键安装包饮用指南
 这是一个我魔改的酸酸乳一键安装包，原脚本来自秋水逸冰（Teddysun）大佬https://git.io/vdMTK ，原脚本里的ShadowsocksR服务端版本有一些旧了，底包最高只能支持到auth_chain_b协议，我的一键安装包目前可以随时和@Akkariiin接盘后的ShadowsocksR（ShadowsocksRR）https://git.io/vdMTB 的最新版本保持同步。
 <br />
-<br />
+
 ### 使用方法：
 1. if 已安装过TeddySun的一键包，请先卸载：
 <pre><code> ./shadowsocksR.sh uninstall </code></pre>
@@ -33,7 +33,7 @@
 3. 安装完成后，推荐重启一下SSRR服务：
 <pre><code>/etc/init.d/shadowsocks restart</code></pre>
 <br />
-<br />
+
 ### 重新安装/更新：
 1. if 安装过我这个脚本，请先卸载：
 <pre><code> ./shadowsocksRR.sh uninstall </code></pre>
@@ -41,7 +41,7 @@
 <pre><code> find . -name shadowsocksRR.sh -delete </code></pre>
 3. 重复上一节“使用方法”中的第2、3步。
 <br />
-<br />
+
 ### 更新历史：
 - auth_chain_c/e/f 这三种协议均存在问题，客户端设置后无法和服务端连接，不建议在配置的时候使用，auth_chain_d协议主要针对数据包的长度分布归属到模式中，让包分布看起来更规整，并在一定程度上增加了各种密码生成的模式的最大适用长度，这样就不需要在极端情况下再临时生成随机数，降低大包传输时的计算量，提高下载极限速度，推荐使用。文档说明：https://github.com/shadowsocksrr/shadowsocks-rss/blob/master/ssr.md （2018.2.28）；
 - 来自https://github.com/AkaneAkaza 的dev通道底包更新说明：https://github.com/shadowsocksrr/shadowsocksr/commits/akkariiin/dev （长期置顶）
