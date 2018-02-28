@@ -5,7 +5,7 @@
 
 ### 防火长城有了哪些进步？大规模的封锁意味着什么？以后突破封锁该怎么做？
 - 理论上来说，只要防火长城愿意，目前主流的ShadowSocksR、ShadowSocks with OBFS、v2ray、蓝灯、自由门、等主流应用都是完全有能力将其封锁的，其本质是因为开发突破封锁工具的开发者的个人力量，相比国家级别的软 + 硬一体化封锁手段，显得脆弱且无力，请尽可能使用那些小众、部署难度大、抗封锁手段丰富有效、不易被商家大规模应用并出售代理生意的工具/手段。显然，目前突破封锁工具脆弱程度的大致排名是：<a href="https://github.com/shadowsocksrr">ShadowSocksRR</a> > <a href="https://github.com/shadowsocks">Shadowsocks + OBFS</a> > <a href="https://github.com/v2ray">v2ray</a> > <a href="https://github.com/coyove/goflyway">GoFlyWay</a>/<a href="https://github.com/txthinking/brook">Brook</a>，目前我已转向v2ray，各位好自为之；
-- 这次防火长城主要针对的，是ShadowSocksR，如果你是小白，非要尝试去用，我建议你选择支持自由更换IP的商家，比如Vultr、DigitalOcean、Linode、搬瓦工（好吧，这几个商家的屁眼已经被国人给操烂了，它们日本、美西等地的IP大批量地被GFW blocked，有的时候开日本的机器，换十次IP能有一个可以用的就不错了，前人糟践完了，只会让后来者更没有车上），了解更多内容，请参见冯硕的这篇文章：《<a href="https://zhuanlan.zhihu.com/p/33841302">可以免费换IP的VPS商家盘点</a>》；
+- 这次防火长城主要针对的，是ShadowSocksR，如果你是小白，非要尝试去用，我建议你选择支持自由更换IP的商家，比如Vultr、DigitalOcean、Linode、搬瓦工（好吧，这几个商家的屁眼已经被国人给操烂了，它们日本、美西等地的IP大批量地被GFW blocked，有的时候开日本的机器，换十次IP能有一个可以用的就不错了，前人糟践完了，只会让后来者更没有车上），了解更多内容，请参见冯硕大佬的这篇文章：《<a href="https://zhuanlan.zhihu.com/p/33841302">可以免费换IP的VPS商家盘点</a>》；
 - 不再建议购买搬瓦工的VPS做梯子使用，搬瓦工有大量IP被列入重点监测的对象，且这个商家设置了一个官方ping服务监测点，只要探测到自己机器的IP被国内屏蔽，即使你购买了可以自由切换机房的套餐，无论怎样操作，都会出现“Migration backend is currently not available for this VPS. Please try again in 10-15 minutes. (734152)”这样的错误提示。年付20刀，换个IP就要8刀，要是又被ban了还要继续加钱换，按防火长城的屏蔽神速，你换IP估计得换到破产。
 - 随着举国之力建设的防火长城的技术进步，大规模被封锁IP的情况只会愈演愈烈，请<b>不要把自己正常业务网站（比如博客、应用服务等）的服务和搭建翻墙服务的放在同一个境外服务器上！阿里云国际、腾讯云国际之类的照样不能免俗</b>，因为你要随时做好自己手上的梯子被防火长城发现，IP被ban的事实，正常业务更换IP的代价是极大的，这个利害关系一定要搞清楚。
 - 极少情况下，你的机器即使没有搭建梯子，IP也会被ban，当然这种情况是极其偶然的，一般认为防火长城会拦截到你的数据包，进行深度包分析，在“带有SSR/SS流量特征”的概率大到一定程度（只要特征符合即可，无需截获你和服务器之间通信的具体信息）的时候，才会做出整治行动，不会做出“宁可错杀千人，绝不放过一个”的赖皮行径。
@@ -19,6 +19,7 @@
 2. <a href="https://github.com/tracyone/v2ray.fun">服务端一键部署/调试配置脚本（推荐Cent OS7/Debian 8/Ubuntu 16.04 +，CentOS 6不可使用）</a>；
 3. <a href="https://toutyrater.github.io/">v2ray白话文教程</a>。
 - 脑子和搜索能力是个好东西，希望在座的各位和我一样拥有。
+- 感谢每一个爱我的，以及在这条道路上提供工具和路径的，无私奉献的人，我们有着不同的性别、出身、工作、思维观念，但是，有一个共同的追求，让我们在这特别的时空里相遇，并努力为这14亿人口中的极小一部分，提供看世界的机会，这份相识就足够了。
 <br />
 <br />
 
