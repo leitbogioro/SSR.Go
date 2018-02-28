@@ -22,9 +22,13 @@
 <br />
 
 # 以下内容已永久进入历史的垃圾堆，不再维护和更新
+<br />
 
 # ~~酸酸仁乳（ShadowsocksRR）一键安装包饮用指南~~
+<br />
+
 这是一个我魔改的酸酸乳一键安装包，原脚本来自秋水逸冰（Teddysun）大佬https://git.io/vdMTK ，原脚本里的ShadowsocksR服务端版本有一些旧了，底包最高只能支持到auth_chain_b协议，我的一键安装包目前可以随时和@Akkariiin接盘后的ShadowsocksR（ShadowsocksRR）https://git.io/vdMTB 的最新版本保持同步。
+<br />
 <br />
 
 ### ~~使用方法：~~
