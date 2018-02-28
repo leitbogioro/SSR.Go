@@ -1,7 +1,8 @@
-# 酸酸仁乳（ShadowsocksRR）一键安装包饮用指南
-### 郑重声明
+# 郑重声明
 自2018年2月25日起，ShadowSocksR经历了极其严重的干扰、屏蔽和封锁，有大量用户表示，自己凡是搭建了的ShadowSocksR的VPS，IP已经被防火长城给屏蔽，本人也有不少机器不幸遇难，ShadowSocksR目前遭遇破娃酱撒手不干和后继无人的状况，不再推荐个人使用。
 为此，我特意做了一番测试，在CloudGarage的VPS后面板尝试新建一台机器，并被分配到了新的IP，然后部署ShadowSocksR服务，运用的是auth_chain_d + TLS ticket auth + chacha20的配置参数，并使用强密码和日本地区未被防火长城过滤掉的日本网站混淆参数，试图躲避防火长城的攻击，很可惜的是，这个IP仅仅存活了不到半天，就被防火长城给屏蔽，很明显，过年后国家进一步增强了封锁手段，使用ShadowSocksR是一种很危险的突破封锁的手段，为了你手中有限的IP地址考虑，我建议大家暂时停止使用。
+<br />
+
 ### 防火长城有了哪些进步？大规模的封锁意味着什么？以后突破封锁该怎么做？
 - 理论上来说，只要防火长城愿意，目前主流的ShadowSocksR、ShadowSocks with OBFS、v2ray、蓝灯、自由门、等主流应用都是完全有能力将其封锁的，其本质是因为开发突破封锁工具的开发者的个人力量，相比国家级别的软 + 硬一体化封锁手段，显得脆弱且无力，请尽可能使用那些小众、部署难度大、抗封锁手段丰富有效、不易被商家大规模应用并出售代理生意的工具/手段。显然，目前突破封锁工具脆弱程度的大致排名是：<a href="https://github.com/shadowsocksrr">ShadowSocksRR</a> > <a href="https://github.com/shadowsocks">Shadowsocks + OBFS</a> > <a href="https://github.com/v2ray">v2ray</a> > <a href="https://github.com/coyove/goflyway">GoFlyWay</a>/<a href="https://github.com/txthinking/brook">Brook</a>，目前我已转向v2ray，各位好自为之；
 - 这次防火长城主要针对的，是ShadowSocksR，如果你是小白，非要尝试去用，我建议你选择支持自由更换IP的商家，比如Vultr、DigitalOcean、Linode、搬瓦工（好吧，这几个商家的屁眼已经被国人给操烂了，它们日本、美西等地的IP大批量地被GFW blocked，有的时候开日本的机器，换十次IP能有一个可以用的就不错了，前人糟践完了，只会让后来者更没有车上），了解更多内容，请参见冯硕的这篇文章：《<a href="https://zhuanlan.zhihu.com/p/33841302">可以免费换IP的VPS商家盘点</a>》；
