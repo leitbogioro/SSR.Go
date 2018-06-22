@@ -51,6 +51,7 @@
 <br />
 
 ### 更新历史：
+- 加入auth_akarin_rand / auth_akarin_spec_a 协议，新协议的改动非常大，协议详情参见：https://github.com/shadowsocksrr/shadowsocksr/commit/08b88026e884eac456b0d7dee1d5dbcbf30cebe3
 - auth_chain_c/e/f 这三种协议均存在问题，客户端设置后无法和服务端连接，不建议在配置的时候使用，auth_chain_d协议主要针对数据包的长度分布归属到模式中，让包分布看起来更规整，并在一定程度上增加了各种密码生成的模式的最大适用长度，这样就不需要在极端情况下再临时生成随机数，降低大包传输时的计算量，提高下载极限速度，推荐使用。文档说明：https://github.com/shadowsocksrr/shadowsocks-rss/blob/master/ssr.md （2018.2.28）；
 - 来自https://github.com/AkaneAkaza 的dev通道底包更新说明：https://github.com/shadowsocksrr/shadowsocksr/commits/akkariiin/dev （长期置顶）
 - 底包切换至https://github.com/shadowsocksrr/shadowsocksr/tree/akkariiin/dev 通道https://github.com/shadowsocksrr/shadowsocksr/archive/akkariiin/dev.zip 并重新解压打包至上传（2018.1.27）；
