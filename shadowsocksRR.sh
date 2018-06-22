@@ -56,6 +56,8 @@ auth_chain_c
 auth_chain_d
 auth_chain_e
 auth_chain_f
+auth_akarin_rand
+auth_akarin_spec_a
 )
 # obfs
 obfs=(
