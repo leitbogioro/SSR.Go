@@ -102,10 +102,10 @@ check_sys(){
     if [[ -f /etc/redhat-release ]]; then
         release="centos"
         systemPackage="yum"
-    elif [[ cat /etc/issue -a grep -Eqi "debian" ]] || [[ cat /proc/version -a grep -Eqi "debian" ]]; then
+    elif [[ grep -Eqi "debian" /etc/issue ]] || [[ grep -Eqi "debian" /proc/version ]]; then
         release="debian"
         systemPackage="apt"
-    elif cat /etc/issue | grep -Eqi "ubuntu"; then
+    elif grep -Eqi "ubuntu" /etc/issue; then
         release="ubuntu"
         systemPackage="apt"
     elif cat /etc/issue | grep -Eqi "centos|red hat|redhat"; then
