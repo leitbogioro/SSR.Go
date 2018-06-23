@@ -102,9 +102,6 @@ check_sys(){
     if [[ -f /etc/redhat-release ]]; then
         release="centos"
         systemPackage="yum"
-    if [[ -f /etc/apt ]]; then
-        release="debian"
-        systemPackage="apt"
     elif cat /etc/issue | grep -Eqi "debian"; then
         release="debian"
         systemPackage="apt"
