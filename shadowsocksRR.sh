@@ -99,12 +99,37 @@ check_sys(){
     local release=''
     local systemPackage=''
 
-    if [[ -f /etc/redhat-release ]] || [[cat /etc/issue | grep -Eqi "centos|red hat|redhat"]] || [[cat /proc/version | grep-Eqi "centos|red hat|redhat"]]; then
+    # if [[ -f /etc/redhat-release ]] || [[cat /etc/issue | grep -Eqi "centos|red hat|redhat"]] || [[cat /proc/version | grep-Eqi "centos|red hat|redhat"]]; then
+    #     release="centos"
+    #     systemPackage="yum"
+    # elif [[ -f /etc/apt ]] || [[cat /etc/issue | grep -Eqi "ubuntu"]] || [[cat /etc/issue | grep -Eqi "debian"]] || [[cat /proc/version | grep -Eqi "ubuntu"]] || [[cat /proc/version | grep -Eqi "debian"]]; then
+    #     release="debian"
+    #     systemPackage="apt"
+    # fi
+    if [[ -f /etc/redhat-release ]]; then
         release="centos"
         systemPackage="yum"
-    elif [[ -f /etc/apt ]] || [[cat /etc/issue | grep -Eqi "ubuntu"]] || [[cat /etc/issue | grep -Eqi "debian"]] || [[cat /proc/version | grep -Eqi "ubuntu"]] || [[cat /proc/version | grep -Eqi "debian"]]; then
+    if [[ -f /etc/apt ]]; then
         release="debian"
         systemPackage="apt"
+    elif cat /etc/issue | grep -Eqi "debian"; then
+        release="debian"
+        systemPackage="apt"
+    elif cat /etc/issue | grep -Eqi "ubuntu"; then
+        release="ubuntu"
+        systemPackage="apt"
+    elif cat /etc/issue | grep -Eqi "centos|red hat|redhat"; then
+        release="centos"
+        systemPackage="yum"
+    elif cat /proc/version | grep -Eqi "debian"; then
+        release="debian"
+        systemPackage="apt"
+    elif cat /proc/version | grep -Eqi "ubuntu"; then
+        release="ubuntu"
+        systemPackage="apt"
+    elif cat /proc/version | grep -Eqi "centos|red hat|redhat"; then
+        release="centos"
+        systemPackage="yum"
     fi
 # check_sys()函数内部，需要声明局部变量
 # grep -Eqi中，E用于扩展的正则，q用于逻辑判断，i不区分大小写，后面跟上关键字条件
