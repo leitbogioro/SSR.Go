@@ -19,7 +19,7 @@ echo "# Github: https://github.com/shadowsocksrr                  #"
 echo "#############################################################"
 echo
 
-#Current folder
+# Current folder
 cur_dir=`pwd`
 # Stream Ciphers
 ciphers=(
@@ -32,8 +32,10 @@ camellia-256-cfb
 cast5-cfb
 chacha20-ietf
 chacha20
-idea-cfb
+xchacha20
 salsa20
+xsalsa20
+idea-cfb
 seed-cfb
 rc4-md5
 rc4-md5-6
@@ -89,7 +91,7 @@ disable_selinux(){
     fi
 }
 
-#Check system
+# Check system (判断系统版本号)
 check_sys(){
     local checkType=$1
     local value=$2
@@ -97,28 +99,17 @@ check_sys(){
     local release=''
     local systemPackage=''
 
-    if [[ -f /etc/redhat-release ]]; then
+    if [[ -f /etc/redhat-release ]] || [[cat /etc/issue | grep -Eqi "centos|red hat|redhat"]] || [[cat /proc/version | grep -Eqi "centos|red hat|redhat"]]; then
         release="centos"
         systemPackage="yum"
-    elif cat /etc/issue | grep -Eqi "debian"; then
+    elif [[ -f /etc/apt ]] || [[cat /etc/issue | grep -Eqi "ubuntu"]] || || [[cat /etc/issue | grep -Eqi "debian"]] || [[cat /proc/version | grep -Eqi "ubuntu"]] || [[cat /proc/version | grep -Eqi "debian"]]; then
         release="debian"
         systemPackage="apt"
-    elif cat /etc/issue | grep -Eqi "ubuntu"; then
-        release="ubuntu"
-        systemPackage="apt"
-    elif cat /etc/issue | grep -Eqi "centos|red hat|redhat"; then
-        release="centos"
-        systemPackage="yum"
-    elif cat /proc/version | grep -Eqi "debian"; then
-        release="debian"
-        systemPackage="apt"
-    elif cat /proc/version | grep -Eqi "ubuntu"; then
-        release="ubuntu"
-        systemPackage="apt"
-    elif cat /proc/version | grep -Eqi "centos|red hat|redhat"; then
-        release="centos"
-        systemPackage="yum"
     fi
+# check_sys()函数内部，需要声明局部变量
+# grep -Eqi中，E用于扩展的正则，q用于逻辑判断，i不区分大小写，后面跟上关键字条件
+# cat 与 grep 命令配合使用，cat 用于读取 /cat/issue 文件，该文件里包含了当前操作系统的名称、版本号
+# /proc/version 文件中，包含了系统的详细内核信息
 
     if [[ ${checkType} == "sysRelease" ]]; then
         if [ "$value" == "$release" ]; then
