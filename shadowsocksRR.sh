@@ -99,27 +99,18 @@ check_sys(){
     local release=''
     local systemPackage=''
 
-if [[ -f /etc/redhat-release ]]; then
+    if [[ -f /etc/redhat-release ]]; then
         release="centos"
         systemPackage="yum"
-    elif grep -Eqi "debian" /etc/issue; then
+    elif grep -Eqi "centos|red hat|redhat" /etc/issue -o /proc/version; then
+        release="centos"
+        systemPackage="yum"
+    elif grep -Eqi "debian" /etc/issue -o /proc/version; then
         release="debian"
         systemPackage="apt"
-    elif grep -Eqi "ubuntu" /etc/issue; then
+    elif grep -Eqi "ubuntu" /etc/issue -o /proc/version; then
         release="ubuntu"
         systemPackage="apt"
-    elif grep -Eqi "centos|red hat|redhat" /etc/issue; then
-        release="centos"
-        systemPackage="yum"
-    elif grep -Eqi "debian" /proc/version; then
-        release="debian"
-        systemPackage="apt"
-    elif grep -Eqi "ubuntu" /proc/version; then
-        release="ubuntu"
-        systemPackage="apt"
-    elif grep -Eqi "centos|red hat|redhat" /proc/version; then
-        release="centos"
-        systemPackage="yum"
     fi
 # check_sys()函数内部，需要声明局部变量
 # grep -Eqi中，E用于扩展的正则，q用于逻辑判断，i不区分大小写，后面跟上关键字条件
