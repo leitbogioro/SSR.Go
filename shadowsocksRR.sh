@@ -99,10 +99,10 @@ check_sys(){
     local release=''
     local systemPackage=''
 
-    if [[ -f /etc/redhat-release ]] || [[cat /etc/issue | grep -Eqi "centos|red hat|redhat"]] || [[cat /proc/version | grep -Eqi "centos|red hat|redhat"]]; then
+    if [[ -f /etc/redhat-release ]] || [[cat /etc/issue | grep -Eqi "centos|red hat|redhat"]] || [[cat /proc/version | grep-Eqi "centos|red hat|redhat"]]; then
         release="centos"
         systemPackage="yum"
-    elif [[ -f /etc/apt ]] || [[cat /etc/issue | grep -Eqi "ubuntu"]] || || [[cat /etc/issue | grep -Eqi "debian"]] || [[cat /proc/version | grep -Eqi "ubuntu"]] || [[cat /proc/version | grep -Eqi "debian"]]; then
+    elif [[ -f /etc/apt ]] || [[cat /etc/issue | grep -Eqi "ubuntu"]] || [[cat /etc/issue | grep -Eqi "debian"]] || [[cat /proc/version | grep -Eqi "ubuntu"]] || [[cat /proc/version | grep -Eqi "debian"]]; then
         release="debian"
         systemPackage="apt"
     fi
