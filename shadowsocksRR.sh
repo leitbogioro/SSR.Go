@@ -178,7 +178,7 @@ get_char(){
 # Pre-installation settings
 pre_install(){
     if check_sys packageManager yum || check_sys packageManager apt; then
-        # Not support CentOS 5
+        # 不支持 CentOS 5
         if centosversion 5; then
             echo -e "$[{red}Error${plain}] Not supported CentOS 5, please change to CentOS 6+/Debian 7+/Ubuntu 12+ and try again."
             exit 1
@@ -187,7 +187,7 @@ pre_install(){
         echo -e "[${red}Error${plain}] Your OS is not supported. please change OS to CentOS/Debian/Ubuntu and try again."
         exit 1
     fi
-    # Set ShadowsocksRR config password
+    # 设置 ShadowsocksRR 密码
     echo "Please input password for ShadowsocksRR:"
     read -p "(Default password: MollyLau):" shadowsockspwd
     [ -z "${shadowsockspwd}" ] && shadowsockspwd="MollyLau"
@@ -196,30 +196,28 @@ pre_install(){
     echo "password = ${shadowsockspwd}"
     echo "---------------------------"
     echo
-    # Set ShadowsocksRR config port
+    # 设置 ShadowsocksRR 端口
     while true
     do
-    echo -e "Please input port for ShadowsocksRR [1-65535]:"
-    read -p "(Recommended/Default port: 443):" shadowsocksport
-    [ -z "${shadowsocksport}" ] && shadowsocksport="443"
+    dport=$(shuf -i 9000-59999 -n 1) # 若不手动设置则随机选取
+    echo -e "Please input port for ShadowsocksRR [1-65535] (Default between 9000-59999):"
+    read -p "(Default port: ${dport}):" shadowsocksport
+    [ -z "${shadowsocksport}" ] && shadowsocksport=${dport}
     expr ${shadowsocksport} + 1 &>/dev/null
     if [ $? -eq 0 ]; then
-        if [ ${shadowsocksport} -ge 1 ] && [ ${shadowsocksport} -le 65535 ]; then
+        if [ ${shadowsocksport} -ge 1 ] && [ ${shadowsocksport} -le 65535 ] && [ ${shadowsocksport:0:1} != 0 ]; then
             echo
             echo "---------------------------"
             echo "port = ${shadowsocksport}"
             echo "---------------------------"
             echo
             break
-        else
-            echo -e "[${red}Error${plain}] Input error, please input a number between 1 and 65535"
         fi
-    else
-        echo -e "[${red}Error${plain}] Input error, please input a number between 1 and 65535"
     fi
+    echo -e "[${red}Error${plain}] Please enter a correct number [1-65535]"
     done
 
-    # Set shadowsocksRR config stream ciphers
+    # 设置 shadowsocksRR 加密方式
     while true
     do
     echo -e "Please select stream cipher for ShadowsocksRR:"
@@ -247,7 +245,7 @@ pre_install(){
     break
     done
 
-    # Set shadowsocksRR config protocol
+    # 设置 shadowsocksRR 协议
     while true
     do
     echo -e "Please select protocol for ShadowsocksRR:"
@@ -275,7 +273,7 @@ pre_install(){
     break
     done
 
-    # Set shadowsocksRR config obfs
+    # 设置 shadowsocksRR 混淆
     while true
     do
     echo -e "Please select obfs for ShadowsocksRR:"
@@ -306,29 +304,29 @@ pre_install(){
     echo
     echo "Press any key to start...or Press Ctrl+C to cancel"
     char=`get_char`
-    # Install necessary dependencies
+    # 安装必要运行环境
     if check_sys packageManager yum; then
         yum install -y python python-devel python-setuptools openssl openssl-devel curl wget unzip gcc automake autoconf make libtool
     elif check_sys packageManager apt; then
-        https://raw.githubusercontent.com/leitbogioro/shadowsocks_install/master/shadowsocksRapt-get -y update
+        apt-get -y update
         apt-get -y install python python-dev python-setuptools openssl libssl-dev curl wget unzip gcc automake autoconf make libtool
     fi
     cd ${cur_dir}
 }
 
-# Download files
+# 下载必要运行组件
 download_files(){
-    # Download libsodium file
+    # 下载 libsodium
     if ! wget --no-check-certificate -O libsodium-1.0.16.tar.gz https://github.com/jedisct1/libsodium/releases/download/1.0.16/libsodium-1.0.16.tar.gz; then
         echo -e "[${red}Error${plain}] Failed to download libsodium-1.0.16.tar.gz!"
         exit 1
     fi
-    # Download ShadowsocksRR file
+    # 下载 ShadowsocksRR
     if ! wget --no-check-certificate -O manyuser.zip https://github.com/leitbogioro/ShadowsocksRR-Install/releases/download/archive/manyuser.zip; then
         echo -e "[${red}Error${plain}] Failed to download ShadowsocksRR file!"
         exit 1
     fi
-    # Download ShadowsocksRR init script
+    # 下载 ShadowsocksRR 运行脚本
     if check_sys packageManager yum; then
         if ! wget --no-check-certificate https://raw.githubusercontent.com/leitbogioro/shadowsocks_install/master/shadowsocksR -O /etc/init.d/shadowsocks; then
             echo -e "[${red}Error${plain}] Failed to download ShadowsocksRR chkconfig file!"
@@ -342,7 +340,7 @@ download_files(){
     fi
 }
 
-# Firewall set
+# 防火墙设置
 firewall_set(){
     echo -e "[${green}Info${plain}] firewall set start..."
     if centosversion 6; then
@@ -373,7 +371,7 @@ firewall_set(){
     echo -e "[${green}Info${plain}] firewall set completed..."
 }
 
-# Config ShadowsocksRR
+# 配置 ShadowsocksRR
 config_shadowsocks(){
     cat > /etc/shadowsocks.json<<-EOF
 {
@@ -397,9 +395,9 @@ config_shadowsocks(){
 EOF
 }
 
-# Install ShadowsocksRR
+# 安装 ShadowsocksRR
 install(){
-    # Install libsodium
+    # 安装 libsodium
     if [ ! -f /usr/lib/libsodium.a ]; then
         cd ${cur_dir}
         tar zxf libsodium-1.0.16.tar.gz
@@ -413,7 +411,7 @@ install(){
     fi
 
     ldconfig
-    # Install ShadowsocksRR
+    # 安装 ShadowsocksRR
     cd ${cur_dir}
     unzip -q manyuser.zip
     mv shadowsocksr-manyuser/shadowsocks /usr/local/
@@ -438,7 +436,7 @@ install(){
         echo -e "Your Encryption Method: \033[41;37m ${shadowsockscipher} \033[0m"
         echo
         echo "Welcome to visit:https://git.io/vdMTQ"
-        echo "Enjoy it!"
+        echo "Just access to a wide world!"
         echo
     else
         echo "ShadowsocksRR install failed, please send private messages to <https://goo.gl/SjXFKi> and contact me"
@@ -447,14 +445,14 @@ install(){
     fi
 }
 
-# Install cleanup
+# 安装完成后清理
 install_cleanup(){
     cd ${cur_dir}
     rm -rf manyuser.zip shadowsocksr-manyuser libsodium-1.0.16.tar.gz libsodium-1.0.16
 }
 
 
-# Uninstall ShadowsocksRR
+# 卸载 ShadowsocksRR
 uninstall_shadowsocksr(){
     printf "Are you sure uninstall ShadowsocksRR? (y/n)"
     printf "\n"
@@ -482,7 +480,7 @@ uninstall_shadowsocksr(){
     fi
 }
 
-# Install ShadowsocksRR
+# 安装 ShadowsocksRR
 install_shadowsocksr(){
     disable_selinux
     pre_install
