@@ -416,6 +416,7 @@ install(){
     unzip -q manyuser.zip
     mv shadowsocksr-manyuser/shadowsocks /usr/local/
     if [ -f /usr/local/shadowsocks/server.py ]; then
+        chmod 777 /usr/local/shadowsocks/server.py
         chmod +x /etc/init.d/shadowsocks
         if check_sys packageManager yum; then
             chkconfig --add shadowsocks
