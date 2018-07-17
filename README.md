@@ -38,7 +38,7 @@
 1. if 已安装过TeddySun的一键包，请先卸载：
 <pre><code> ./shadowsocksR.sh uninstall </code></pre>
 2. then 重新安装：
-<pre><code>wget --no-check-certificate -O shadowsocksRR.sh https://git.io/vdMUr && chmod 777 shadowsocksRR.sh && ./shadowsocksRR.sh 2>&1 | tee shadowsocksR.log</code></pre>
+<pre><code>wget --no-check-certificate -O shadowsocksRR.sh https://git.io/vdMUr && chmod +x shadowsocksRR.sh && ./shadowsocksRR.sh 2>&1 | tee shadowsocksR.log</code></pre>
 3. 安装完成后，推荐重启一下SSRR服务：
 <pre><code>/etc/init.d/shadowsocks restart</code></pre>
 <br />
