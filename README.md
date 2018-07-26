@@ -30,9 +30,11 @@ This installer is modified by TeddySun's works（https://git.io/vdMTK） because
 
 ### 使用方法：
 ### Instructions:
+
 1. 如果已安装过TeddySun的一键包，请先卸载：
 <br />
 Please unintall which installer made by TeddySun if you have been installed:
+<br />
 <br />
 <pre><code> ./shadowsocksR.sh uninstall </code></pre>
 <br />
