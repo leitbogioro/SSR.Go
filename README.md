@@ -7,7 +7,7 @@ ShadowSocksRR is a robust proxy which can breakthrough Chinese internet censorsh
 
 使用本工具，可方便调整ShadowSocksRR的配置和运行：
 <br />
-You can use this shell easily to configurate ShadowSocksRR and keep it running. 
+You can use it easily to configurate ShadowSocksRR program and keep it running. 
 <br />
 <br />
 
