@@ -54,7 +54,7 @@ It's recommend for you to restart SSRR service after installation.
 <br />
 <pre><code>/etc/init.d/shadowsocks restart</code></pre>
 <br />
-4. 修改配置文件
+4. 修改配置文件。
 <br />
 <br />
 How to modify SSRR configuration file?
@@ -69,7 +69,7 @@ How to modify SSRR configuration file?
 1. 如果安装过这个脚本，请先卸载：
 <br />
 <br />
-If you have installed this shell, please unintall first
+If you have installed this shell, please unintall first.
 <br />
 <br />
 <pre><code> ./shadowsocksRR.sh uninstall </code></pre>
@@ -77,14 +77,16 @@ If you have installed this shell, please unintall first
 2. 删除原脚本：
 <br />
 <br />
-Delete former shell
+Delete former shell.
 <br />
 <br />
 <pre><code> find . -name shadowsocksRR.sh -delete </code></pre>
+<br />
 3. 重复上一节“使用方法”中的第2、3步。
 <br />
 <br />
 Repeat second and third step in previous section.
+<br />
 <br />
 
 ### 更新历史：
