@@ -10,7 +10,6 @@ You can use this shell easily to configurate ShadowSocksRR and keep it running.
 
 # 以下内容已永久进入历史的垃圾堆，不再维护和更新
 # The following content is still available:
-<br />
 ### 真香！
 ### Oh ♂ that's ♂ good~~
 <br />
