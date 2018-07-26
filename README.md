@@ -70,9 +70,6 @@ How to modify SSRR configuration file?
 <br />
 <br />
 <br />
-<br />
-<br />
-<br />
 If you have installed this shell, please unintall first
 <br />
 <br />
