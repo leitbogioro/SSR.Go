@@ -32,20 +32,22 @@ This installer is modified by TeddySun's works（https://git.io/vdMTK） because
 ### Instructions:
 1. 如果已安装过TeddySun的一键包，请先卸载：
 <br />
+Please unintall which installer made by TeddySun if you have been installed:
 <br />
-   Please unintall which installer made by TeddySun if you have been installed:
 <pre><code> ./shadowsocksR.sh uninstall </code></pre>
 <br />
 2. 然后重新安装：
 <br />
 <br />
-   Then reinstall:
+Then reinstall:
+<br />
 <pre><code>wget --no-check-certificate -O shadowsocksRR.sh https://git.io/vdMUr && chmod +x shadowsocksRR.sh && ./shadowsocksRR.sh 2>&1 | tee shadowsocksR.log</code></pre>
 <br />
 3. 安装完成后，推荐重启一下SSRR服务：
 <br />
 <br />
-   It's recommend for you to restart SSRR service after installation.
+It's recommend for you to restart SSRR service after installation.
+<br />
 <pre><code>/etc/init.d/shadowsocks restart</code></pre>
 <br />
 4. 修改配置文件
