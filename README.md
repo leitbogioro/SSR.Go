@@ -39,9 +39,7 @@ Please unintall which installer made by TeddySun if you have been installed:
 <br />
 <pre><code> ./shadowsocksR.sh uninstall </code></pre>
 <br />
-
 2. 然后重新安装：
-<br />
 <br />
 Then reinstall:
 <br />
