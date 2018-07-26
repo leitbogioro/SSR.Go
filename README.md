@@ -69,9 +69,7 @@ How to modify SSRR configuration file?
 1. 如果安装过这个脚本，请先卸载：
 <br />
 <br />
-<br />
 If you have installed this shell, please unintall first
-<br />
 <br />
 <br />
 <pre><code> ./shadowsocksRR.sh uninstall </code></pre>
