@@ -5,11 +5,15 @@ ShadowSocksRR is a robust proxy which can breakthrough Chinese internet censorsh
 
 使用本工具，可方便调整ShadowSocksRR的配置和运行：
 You can use this shell easily to configurate ShadowSocksRR and keep it running. 
+<br />
+<br />
 
 # 以下内容已永久进入历史的垃圾堆，不再维护和更新
-# The following content is still valuable:
+# The following content is still available:
+<br />
 ### 真香！
 ### Oh ♂ that's ♂ good~~
+<br />
 <br />
 
 # 酸酸仁乳（ShadowsocksRR）一键安装包饮用指南
