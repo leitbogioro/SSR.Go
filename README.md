@@ -25,8 +25,7 @@ You can use this shell easily to configurate ShadowSocksRR and keep it running.
 <br />
 <br />
 This installer is modified by TeddySun's works（https://git.io/vdMTK） because I find that the source code of ShadowSocksRR in TeddySun's works does't update to this new branch（BreakWa11's ShadowSocksR project has permanent suspended）. If I have free time, it will always update. 
-<br />
-<br />
+
 
 ### 使用方法：
 ### Instructions:
