@@ -63,6 +63,8 @@ How to modify SSRR configuration file?
 <br />
 <pre><code>vi /etc/shadowsocks.json</code></pre>
 
+<br />
+<br />
 ### 重新安装/更新：
 ### Reinstall/Update:
 1. if 安装过这个脚本，请先卸载：
