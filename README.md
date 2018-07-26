@@ -90,9 +90,9 @@ Repeat second and third step in previous section.
 <br />
 
 ### History:
-- Add English for readme.md（2018.7.26）
+- Add English description for readme.md（2018.7.26）
 - A guy told me once following default opions, the configurations of congratulate interface are different from promptions of installtion process when shell executed finally so I fixed it.（2018.7.26）
-- Cancel use default port 443, use rand ports between 10000 to 59999 during install.（2018.7.21）
+- Cancel default port 443, use rand ports between 10000 to 59999 during install.（2018.7.21）
 - Give main program a permission of 777.（2018.7.21）
 - Optimized linux OS determine logic.（2018.7.16）
 
