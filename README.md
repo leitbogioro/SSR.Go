@@ -64,8 +64,8 @@ How to modify SSRR configuration file?
 
 ### 重新安装/更新：
 ### Reinstall/Update:
-1. if 安装过这个脚本，请先卸载：
 <br />
+1. 如果安装过这个脚本，请先卸载：
 <br />
 If you have installed this shell, please unintall first
 <br />
