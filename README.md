@@ -41,6 +41,7 @@ Please unintall which installer made by TeddySun if you have been installed:
 <br />
 2. 然后重新安装：
 <br />
+<br />
 Then reinstall:
 <br />
 <br />
