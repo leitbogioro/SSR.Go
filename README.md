@@ -23,26 +23,31 @@ You can use this shell easily to configurate ShadowSocksRR and keep it running.
 <br />
 这是一个我魔改的酸酸乳一键安装包，原脚本来自秋水逸冰（Teddysun）大佬https://git.io/vdMTK ，原脚本里的ShadowsocksR服务端版本有一些旧了，底包最高只能支持到auth_chain_b协议，我的一键安装包目前可以随时和@Akkariiin接盘后的ShadowsocksR（ShadowsocksRR）https://git.io/vdMTB 的最新版本保持同步。
 <br />
+<br />
 This installer is modified by TeddySun's works（https://git.io/vdMTK） because I find that the source code of ShadowSocksRR in TeddySun's works does't update to this new branch（BreakWa11's ShadowSocksR project has permanent suspended）. If I have free time, it will always update. 
 <br />
 <br />
 
 ### 使用方法：
 ### Instructions:
-1. if 已安装过TeddySun的一键包，请先卸载：
+1. 如果已安装过TeddySun的一键包，请先卸载：
+<br />
 <br />
    Please unintall which installer made by TeddySun if you have been installed:
 <pre><code> ./shadowsocksR.sh uninstall </code></pre>
-2. then 重新安装：
+2. 然后重新安装：
+<br />
 <br />
    Then reinstall:
 <pre><code>wget --no-check-certificate -O shadowsocksRR.sh https://git.io/vdMUr && chmod +x shadowsocksRR.sh && ./shadowsocksRR.sh 2>&1 | tee shadowsocksR.log</code></pre>
 3. 安装完成后，推荐重启一下SSRR服务：
 <br />
+<br />
    It's recommend for you to restart SSRR service after installation.
 <pre><code>/etc/init.d/shadowsocks restart</code></pre>
 <br />
 4. 修改配置文件
+<br />
 <br />
    How to modify SSRR configuration file?
 <pre><code>vi /etc/shadowsocks.json</code></pre>
