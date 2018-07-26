@@ -35,11 +35,13 @@ This installer is modified by TeddySun's works（https://git.io/vdMTK） because
 <br />
    Please unintall which installer made by TeddySun if you have been installed:
 <pre><code> ./shadowsocksR.sh uninstall </code></pre>
+<br />
 2. 然后重新安装：
 <br />
 <br />
    Then reinstall:
 <pre><code>wget --no-check-certificate -O shadowsocksRR.sh https://git.io/vdMUr && chmod +x shadowsocksRR.sh && ./shadowsocksRR.sh 2>&1 | tee shadowsocksR.log</code></pre>
+<br />
 3. 安装完成后，推荐重启一下SSRR服务：
 <br />
 <br />
