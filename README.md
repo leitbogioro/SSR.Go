@@ -91,9 +91,20 @@ Repeat second and third step in previous section.
 
 ### 更新历史：
 ### History:
-- 修复了采用默认443端口，防火长城会瞬间封杀目标实例IP（取10000~59999之间的随机数）；
-- 修复了主程序server.py由于没有赋予足够的权限，导致安装完成后并不能正常运行的问题（chmod 777）；
+- readme.md 增加了英文说明（2018.7.26）
+Add English for readme.md
+<br />
+- 修复了按回车键一路采取默认配置，实际配置和脚本提示配置并不一致的问题（2018.7.26）
+A guy told me once following default opions, the configurations of congratulate interface are different from promptions of installtion process when shell executed finally so I fixed it.
+<br />
+- 修复了采用默认443端口，防火长城会瞬间封杀目标实例IP（取10000~59999之间的随机数）；（2018.7.21）
+Cancel use default port 443, use rand ports between 10000 to 59999 during install.
+<br />
+- 修复了主程序server.py由于没有赋予足够的权限，导致安装完成后并不能正常运行的问题（chmod 777）；（2018.7.21）
+Give main program a permission of 777.
+<br />
 - 优化系统判断逻辑（2018.7.16）
+
 - ShadowSocksRR 的开发人手不足，核心 Python 项目更新后，其他客户端版本的跟进并不快，导致客户端用户不能及时使用最新的协议和特性，本次新增的auth_akarin_rand / auth_akarin_spec_a 协议只放出了 Python / Windows 的源代码。其中，Windows 版本只有源代码文件，并未进行编译，我拜托群里的小伙伴，将最新版本的 Windows 客户端给编译了出来并提供下载，谢谢泥萌，比心 ~~ （2018.6.22）
 - 加入auth_akarin_rand / auth_akarin_spec_a 协议，新协议的改动非常大，协议详情参见：https://github.com/shadowsocksrr/shadowsocksr/commit/08b88026e884eac456b0d7dee1d5dbcbf30cebe3 （2018.6.22）
 - auth_chain_c/e/f 这三种协议均存在问题，客户端设置后无法和服务端连接，不建议在配置的时候使用，auth_chain_d协议主要针对数据包的长度分布归属到模式中，让包分布看起来更规整，并在一定程度上增加了各种密码生成的模式的最大适用长度，这样就不需要在极端情况下再临时生成随机数，降低大包传输时的计算量，提高下载极限速度，推荐使用。文档说明：https://github.com/shadowsocksrr/shadowsocks-rss/blob/master/ssr.md （2018.2.28）；
