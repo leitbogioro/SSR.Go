@@ -1,57 +1,54 @@
-# 郑重声明
-自2018年2月25日起，ShadowSocksR经历了极其严重的干扰、屏蔽和封锁，有大量用户表示，自己凡是搭建了的ShadowSocksR的VPS，IP已经被防火长城给屏蔽，本人也有不少机器不幸遇难，ShadowSocksR目前遭遇破娃酱撒手不干和后继无人的状况，不再推荐个人使用。
-为此，我特意做了一番测试，在CloudGarage的VPS后面板尝试新建一台机器，并被分配到了新的IP，然后部署ShadowSocksR服务，运用的是auth_chain_d + TLS ticket auth + chacha20的配置参数，并使用强密码和日本地区未被防火长城过滤掉的日本网站混淆参数，试图躲避防火长城的攻击，很可惜的是，这个IP仅仅存活了不到半天，就被防火长城给屏蔽，很明显，过年后国家进一步增强了封锁手段，<b>使用ShadowSocksR简直就是自寻死路，为了你手中有限的IP地址资源考虑，我建议大家立马暂时停止使用</b>。
-<br />
+# Introduce
+一个可以突破中国互联网审查的强力代理工具。
+ShadowSocksRR is a robust proxy which can breakthrough Chinese internet censorship.
 
-### 防火长城有了哪些进步？大规模的封锁意味着什么？以后突破封锁该怎么做？
-- 理论上来说，只要防火长城愿意，目前主流的ShadowSocksR、ShadowSocks with OBFS、v2ray、蓝灯、自由门、等主流应用都是完全有能力将其封锁的，其本质是因为开发突破封锁工具的开发者的个人力量，相比国家级别的软 + 硬一体化封锁手段，显得脆弱且无力，请尽可能使用那些小众、部署难度大、抗封锁手段丰富有效、不易被商家大规模应用并出售代理生意的工具/手段。显然，目前突破封锁工具脆弱程度的大致排名是：<a href="https://github.com/shadowsocksrr">ShadowSocksRR</a> > <a href="https://github.com/shadowsocks">Shadowsocks + OBFS</a> > <a href="https://github.com/v2ray">v2ray</a> > <a href="https://github.com/coyove/goflyway">GoFlyWay</a>/<a href="https://github.com/txthinking/brook">Brook</a>，目前我已转向v2ray，各位好自为之；
-- 这次防火长城主要针对的，是ShadowSocksR，如果你是小白，非要尝试去用，我建议你选择支持自由更换IP的商家，比如Vultr、DigitalOcean、Linode、搬瓦工（好吧，这几个商家的屁眼已经被国人给操烂了，它们日本、美西等地的IP大批量地被GFW blocked，有的时候开日本的机器，换十次IP能有一个可以用的就不错了，前人糟践完了，只会让后来者更没有车上），了解更多内容，请参见冯硕大佬的这篇文章：《<a href="https://zhuanlan.zhihu.com/p/33841302">可以免费换IP的VPS商家盘点</a>》；
-- 不再建议购买搬瓦工的VPS做梯子使用，搬瓦工有大量IP被列入重点监测的对象，且这个商家设置了一个官方ping服务监测点，只要探测到自己机器的IP被国内屏蔽，即使你购买了可以自由切换机房的套餐，无论怎样操作，都会出现“Migration backend is currently not available for this VPS. Please try again in 10-15 minutes. (734152)”这样的错误提示。年付20刀，换个IP就要8刀，要是又被ban了还要继续加钱换，按防火长城的屏蔽神速，你换IP估计得换到破产。
-- 随着举国之力建设的防火长城的技术进步，大规模被封锁IP的情况只会愈演愈烈，请<b>不要把自己正常业务网站（比如博客、应用服务等）的服务和搭建翻墙服务的放在同一个境外服务器上！阿里云国际、腾讯云国际之类的照样不能免俗</b>，因为你要随时做好自己手上的梯子被防火长城发现，IP被ban的事实，正常业务更换IP的代价是极大的，这个利害关系一定要搞清楚。
-- 极少情况下，你的机器即使没有搭建梯子，IP也会被ban，当然这种情况是极其偶然的，一般认为防火长城会拦截到你的数据包，进行深度包分析，在“带有SSR/SS流量特征”的概率大到一定程度（只要特征符合即可，无需截获你和服务器之间通信的具体信息）的时候，才会做出整治行动，不会做出“宁可错杀千人，绝不放过一个”的赖皮行径。
-- 大部分飞机场的热门区域，比如日本、美西、香港、新加坡等地的IP段，可能会被防火长城拉进重点监控对象，还是上面那一点的意思，防火长城不会随意屏蔽整个C类IP段，但因为加大了监控力度，这部分被特殊照顾的IP段里的IP一旦出现了敏感特征流量，那么防火长城在获得了足够多的证据的前提下，会毫不留情地封禁对应的IP，因为特意加大了监控力度，所以从建立机器到被屏蔽IP的过程会快到令你恐惧的地步，以后会变得越来越快，越来越精准。解决办法也不是没有，选择更偏僻地区的冷门VPS商家，问题或许可以迎刃而解。
-- 少数情况下，你的机器如果立马禁止代理服务，并不再有相应的客户端与其通信，过一段时间，防火长城会解封你的IP，但是这个IP就已经默认被加入重点监测的对象，至于敢不敢再搭建梯子，你自己看着办吧（如果你购买的是搬瓦工的可切换机房套餐，建议立马切换机房，不要再保有这个IP）。
-- 如果你愿意用一台被屏蔽的IP做测试，可以发现一个很有意思的现象，就是我们在本机（中国大陆境内）试图向远程机器做一个Traceroute，是可以完全走通的，走出了正确的路径，并返回了途经的各个路由节点名称；但是，我们尝试用Xshell连接这台远程服务器（走新搭建的v2ray代理），并在这台远程服务器里做连接到我们本机IP Traceroute的时候（或者Traceroute to 你在国内拥有的某家IDC服务商下面的机器IP也可以），走向国内出海处节点的那一程被阻断。简单来讲，就是去向的连接没有被拦截，防火长城拦截的是回程连接，如果是有防止国内机密泄露的考虑，那么拦截应当是双向的。而仅仅拦截的是数据包传回国内，说明防火长城此次的举动，就是为了大规模阻止境外服务器被用来做代理，单向拦截需要花费的成本比双向拦截要低一些，搭建代理翻墙的核心原理就是客户端向服务端发出请求，服务端应答客户端的请求，把相关内容回传到客户端上。回传的数据丢失了，无论是ping，还是http、ssh请求等，自然就失效了。
-- 我始终相信，<b>自由地获取、发布不受任何政体审查的信息，是一项天赋基本人权</b>，随着国内一些众所周知的政治剧变，保障这份人权将变成一种奢望，但是，既然来到了这个世界，我们不能违背作为人类的本性，自愿接受被砍去手足、挖去双眸、刺破耳膜、缝上口鼻的命运，而且我也相信，这个国家会慢慢变得更好，现有的手段和压迫都只是暂时的苟且，总有一天，我们有自信，向全世界输出、接受所有批评、褒美我们的各种不同的声音，这是作为一个负责任、政治/文化/统治有自信的大国所应当具备的风度。治水之道，堵不如疏，水能载舟，亦能覆舟，当他们足够富足、聪明、独立、知礼之后，简单粗暴地封堵信息的流动，只会让黑白颠倒，事实不分，公信力逐步恶化，最终固步自封，停止进步，自食其果。
-- 从“斯德哥尔摩症”的角度，墙被推倒只是时间问题，为此我一个文科生，掌握了从选购VPS，到Linux系统命令行、运营维护等各种奇奇怪怪的技能，多年以后，回首年轻的时候，这段经历也许是我这一生最不可思议的各种经历之一（另外一个美妙的经历，是认识了<a href="https://github.com/kirioxiangmeow">Kirio</a>）。
-- 有关v2ray，没什么好讲的了，总之就是难用，当然更加便于使用的服务端部署/调整配置的一键包和GUI客户端之类的也是有的，我列举出来供大家参考一番，能摸索清楚的就用，弄不明白的，还是老老实实呆在墙里吧：
-1. <a href="https://v2ray.com/ui_client/">GUI客户端（含Windows、Mac、Android、iOS等）</a>；
-2. <a href="https://github.com/tracyone/v2ray.fun">服务端一键部署/调试配置脚本（推荐Cent OS7/Debian 8/Ubuntu 16.04 +，CentOS 6不可使用）</a>；
-3. <a href="https://toutyrater.github.io/">v2ray白话文教程</a>。
-- 脑子和搜索能力是个好东西，希望在座的各位和我一样拥有。
-- 感谢每一个爱我的，以及在这条道路上提供工具和路径的，无私奉献的人，我们有着不同的性别、出身、工作、思维观念，但是，有一个共同的追求，让我们在这特别的时空里相遇，并努力为这14亿人口中的极小一部分，提供看世界的机会，这份相识就足够了。
-<br />
-<br />
+使用本工具，可方便调整ShadowSocksRR的配置和运行：
+You can use this shell easily to configurate ShadowSocksRR and keep it running. 
 
 # 以下内容已永久进入历史的垃圾堆，不再维护和更新
+# The following content is still valuable:
 # 真香！
+# That's ♂ good~~
 <br />
 
-# ~~酸酸仁乳（ShadowsocksRR）一键安装包饮用指南~~
+# 酸酸仁乳（ShadowsocksRR）一键安装包饮用指南
+# ShadowSocksRR onkey installer user guide:
 <br />
-
 这是一个我魔改的酸酸乳一键安装包，原脚本来自秋水逸冰（Teddysun）大佬https://git.io/vdMTK ，原脚本里的ShadowsocksR服务端版本有一些旧了，底包最高只能支持到auth_chain_b协议，我的一键安装包目前可以随时和@Akkariiin接盘后的ShadowsocksR（ShadowsocksRR）https://git.io/vdMTB 的最新版本保持同步。
+This installer is modified by TeddySun's works（https://git.io/vdMTK） because I find that the source code of ShadowSocksRR in TeddySun's works does't update to this new branch（BreakWa11's ShadowSocksR project has permanent suspended）. If I have free time, it will always update. 
 <br />
 <br />
 
-### ~~使用方法：~~
+### 使用方法：
+### Instructions:
 1. if 已安装过TeddySun的一键包，请先卸载：
+   Please unintall which installer made by TeddySun if you have been installed:
 <pre><code> ./shadowsocksR.sh uninstall </code></pre>
 2. then 重新安装：
+   Then reinstall:
 <pre><code>wget --no-check-certificate -O shadowsocksRR.sh https://git.io/vdMUr && chmod +x shadowsocksRR.sh && ./shadowsocksRR.sh 2>&1 | tee shadowsocksR.log</code></pre>
 3. 安装完成后，推荐重启一下SSRR服务：
+   It's recommend for you to restart SSRR service after installation.
 <pre><code>/etc/init.d/shadowsocks restart</code></pre>
 <br />
+4. 修改配置文件
+   How to modify SSRR configuration file?
+<pre><code>vi /etc/shadowsocks.json</code></pre>
 
-### ~~重新安装/更新：~~
-1. if 安装过我这个脚本，请先卸载：
+### 重新安装/更新：
+### Reinstall/Update:
+1. if 安装过这个脚本，请先卸载：
+   If you have installed this shell, please unintall first
 <pre><code> ./shadowsocksRR.sh uninstall </code></pre>
 2. 删除原脚本：
+   Delete former shell
 <pre><code> find . -name shadowsocksRR.sh -delete </code></pre>
 3. 重复上一节“使用方法”中的第2、3步。
+   Repeat second and third step in previous section.
 <br />
 
 ### 更新历史：
+### History:
 - 修复了采用默认443端口，防火长城会瞬间封杀目标实例IP（取10000~59999之间的随机数）；
 - 修复了主程序server.py由于没有赋予足够的权限，导致安装完成后并不能正常运行的问题（chmod 777）；
 - 优化系统判断逻辑（2018.7.16）
@@ -78,3 +75,30 @@
 - 添加对 salsa20、xchacha20、xsalsa20 加密方式的支持（2017.10.15）；
 - 添加对 auth_chain_e和add auth_chain_f 协议的支持（2017.10.15）；
 - 添加对 auth_chain_c和add auth_chain_d 协议的支持（2017.10.15）。
+
+# 郑重声明
+# Statement
+自2018年2月25日起，ShadowSocksR经历了极其严重的干扰、屏蔽和封锁，有大量用户表示，自己凡是搭建了的ShadowSocksR的VPS，IP已经被防火长城给屏蔽，本人也有不少机器不幸遇难，ShadowSocksR目前遭遇破娃酱撒手不干和后继无人的状况，不再推荐个人使用。
+为此，我特意做了一番测试，在CloudGarage的VPS后面板尝试新建一台机器，并被分配到了新的IP，然后部署ShadowSocksR服务，运用的是auth_chain_d + TLS ticket auth + chacha20的配置参数，并使用强密码和日本地区未被防火长城过滤掉的日本网站混淆参数，试图躲避防火长城的攻击，很可惜的是，这个IP仅仅存活了不到半天，就被防火长城给屏蔽，很明显，过年后国家进一步增强了封锁手段，<b>使用ShadowSocksR简直就是自寻死路，为了你手中有限的IP地址资源考虑，我建议大家立马暂时停止使用</b>。
+<br />
+
+### 防火长城有了哪些进步？大规模的封锁意味着什么？以后突破封锁该怎么做？
+### How many progress does GFW have been archived? How to fight with it?
+- 理论上来说，只要防火长城愿意，目前主流的ShadowSocksR、ShadowSocks with OBFS、v2ray、蓝灯、自由门、等主流应用都是完全有能力将其封锁的，其本质是因为开发突破封锁工具的开发者的个人力量，相比国家级别的软 + 硬一体化封锁手段，显得脆弱且无力，请尽可能使用那些小众、部署难度大、抗封锁手段丰富有效、不易被商家大规模应用并出售代理生意的工具/手段。显然，目前突破封锁工具脆弱程度的大致排名是：<a href="https://github.com/shadowsocksrr">ShadowSocksRR</a> > <a href="https://github.com/shadowsocks">Shadowsocks + OBFS</a> > <a href="https://github.com/v2ray">v2ray</a> > <a href="https://github.com/coyove/goflyway">GoFlyWay</a>/<a href="https://github.com/txthinking/brook">Brook</a>，目前我已转向v2ray，各位好自为之；
+- 这次防火长城主要针对的，是ShadowSocksR，如果你是小白，非要尝试去用，我建议你选择支持自由更换IP的商家，比如Vultr、DigitalOcean、Linode、搬瓦工（好吧，这几个商家的屁眼已经被国人给操烂了，它们日本、美西等地的IP大批量地被GFW blocked，有的时候开日本的机器，换十次IP能有一个可以用的就不错了，前人糟践完了，只会让后来者更没有车上），了解更多内容，请参见冯硕大佬的这篇文章：《<a href="https://zhuanlan.zhihu.com/p/33841302">可以免费换IP的VPS商家盘点</a>》；
+- 不再建议购买搬瓦工的VPS做梯子使用，搬瓦工有大量IP被列入重点监测的对象，且这个商家设置了一个官方ping服务监测点，只要探测到自己机器的IP被国内屏蔽，即使你购买了可以自由切换机房的套餐，无论怎样操作，都会出现“Migration backend is currently not available for this VPS. Please try again in 10-15 minutes. (734152)”这样的错误提示。年付20刀，换个IP就要8刀，要是又被ban了还要继续加钱换，按防火长城的屏蔽神速，你换IP估计得换到破产。
+- 随着举国之力建设的防火长城的技术进步，大规模被封锁IP的情况只会愈演愈烈，请<b>不要把自己正常业务网站（比如博客、应用服务等）的服务和搭建翻墙服务的放在同一个境外服务器上！阿里云国际、腾讯云国际之类的照样不能免俗</b>，因为你要随时做好自己手上的梯子被防火长城发现，IP被ban的事实，正常业务更换IP的代价是极大的，这个利害关系一定要搞清楚。
+- 极少情况下，你的机器即使没有搭建梯子，IP也会被ban，当然这种情况是极其偶然的，一般认为防火长城会拦截到你的数据包，进行深度包分析，在“带有SSR/SS流量特征”的概率大到一定程度（只要特征符合即可，无需截获你和服务器之间通信的具体信息）的时候，才会做出整治行动，不会做出“宁可错杀千人，绝不放过一个”的赖皮行径。
+- 大部分飞机场的热门区域，比如日本、美西、香港、新加坡等地的IP段，可能会被防火长城拉进重点监控对象，还是上面那一点的意思，防火长城不会随意屏蔽整个C类IP段，但因为加大了监控力度，这部分被特殊照顾的IP段里的IP一旦出现了敏感特征流量，那么防火长城在获得了足够多的证据的前提下，会毫不留情地封禁对应的IP，因为特意加大了监控力度，所以从建立机器到被屏蔽IP的过程会快到令你恐惧的地步，以后会变得越来越快，越来越精准。解决办法也不是没有，选择更偏僻地区的冷门VPS商家，问题或许可以迎刃而解。
+- 少数情况下，你的机器如果立马禁止代理服务，并不再有相应的客户端与其通信，过一段时间，防火长城会解封你的IP，但是这个IP就已经默认被加入重点监测的对象，至于敢不敢再搭建梯子，你自己看着办吧（如果你购买的是搬瓦工的可切换机房套餐，建议立马切换机房，不要再保有这个IP）。
+- 如果你愿意用一台被屏蔽的IP做测试，可以发现一个很有意思的现象，就是我们在本机（中国大陆境内）试图向远程机器做一个Traceroute，是可以完全走通的，走出了正确的路径，并返回了途经的各个路由节点名称；但是，我们尝试用Xshell连接这台远程服务器（走新搭建的v2ray代理），并在这台远程服务器里做连接到我们本机IP Traceroute的时候（或者Traceroute to 你在国内拥有的某家IDC服务商下面的机器IP也可以），走向国内出海处节点的那一程被阻断。简单来讲，就是去向的连接没有被拦截，防火长城拦截的是回程连接，如果是有防止国内机密泄露的考虑，那么拦截应当是双向的。而仅仅拦截的是数据包传回国内，说明防火长城此次的举动，就是为了大规模阻止境外服务器被用来做代理，单向拦截需要花费的成本比双向拦截要低一些，搭建代理翻墙的核心原理就是客户端向服务端发出请求，服务端应答客户端的请求，把相关内容回传到客户端上。回传的数据丢失了，无论是ping，还是http、ssh请求等，自然就失效了。
+- 我始终相信，<b>自由地获取、发布不受任何政体审查的信息，是一项天赋基本人权</b>，随着国内一些众所周知的政治剧变，保障这份人权将变成一种奢望，但是，既然来到了这个世界，我们不能违背作为人类的本性，自愿接受被砍去手足、挖去双眸、刺破耳膜、缝上口鼻的命运，而且我也相信，这个国家会慢慢变得更好，现有的手段和压迫都只是暂时的苟且，总有一天，我们有自信，向全世界输出、接受所有批评、褒美我们的各种不同的声音，这是作为一个负责任、政治/文化/统治有自信的大国所应当具备的风度。治水之道，堵不如疏，水能载舟，亦能覆舟，当他们足够富足、聪明、独立、知礼之后，简单粗暴地封堵信息的流动，只会让黑白颠倒，事实不分，公信力逐步恶化，最终固步自封，停止进步，自食其果。
+- 从“斯德哥尔摩症”的角度，墙被推倒只是时间问题，为此我一个文科生，掌握了从选购VPS，到Linux系统命令行、运营维护等各种奇奇怪怪的技能，多年以后，回首年轻的时候，这段经历也许是我这一生最不可思议的各种经历之一（另外一个美妙的经历，是认识了<a href="https://github.com/kirioxiangmeow">Kirio</a>）。
+- 有关v2ray，没什么好讲的了，总之就是难用，当然更加便于使用的服务端部署/调整配置的一键包和GUI客户端之类的也是有的，我列举出来供大家参考一番，能摸索清楚的就用，弄不明白的，还是老老实实呆在墙里吧：
+1. <a href="https://v2ray.com/ui_client/">GUI客户端（含Windows、Mac、Android、iOS等）</a>；
+2. <a href="https://github.com/tracyone/v2ray.fun">服务端一键部署/调试配置脚本（推荐Cent OS7/Debian 8/Ubuntu 16.04 +，CentOS 6不可使用）</a>；
+3. <a href="https://toutyrater.github.io/">v2ray白话文教程</a>。
+- 脑子和搜索能力是个好东西，希望在座的各位和我一样拥有。
+- 感谢每一个爱我的，以及在这条道路上提供工具和路径的，无私奉献的人，我们有着不同的性别、出身、工作、思维观念，但是，有一个共同的追求，让我们在这特别的时空里相遇，并努力为这14亿人口中的极小一部分，提供看世界的机会，这份相识就足够了。
+<br />
+<br />
