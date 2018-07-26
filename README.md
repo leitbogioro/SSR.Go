@@ -61,21 +61,28 @@ How to modify SSRR configuration file?
 <br />
 <br />
 <pre><code>vi /etc/shadowsocks.json</code></pre>
-<br />
 
 ### 重新安装/更新：
 ### Reinstall/Update:
 1. if 安装过这个脚本，请先卸载：
 <br />
-   If you have installed this shell, please unintall first
+<br />
+If you have installed this shell, please unintall first
+<br />
+<br />
 <pre><code> ./shadowsocksRR.sh uninstall </code></pre>
+<br />
 2. 删除原脚本：
 <br />
-   Delete former shell
+<br />
+Delete former shell
+<br />
+<br />
 <pre><code> find . -name shadowsocksRR.sh -delete </code></pre>
 3. 重复上一节“使用方法”中的第2、3步。
 <br />
-   Repeat second and third step in previous section.
+<br />
+Repeat second and third step in previous section.
 <br />
 
 ### 更新历史：
