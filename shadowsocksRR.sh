@@ -195,16 +195,17 @@ pre_install(){
     expr ${shadowsockspwd} + 1 &>/dev/null
     if [ $? -eq 0 ]; then
         if [ "${#shadowsockspwd}" -gt 10 ]; then
-    echo
-    echo "---------------------------"
-    echo "password = ${shadowsockspwd}"
-    echo "---------------------------"
-    echo
-    break
+            echo
+            echo "---------------------------"
+            echo "password = ${shadowsockspwd}"
+            echo "---------------------------"
+            echo
+            break
         fi
     fi
     echo -e "[${red}Error${plain}] Please enter a strong password"
     done
+    
     # 设置 ShadowsocksRR 端口
     while true
     do
