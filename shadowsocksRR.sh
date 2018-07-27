@@ -195,7 +195,7 @@ pre_install(){
     read -p "(Default password: ${dpwd}):" shadowsockspwd
     [ -z "${shadowsockspwd}" ] && shadowsockspwd=${dpwd}
     dpwdlength=${shadowsockspwd} | wc -L
-    if [ ${dpwdlength} -gt 10 ]; then
+    if [ "${dpwdlength}" -gt 10 ]; then
         echo
         echo "---------------------------"
         echo "password = ${shadowsockspwd}"
