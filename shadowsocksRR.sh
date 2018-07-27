@@ -316,7 +316,6 @@ pre_install(){
     fi
     cd ${cur_dir}
 }
-
 # 下载必要运行组件
 download_files(){
     # 下载 libsodium
