@@ -213,8 +213,8 @@ pre_install(){
     # 设置 ShadowsocksRR 端口
     while true
     do
-    dport=$(shuf -i 9000-59999 -n 1) # 若不手动设置则随机选取
-    echo -e "Please input port for ShadowsocksRR [1-65535] (Default between 9000-59999):"
+    dport=$(shuf -i 10000-59999 -n 1) # 若不手动设置则随机选取
+    echo -e "Please input port for ShadowsocksRR [1-65535] (Default between 10000-59999):"
     read -p "(Default port: ${dport}):" shadowsocksport
     [ -z "${shadowsocksport}" ] && shadowsocksport=${dport}
     expr ${shadowsocksport} + 1 &>/dev/null
