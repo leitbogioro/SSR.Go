@@ -190,8 +190,8 @@ pre_install(){
     # 设置 ShadowsocksRR 密码
     dpwd=$(uuidgen)
     echo -e "Please input password for ShadowsocksRR(Default will generate a new UUID):"
-    read -p "(Default password: MollyLau):" shadowsockspwd
-    [ -z "${shadowsockspwd}" ] && shadowsockspwd="MollyLau"
+    read -p "(Default password: ${dpwd}):" shadowsockspwd
+    [ -z "${shadowsockspwd}" ] && shadowsockspwd=${dpwd}
     echo
     echo "---------------------------"
     echo "password = ${shadowsockspwd}"
