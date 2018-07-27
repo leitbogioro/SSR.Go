@@ -187,6 +187,7 @@ pre_install(){
         echo -e "[${red}Error${plain}] Your OS is not supported. please change OS to CentOS/Debian/Ubuntu and try again."
         exit 1
     fi
+    
     # 设置 ShadowsocksRR 密码
     while true
     do
@@ -208,7 +209,6 @@ pre_install(){
     echo -e "[${red}Error${plain}] Your password is too weak, please re-enter a stronger one(at least 18 characters, include letters and numbers)."
     fi
     done
-
     
     # 设置 ShadowsocksRR 端口
     while true
