@@ -188,25 +188,16 @@ pre_install(){
         exit 1
     fi
     # 设置 ShadowsocksRR 密码
-    while true
-    do
     dpwd=$(uuidgen)
     echo -e "Please input password for ShadowsocksRR(Default will generate a new UUID):"
     read -p "(Default password: ${dpwd}):" shadowsockspwd
     [ -z "${shadowsockspwd}" ] && shadowsockspwd=${dpwd}
     expr ${shadowsockspwd} + 1 &>/dev/null
-    if [ $? -eq 0 ]; then
-        if [ "${#shadowsockspwd}" -gt 10 ]; then
-            echo
-            echo "---------------------------"
-            echo "password = ${shadowsockspwd}"
-            echo "---------------------------"
-            echo
-            break
-        fi
-    fi
-    echo -e "[${red}Error${plain}] Please enter a strong password"
-    done
+    echo
+    echo "---------------------------"
+    echo "password = ${shadowsockspwd}"
+    echo "---------------------------"
+    echo
     
     # 设置 ShadowsocksRR 端口
     while true
