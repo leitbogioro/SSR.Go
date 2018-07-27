@@ -194,8 +194,7 @@ pre_install(){
     echo -e "Please input password for ShadowsocksRR(Default will generate a new UUID):"
     read -p "(Default password: ${dpwd}):" shadowsockspwd
     [ -z "${shadowsockspwd}" ] && shadowsockspwd=${dpwd}
-    dpwdlength=${shadowsockspwd} | wc -L
-    if [ "${dpwdlength}" -gt 10 ]; then
+    if [[ "$shadowsockspwd" -gt 10 ]]; then
         echo
         echo "---------------------------"
         echo "password = ${shadowsockspwd}"
