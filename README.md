@@ -90,6 +90,7 @@ Repeat second and third step in previous section.
 <br />
 
 ### History:
+- Add an UUID generator as new password for SSRR installer（recommend）, at least 18 characteres, include letters and numbers.（2018.7.28）
 - Add English description for readme.md（2018.7.26）
 - A guy told me once following default opions, the configurations of congratulate interface are different from promptions of installtion process when shell executed finally so I fixed it.（2018.7.26）
 - Cancel default port 443, use rand ports between 10000 to 59999 during install.（2018.7.21）
@@ -97,6 +98,7 @@ Repeat second and third step in previous section.
 - Optimized linux OS determine logic.（2018.7.16）
 
 ### 更新历史：
+- 采用系统自带的UUID生成功能，替代每次需要手动输入密码，要求至少18位数字，然后用正则来检查长度字母数字是否符合要求，推荐使用脚本里自带的UUID生成功能，作为你的SSRR服务端密码（2018.7.28）
 - readme.md 增加了英文说明（2018.7.26）
 - 修复了按回车键一路采取默认配置，实际配置和脚本提示配置并不一致的问题（2018.7.26）
 - 修复了采用默认443端口，防火长城会瞬间封杀目标实例IP（取10000~59999之间的随机数）；（2018.7.21）
@@ -143,7 +145,7 @@ Repeat second and third step in previous section.
 - 少数情况下，你的机器如果立马禁止代理服务，并不再有相应的客户端与其通信，过一段时间，防火长城会解封你的IP，但是这个IP就已经默认被加入重点监测的对象，至于敢不敢再搭建梯子，你自己看着办吧（如果你购买的是搬瓦工的可切换机房套餐，建议立马切换机房，不要再保有这个IP）。
 - 如果你愿意用一台被屏蔽的IP做测试，可以发现一个很有意思的现象，就是我们在本机（中国大陆境内）试图向远程机器做一个Traceroute，是可以完全走通的，走出了正确的路径，并返回了途经的各个路由节点名称；但是，我们尝试用Xshell连接这台远程服务器（走新搭建的v2ray代理），并在这台远程服务器里做连接到我们本机IP Traceroute的时候（或者Traceroute to 你在国内拥有的某家IDC服务商下面的机器IP也可以），走向国内出海处节点的那一程被阻断。简单来讲，就是去向的连接没有被拦截，防火长城拦截的是回程连接，如果是有防止国内机密泄露的考虑，那么拦截应当是双向的。而仅仅拦截的是数据包传回国内，说明防火长城此次的举动，就是为了大规模阻止境外服务器被用来做代理，单向拦截需要花费的成本比双向拦截要低一些，搭建代理翻墙的核心原理就是客户端向服务端发出请求，服务端应答客户端的请求，把相关内容回传到客户端上。回传的数据丢失了，无论是ping，还是http、ssh请求等，自然就失效了。
 - 我始终相信，<b>自由地获取、发布不受任何政体审查的信息，是一项天赋基本人权</b>，随着国内一些众所周知的政治剧变，保障这份人权将变成一种奢望，但是，既然来到了这个世界，我们不能违背作为人类的本性，自愿接受被砍去手足、挖去双眸、刺破耳膜、缝上口鼻的命运，而且我也相信，这个国家会慢慢变得更好，现有的手段和压迫都只是暂时的苟且，总有一天，我们有自信，向全世界输出、接受所有批评、褒美我们的各种不同的声音，这是作为一个负责任、政治/文化/统治有自信的大国所应当具备的风度。治水之道，堵不如疏，水能载舟，亦能覆舟，当他们足够富足、聪明、独立、知礼之后，简单粗暴地封堵信息的流动，只会让黑白颠倒，事实不分，公信力逐步恶化，最终固步自封，停止进步，自食其果。
-- 从“斯德哥尔摩症”的角度，墙被推倒只是时间问题，为此我一个文科生，掌握了从选购VPS，到Linux系统命令行、运营维护等各种奇奇怪怪的技能，多年以后，回首年轻的时候，这段经历也许是我这一生最不可思议的各种经历之一（另外一个美妙的经历，是认识了<a href="https://github.com/kirioxiangmeow">Kirio</a>）。
+- 从“斯德哥尔摩症”的角度，墙被推倒只是时间问题，为此我一个文科生，掌握了从选购VPS，到Linux系统命令行、运营维护等各种奇奇怪怪的技能，多年以后，回首年轻的时候，这段经历也许是我这一生最不可思议的各种经历之一（~~另外一个美妙的经历，是认识了<a href="https://github.com/kirioxiangmeow"></a>~~ 发生了一些不快，她不值得）。
 - 有关v2ray，没什么好讲的了，总之就是难用，当然更加便于使用的服务端部署/调整配置的一键包和GUI客户端之类的也是有的，我列举出来供大家参考一番，能摸索清楚的就用，弄不明白的，还是老老实实呆在墙里吧：
 1. <a href="https://v2ray.com/ui_client/">GUI客户端（含Windows、Mac、Android、iOS等）</a>；
 2. <a href="https://github.com/tracyone/v2ray.fun">服务端一键部署/调试配置脚本（推荐Cent OS7/Debian 8/Ubuntu 16.04 +，CentOS 6不可使用）</a>；
