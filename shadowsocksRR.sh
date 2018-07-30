@@ -191,7 +191,7 @@ pre_install(){
     # 设置 ShadowsocksRR 密码
     while true
     do
-    dpwd=$(uuidgen) # 获取系统UUID
+    dpwd=`cat /proc/sys/kernel/random/uuid` # 获取系统UUID
     echo -e "Please enter a password for ShadowsocksRR(Default will generate a new UUID):"
     read -p "(Default password: ${dpwd}):" shadowsockspwd
     [ -z "${shadowsockspwd}" ] && shadowsockspwd=${dpwd}
