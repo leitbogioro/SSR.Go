@@ -90,6 +90,7 @@ Repeat second and third step in previous section.
 <br />
 
 ### History:
+- UUID generator is only pre-installed by Ubuntu, when I run this shell on Debian, variable $dpwd could not obtain UUID correctly, so I changed a general way to get it instead of transform uuidgen component to make sure it works on different environment. 
 - Add an UUID generator as new password for SSRR installer（recommend）, at least 18 characteres, include letters and numbers.（2018.7.28）
 - Add English description for readme.md（2018.7.26）
 - A guy told me once following default opions, the configurations of congratulate interface are different from promptions of installtion process when shell executed finally so I fixed it.（2018.7.26）
@@ -98,6 +99,7 @@ Repeat second and third step in previous section.
 - Optimized linux OS determine logic.（2018.7.16）
 
 ### 更新历史：
+- 由于获取UUID的方法只适用于Ubuntu，故换了一种调用方式，确保脚本的兼容性。
 - 采用系统自带的UUID生成功能，替代每次需要手动输入密码，要求至少18位数字，然后用正则来检查长度字母数字是否符合要求，推荐使用脚本里自带的UUID生成功能，作为你的SSRR服务端密码（2018.7.28）
 - readme.md 增加了英文说明（2018.7.26）
 - 修复了按回车键一路采取默认配置，实际配置和脚本提示配置并不一致的问题（2018.7.26）
