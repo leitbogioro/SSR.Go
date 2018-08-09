@@ -191,14 +191,14 @@ pre_install(){
     # 设置 ShadowsocksRR 密码
     while true
     do
-    dpwd=`cat /proc/sys/kernel/random/uuid` # 获取系统UUID
-    echo -e "Please enter a password for ShadowsocksRR(Default will generate a new UUID):"
+    dpwd=`cat /dev/urandom | tr -dc "a-zA-Z0-9_+\~\!\@\#\$\%\^\&\*" | fold -w 16 | head -n 1` # 获取系统UUID
+    echo -e "Please enter a password for ShadowsocksRR(Default will generate a new random password):"
     read -p "(Default password: ${dpwd}):" shadowsockspwd
     [ -z "${shadowsockspwd}" ] && shadowsockspwd=${dpwd}
     dpwdleng=`expr length ${shadowsockspwd}` # 获取密码长度
     dpwlow=`echo ${shadowsockspwd} | grep -E '^(.*[a-z]+).*$'` # 获取密码中的所有小写字母
     dpwnum=`echo ${shadowsockspwd} | grep -E '^(.*[0-9]).*$'` # 获取密码中的所有数字
-    if [ ${dpwdleng} -ge 18 ] && [ ${dpwdleng} -le 36 ] && [ -n "${dpwlow}" ] && [ -n "${dpwnum}" ]; then
+    if [ ${dpwdleng} -ge 6 ] && [ ${dpwdleng} -le 36 ] && [ -n "${dpwlow}" ] && [ -n "${dpwnum}" ]; then
         echo
         echo "---------------------------"
         echo "password = ${shadowsockspwd}"
