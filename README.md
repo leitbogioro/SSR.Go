@@ -90,6 +90,7 @@ Repeat second and third step in previous section.
 <br />
 
 ### History:
+- Use UUID for default password may cause shadowsocksRR don't work so I change strategy of password generation length to 16 characters, include numbers、uppercase and lowercase letters、special characters.
 - UUID generator is only pre-installed by Ubuntu, when I run this shell on Debian, variable $dpwd could not obtain UUID correctly, so I changed a general way to get it instead of transform uuidgen component to make sure it works on different environment. 
 - Add an UUID generator as new password for SSRR installer（recommend）, at least 18 characteres, include letters and numbers.（2018.7.28）
 - Add English description for readme.md（2018.7.26）
@@ -99,6 +100,7 @@ Repeat second and third step in previous section.
 - Optimized linux OS determine logic.（2018.7.16）
 
 ### 更新历史：
+- 部分UUID类型可能会导致shadowsocksRR不能正常连接网络，故重新修改了密码生成策略，16位随机字符、包括数字、大小写字母特殊字符。
 - 由于获取UUID的方法只适用于Ubuntu，故换了一种调用方式，确保脚本的兼容性。
 - 采用系统自带的UUID生成功能，替代每次需要手动输入密码，要求至少18位数字，然后用正则来检查长度字母数字是否符合要求，推荐使用脚本里自带的UUID生成功能，作为你的SSRR服务端密码（2018.7.28）
 - readme.md 增加了英文说明（2018.7.26）
