@@ -19,6 +19,66 @@ echo "# Github: https://github.com/shadowsocksrr                  #"
 echo "#############################################################"
 echo
 
+# Current folder
+cur_dir=`pwd`
+
+# 加密方式
+ciphers=(
+none
+aes-256-cfb
+aes-256-cfb8
+aes-256-ctr
+bf-cfb
+camellia-256-cfb
+cast5-cfb
+chacha20-ietf
+chacha20
+xchacha20
+salsa20
+xsalsa20
+idea-cfb
+seed-cfb
+rc4-md5
+rc4-md5-6
+table
+)
+
+# 参见:
+# https://github.com/shadowsocksrr/shadowsocks-rss/blob/master/readme.md
+# https://github.com/shadowsocksrr/shadowsocks-rss/wiki/config.json
+
+# 协议
+protocols=(
+origin
+verify_deflate
+auth_sha1_v4
+auth_sha1_v4_compatible
+auth_aes128_md5
+auth_aes128_sha1
+auth_chain_a
+auth_chain_b
+auth_chain_c
+auth_chain_d
+auth_chain_e
+auth_chain_f
+auth_akarin_rand
+auth_akarin_spec_a
+)
+
+# 混淆
+obfs=(
+plain
+http_simple
+http_simple_compatible
+http_post
+http_post_compatible
+tls1.2_ticket_auth
+tls1.2_ticket_auth_compatible
+tls1.2_ticket_fastauth
+tls1.2_ticket_fastauth_compatible
+random_head
+)
+
 # 脚本字体颜色
 red='\033[0;31m'
 green='\033[0;32m'
@@ -125,15 +185,15 @@ pre_install(){
     if check_sys packageManager yum || check_sys packageManager apt; then
         # 不支持 CentOS 5
         if centosversion 5; then
-            echo -e "Not supported CentOS 5, please change to CentOS 6+/Debian 7+/Ubuntu 12+ and try again."
+            echo -e "$[{red}Error${plain}] Not supported CentOS 5, please change to CentOS 6+/Debian 7+/Ubuntu 12+ and try again."
             exit 1
         fi
     else
-        echo -e "Your OS is not supported. please change OS to CentOS/Debian/Ubuntu and try again."
+        echo -e "[${red}Error${plain}] Your OS is not supported. please change OS to CentOS/Debian/Ubuntu and try again."
         exit 1
     fi
-	
-	# 设置 ShadowsocksRR 密码
+    
+    # 设置 ShadowsocksRR 密码
     while true
     do
     dpwd=`cat /dev/urandom | tr -dc "a-zA-Z0-9_+\~\!\@\#\$\%\^\&\*" | fold -w 16 | head -n 1` # 获取系统UUID
@@ -143,7 +203,7 @@ pre_install(){
     dpwdleng=`expr length ${shadowsockspwd}` # 获取密码长度
     dpwlow=`echo ${shadowsockspwd} | grep -E '^(.*[a-z]+).*$'` # 获取密码中的所有小写字母
     dpwnum=`echo ${shadowsockspwd} | grep -E '^(.*[0-9]).*$'` # 获取密码中的所有数字
-    if [ ${dpwdleng} -ge 6 ] && [ ${dpwdleng} -le 36 ] && [ -n "${dpwlow}" ] && [ -n "${dpwnum}" ]; then
+    if [ ${dpwdleng} -ge 6 ] && [ ${dpwdleng} -le 36 ] && [ -n "${dpwlow}" ] || [ -n "${dpwnum}" ]; then
         echo
         echo "---------------------------"
         echo "password = ${shadowsockspwd}"
@@ -151,10 +211,10 @@ pre_install(){
         echo
         break
     else
-    echo -e "[${red}Error${plain}] Your password is too weak, please re-enter a stronger one(at least 18 characters, include letters and numbers)."
+    echo -e "[${red}Error${plain}] Your password is too weak, please re-enter a stronger one(at least 6 characters, include letters and numbers)."
     fi
     done
-	
+    
     # 设置 ShadowsocksRR 端口
     while true
     do
@@ -175,22 +235,20 @@ pre_install(){
     fi
     echo -e "[${red}Error${plain}] Please enter a correct number [1-65535]"
     done
+
     echo
     echo "Press any key to start...or Press Ctrl+C to cancel"
     char=`get_char`
-    
     # 安装必要运行环境
     if check_sys packageManager yum; then
-        yum install -y python python-devel python-setuptools git openssl openssl-devel curl wget unzip gcc automake autoconf make libtool
+        yum install -y python python-devel python-setuptools openssl openssl-devel curl wget unzip gcc automake autoconf make libtool
     elif check_sys packageManager apt; then
         apt-get -y update
-        apt-get -y install python python-dev python-setuptools git openssl libssl-dev curl wget unzip gcc automake autoconf make libtool
+        apt-get -y install python python-dev python-setuptools openssl libssl-dev curl wget unzip gcc automake autoconf make libtool
     fi
     cd ${cur_dir}
 }
-
 # 下载必要运行组件
-
 download_files(){
     # 下载 libsodium
     if ! wget --no-check-certificate -O libsodium-1.0.16.tar.gz https://github.com/jedisct1/libsodium/releases/download/1.0.16/libsodium-1.0.16.tar.gz; then
@@ -210,32 +268,6 @@ download_files(){
         fi
     elif check_sys packageManager apt; then
         if ! wget --no-check-certificate https://raw.githubusercontent.com/leitbogioro/shadowsocks_install/master/shadowsocksR-debian -O /etc/init.d/shadowsocks; then
-            echo -e "[${red}Error${plain}] Failed to download ShadowsocksRR chkconfig file!"
-            exit 1
-        fi
-    fi
-}
-
-# 下载必要运行组件
-download_files(){
-    # 下载 libsodium
-    if ! wget --no-check-certificate -O libsodium-1.0.16.tar.gz https://github.com/jedisct1/libsodium/releases/download/1.0.16/libsodium-1.0.16.tar.gz; then
-        echo -e "[${red}Error${plain}] Failed to download libsodium-1.0.16.tar.gz!"
-        exit 1
-    fi
-    # 下载 ShadowsocksRR
-    if ! wget --no-check-certificate -O manyuser.zip https://github.com/leitbogioro/ShadowsocksRR-Install/releases/download/archive/manyuser.zip; then
-        echo -e "[${red}Error${plain}] Failed to download ShadowsocksRR file!"
-        exit 1
-    fi
-    # 下载 ShadowsocksRR 运行脚本
-    if check_sys packageManager yum; then
-        if ! wget --no-check-certificate https://raw.githubusercontent.com/leitbogioro/ShadowsocksRR-Install/Dev/shadowsocksR -O /etc/init.d/shadowsocksr; then
-            echo -e "[${red}Error${plain}] Failed to download ShadowsocksRR chkconfig file!"
-            exit 1
-        fi
-    elif check_sys packageManager apt; then
-        if ! wget --no-check-certificate https://raw.githubusercontent.com/leitbogioro/ShadowsocksRR-Install/Dev/shadowsocksR-debian -O /etc/init.d/shadowsocksr; then
             echo -e "[${red}Error${plain}] Failed to download ShadowsocksRR chkconfig file!"
             exit 1
         fi
@@ -273,8 +305,9 @@ firewall_set(){
     echo -e "[${green}Info${plain}] firewall set completed..."
 }
 
+# 配置 ShadowsocksRR
 config_shadowsocks(){
-    cat > /etc/shadowsocksr.json<<-EOF
+    cat > /etc/shadowsocks.json<<-EOF
 {
     "server":"0.0.0.0",
     "server_ipv6":"[::]",
@@ -283,10 +316,10 @@ config_shadowsocks(){
     "local_port":1080,
     "password":"${shadowsockspwd}",
     "timeout":300,
-    "method":"chacha20-ietf",
-    "protocol":"auth_akarin_rand",
+    "method":"${shadowsockscipher}",
+    "protocol":"${shadowsockprotocol}",
     "protocol_param":"",
-    "obfs":"tls1.2_ticket_auth",
+    "obfs":"${shadowsockobfs}",
     "obfs_param":"",
     "redirect":"",
     "dns_ipv6":false,
@@ -318,16 +351,25 @@ install(){
     mv shadowsocksr-manyuser/shadowsocks /usr/local/
     if [ -f /usr/local/shadowsocks/server.py ]; then
         chmod 777 /usr/local/shadowsocks/server.py
-        chmod +x /etc/init.d/shadowsocksr
+        chmod +x /etc/init.d/shadowsocks
         if check_sys packageManager yum; then
-            chkconfig --add shadowsocksr
-            chkconfig shadowsocksr on
+            chkconfig --add shadowsocks
+            chkconfig shadowsocks on
         elif check_sys packageManager apt; then
-            update-rc.d -f shadowsocksr defaults
+            update-rc.d -f shadowsocks defaults
         fi
-        /etc/init.d/shadowsocksr start
+        /etc/init.d/shadowsocks start
 
         clear
+        echo
+        echo -e "Congratulations, ShadowsocksRR server install completed!"
+        echo -e "Your Server IP        : \033[41;37m $(get_ip) \033[0m"
+        echo -e "Your Server Port      : \033[41;37m ${shadowsocksport} \033[0m"
+        echo -e "Your Password         : \033[41;37m ${shadowsockspwd} \033[0m"
+        echo -e "Your Protocol         : \033[41;37m ${shadowsockprotocol} \033[0m"
+        echo -e "Your obfs             : \033[41;37m ${shadowsockobfs} \033[0m"
+        echo -e "Your Encryption Method: \033[41;37m ${shadowsockscipher} \033[0m"
+        echo
         echo "Welcome to visit:https://git.io/vdMTQ"
         echo "Just access to a wide world!"
         echo
@@ -342,6 +384,35 @@ install(){
 install_cleanup(){
     cd ${cur_dir}
     rm -rf manyuser.zip shadowsocksr-manyuser libsodium-1.0.16.tar.gz libsodium-1.0.16
+}
+
+
+# 卸载 ShadowsocksRR
+uninstall_shadowsocksr(){
+    printf "Are you sure uninstall ShadowsocksRR? (y/n)"
+    printf "\n"
+    read -p "(Default: n):" answer
+    [ -z ${answer} ] && answer="n"
+    if [ "${answer}" == "y" ] || [ "${answer}" == "Y" ]; then
+        /etc/init.d/shadowsocks status > /dev/null 2>&1
+        if [ $? -eq 0 ]; then
+            /etc/init.d/shadowsocks stop
+        fi
+        if check_sys packageManager yum; then
+            chkconfig --del shadowsocks
+        elif check_sys packageManager apt; then
+            update-rc.d -f shadowsocks remove
+        fi
+        rm -f /etc/shadowsocks.json
+        rm -f /etc/init.d/shadowsocks
+        rm -f /var/log/shadowsocks.log
+        rm -rf /usr/local/shadowsocks
+        echo "ShadowsocksRR uninstall success!"
+    else
+        echo
+        echo "uninstall cancelled, nothing to do..."
+        echo
+    fi
 }
 
 # 安装 ShadowsocksRR
