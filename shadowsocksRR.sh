@@ -22,62 +22,9 @@ echo
 # Current folder
 cur_dir=`pwd`
 
-# 加密方式
-ciphers=(
-none
-aes-256-cfb
-aes-256-cfb8
-aes-256-ctr
-bf-cfb
-camellia-256-cfb
-cast5-cfb
-chacha20-ietf
-chacha20
-xchacha20
-salsa20
-xsalsa20
-idea-cfb
-seed-cfb
-rc4-md5
-rc4-md5-6
-table
-)
-
 # 参见:
 # https://github.com/shadowsocksrr/shadowsocks-rss/blob/master/readme.md
 # https://github.com/shadowsocksrr/shadowsocks-rss/wiki/config.json
-
-# 协议
-protocols=(
-origin
-verify_deflate
-auth_sha1_v4
-auth_sha1_v4_compatible
-auth_aes128_md5
-auth_aes128_sha1
-auth_chain_a
-auth_chain_b
-auth_chain_c
-auth_chain_d
-auth_chain_e
-auth_chain_f
-auth_akarin_rand
-auth_akarin_spec_a
-)
-
-# 混淆
-obfs=(
-plain
-http_simple
-http_simple_compatible
-http_post
-http_post_compatible
-tls1.2_ticket_auth
-tls1.2_ticket_auth_compatible
-tls1.2_ticket_fastauth
-tls1.2_ticket_fastauth_compatible
-random_head
-)
 
 # 脚本字体颜色
 red='\033[0;31m'
@@ -316,10 +263,10 @@ config_shadowsocks(){
     "local_port":1080,
     "password":"${shadowsockspwd}",
     "timeout":300,
-    "method":"${shadowsockscipher}",
-    "protocol":"${shadowsockprotocol}",
+    "method":"chacha20-ietf",
+    "protocol":"auth_akarin_rand",
     "protocol_param":"",
-    "obfs":"${shadowsockobfs}",
+    "obfs":"tls1.2_ticket_auth",
     "obfs_param":"",
     "redirect":"",
     "dns_ipv6":false,
@@ -366,9 +313,9 @@ install(){
         echo -e "Your Server IP        : \033[41;37m $(get_ip) \033[0m"
         echo -e "Your Server Port      : \033[41;37m ${shadowsocksport} \033[0m"
         echo -e "Your Password         : \033[41;37m ${shadowsockspwd} \033[0m"
-        echo -e "Your Protocol         : \033[41;37m ${shadowsockprotocol} \033[0m"
-        echo -e "Your obfs             : \033[41;37m ${shadowsockobfs} \033[0m"
-        echo -e "Your Encryption Method: \033[41;37m ${shadowsockscipher} \033[0m"
+        echo -e "Your Protocol         : \033[41;37m auth_akarin_rand \033[0m"
+        echo -e "Your obfs             : \033[41;37m tls1.2_ticket_auth \033[0m"
+        echo -e "Your Encryption Method: \033[41;37m chacha20-ietf \033[0m"
         echo
         echo "Welcome to visit:https://git.io/vdMTQ"
         echo "Just access to a wide world!"
