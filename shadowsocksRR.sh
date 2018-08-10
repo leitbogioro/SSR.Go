@@ -203,7 +203,7 @@ pre_install(){
     dpwdleng=`expr length ${shadowsockspwd}` # 获取密码长度
     dpwlow=`echo ${shadowsockspwd} | grep -E '^(.*[a-z]+).*$'` # 获取密码中的所有小写字母
     dpwnum=`echo ${shadowsockspwd} | grep -E '^(.*[0-9]).*$'` # 获取密码中的所有数字
-    if [ ${dpwdleng} -ge 6 ] && [ ${dpwdleng} -le 36 ] && [ -n "${dpwlow}" ] && [ -n "${dpwnum}" ]; then
+    if [ ${dpwdleng} -ge 6 ] && [ ${dpwdleng} -le 36 ] && [ -n "${dpwlow}" ] || [ -n "${dpwnum}" ]; then
         echo
         echo "---------------------------"
         echo "password = ${shadowsockspwd}"
@@ -211,7 +211,7 @@ pre_install(){
         echo
         break
     else
-    echo -e "[${red}Error${plain}] Your password is too weak, please re-enter a stronger one(at least 18 characters, include letters and numbers)."
+    echo -e "[${red}Error${plain}] Your password is too weak, please re-enter a stronger one(at least 6 characters, include letters and numbers)."
     fi
     done
     
