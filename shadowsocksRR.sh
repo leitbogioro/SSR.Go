@@ -19,6 +19,15 @@ echo "# Github: https://github.com/shadowsocksrr                  #"
 echo "#############################################################"
 echo
 
+# 脚本字体颜色
+red='\033[0;31m'
+green='\033[0;32m'
+yellow='\033[0;33m'
+plain='\033[0m'
+
+# 必须以 root 用户运行该脚本
+[[ $EUID -ne 0 ]] && echo -e "[${red}Error${plain}] This script must be run as root!" && exit 1
+
 # 关闭 selinux
 disable_selinux(){
     if [ -s /etc/selinux/config ] && grep 'SELINUX=enforcing' /etc/selinux/config; then
@@ -166,10 +175,10 @@ pre_install(){
     fi
     echo -e "[${red}Error${plain}] Please enter a correct number [1-65535]"
     done
-	
-	
-    
+    echo
+    echo "Press any key to start...or Press Ctrl+C to cancel"
     char=`get_char`
+    
     # 安装必要运行环境
     if check_sys packageManager yum; then
         yum install -y python python-devel python-setuptools git openssl openssl-devel curl wget unzip gcc automake autoconf make libtool
