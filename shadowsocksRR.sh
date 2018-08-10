@@ -27,16 +27,57 @@ disable_selinux(){
     fi
 }
 
+# 判断系统分支
+check_sys(){
+    local checkType=$1
+    local value=$2
+
+    local release=''
+    local systemPackage=''
+
+    if [[ -f /etc/redhat-release ]]; then
+        release="centos"
+        systemPackage="yum"
+    elif grep -Eqi "centos|red hat|redhat" /etc/issue -o /proc/version; then
+        release="centos"
+        systemPackage="yum"
+    elif grep -Eqi "debian" /etc/issue -o /proc/version; then
+        release="debian"
+        systemPackage="apt"
+    elif grep -Eqi "ubuntu" /etc/issue -o /proc/version; then
+        release="ubuntu"
+        systemPackage="apt"
+    fi
+# check_sys()函数内部，需要声明局部变量
+# grep -Eqi中，E用于扩展的正则，q用于逻辑判断，i不区分大小写，后面跟上关键字条件
+# cat 与 grep 命令配合使用，cat 用于读取 /cat/issue 文件，该文件里包含了当前操作系统的名称、版本号
+# /proc/version 文件中，包含了系统的详细内核信息
+
+    if [[ ${checkType} == "sysRelease" ]]; then
+        if [ "$value" == "$release" ]; then
+            return 0
+        else
+            return 1
+        fi
+    elif [[ ${checkType} == "packageManager" ]]; then
+        if [ "$value" == "$systemPackage" ]; then
+            return 0
+        else
+            return 1
+        fi
+    fi
+}
+
 # 预安装检测
 pre_install(){
     if check_sys packageManager yum || check_sys packageManager apt; then
         # 不支持 CentOS 5
         if centosversion 5; then
-            echo -e "$[{red}Error${plain}] Not supported CentOS 5, please change to CentOS 6+/Debian 7+/Ubuntu 12+ and try again."
+            echo -e "Not supported CentOS 5, please change to CentOS 6+/Debian 7+/Ubuntu 12+ and try again."
             exit 1
         fi
     else
-        echo -e "[${red}Error${plain}] Your OS is not supported. please change OS to CentOS/Debian/Ubuntu and try again."
+        echo -e "Your OS is not supported. please change OS to CentOS/Debian/Ubuntu and try again."
         exit 1
     fi
 	
@@ -62,8 +103,8 @@ pre_install(){
     fi
     done
 	
-	# 设置 ShadowsocksRR 端口
-	while true
+    # 设置 ShadowsocksRR 端口
+    while true
     do
     dport=$(shuf -i 10000-59999 -n 1) # 若不手动设置则随机选取
     echo -e "Please input port for ShadowsocksRR [1-65535] (Default between 10000-59999):"
