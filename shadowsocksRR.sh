@@ -222,9 +222,9 @@ install(){
     # 安装 ShadowsocksRR
     cd ${cur_dir}
     unzip -q manyuser.zip
-    mv shadowsocksr-manyuser/shadowsocksr /usr/local/
-    if [ -f /usr/local/shadowsocksr/server.py ]; then
-        chmod 777 /usr/local/shadowsocksr/server.py
+    mv shadowsocksr-manyuser/shadowsocks /usr/local/
+    if [ -f /usr/local/shadowsocks/server.py ]; then
+        chmod 777 /usr/local/shadowsocks/server.py
         chmod +x /etc/init.d/shadowsocksr
         if check_sys packageManager yum; then
             chkconfig --add shadowsocks
