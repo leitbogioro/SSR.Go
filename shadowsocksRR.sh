@@ -227,12 +227,12 @@ install(){
         chmod 777 /usr/local/shadowsocks/server.py
         chmod +x /etc/init.d/shadowsocksr
         if check_sys packageManager yum; then
-            chkconfig --add shadowsocks
-            chkconfig shadowsocks on
+            chkconfig --add shadowsocksr
+            chkconfig shadowsocksr on
         elif check_sys packageManager apt; then
-            update-rc.d -f shadowsocks defaults
+            update-rc.d -f shadowsocksr defaults
         fi
-        /etc/init.d/shadowsocks start
+        /etc/init.d/shadowsocksr start
 
         clear
         echo "Welcome to visit:https://git.io/vdMTQ"
