@@ -400,6 +400,7 @@ config_shadowsocks(){
     "local_port":1080,
     "password":"${shadowsockspwd}",
     "timeout":300,
+    "udp_timeout":150,
     "method":"${shadowsockscipher}",
     "protocol":"${shadowsockprotocol}",
     "protocol_param":"",
