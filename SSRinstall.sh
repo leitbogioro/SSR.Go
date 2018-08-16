@@ -274,8 +274,6 @@ install(){
         clear
         echo
         echo -e "ssr主程序已安装完成！"
-        echo "欢迎访问项目主页: https://git.io/vdMTQ"
-        echo "Just access to a wide world!"
         echo
     else
         echo "ShadowsocksRR install failed, please send private messages to <https://goo.gl/SjXFKi> and contact me"
