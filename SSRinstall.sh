@@ -148,6 +148,7 @@ pre_install(){
     dport=$(shuf -i 10000-59999 -n 1) # 从 100000 到 59999 之间随机选取
     shadowsocksport=$dport
     
+    echo "准备就绪，请按任意键开始安装！"
     char=`get_char`
     # 安装必要运行环境
     if check_sys packageManager yum; then
