@@ -24,21 +24,15 @@ fi
 
 #安装依赖
 if [[ ${OS} == 'CentOS' ]];then
-    curl --silent --location https://rpm.nodesource.com/setup_8.x | sudo bash -
-	yum install curl wget unzip git ntp ntpdate lrzsz python socat nodejs -y
-    npm install -g qrcode
+    curl sudo bash -
+	yum install curl wget unzip git ntp ntpdate lrzsz python -y
 else
-    curl -sL https://deb.nodesource.com/setup_8.x | sudo -E bash -
+    curl sudo -E bash -
 	apt-get update
-	apt-get install curl unzip git ntp wget ntpdate python socat lrzsz nodejs -y
-    npm install -g qrcode
+	apt-get install curl unzip git ntp wget ntpdate python socat lrzsz -y
 fi
 
-#安装 acme.sh 以自动获取SSL证书
-curl  https://get.acme.sh | sh
-
-
-#克隆V2ray.fun项目
+#克隆ssr.go项目
 cd /usr/local/
 rm -R v2ray.fun
 git clone https://github.com/tracyone/v2ray.fun
