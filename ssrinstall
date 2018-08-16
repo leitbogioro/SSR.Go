@@ -44,6 +44,7 @@ bash <(curl -L -s https://raw.githubusercontent.com/leitbogioro/SSR.Go/master/ss
 ln -sf /usr/local/ssr.go/ssr /usr/local/bin
 chmod +x /usr/local/bin/ssr
 chmod +x /etc/init.d/shadowsocks
+chmod +x /usr/local/shadowsocks/
 /etc/init.d/shadowsocks start
 
 clear
