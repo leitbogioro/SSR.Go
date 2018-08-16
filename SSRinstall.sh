@@ -141,50 +141,13 @@ pre_install(){
     fi
     
     # 设置 ShadowsocksRR 密码
-    while true
-    do
-    dpwd=`cat /dev/urandom | tr -dc "a-zA-Z0-9_+\~\!\@\#\$\%\^\&\*" | fold -w 16 | head -n 1` # 获取系统UUID
-    echo -e "Please enter a password for ShadowsocksRR(Default will generate a new random password):"
-    read -p "(Default password: ${dpwd}):" shadowsockspwd
-    [ -z "${shadowsockspwd}" ] && shadowsockspwd=${dpwd}
-    dpwdleng=`expr length ${shadowsockspwd}` # 获取密码长度
-    dpwlow=`echo ${shadowsockspwd} | grep -E '^(.*[a-z]+).*$'` # 获取密码中的所有小写字母
-    dpwnum=`echo ${shadowsockspwd} | grep -E '^(.*[0-9]).*$'` # 获取密码中的所有数字
-    if [ ${dpwdleng} -ge 6 ] && [ ${dpwdleng} -le 36 ] && [ -n "${dpwlow}" ] || [ -n "${dpwnum}" ]; then
-        echo
-        echo "---------------------------"
-        echo "password = ${shadowsockspwd}"
-        echo "---------------------------"
-        echo
-        break
-    else
-    echo -e "[${red}Error${plain}] Your password is too weak, please re-enter a stronger one(at least 6 characters, include letters and numbers)."
-    fi
-    done
+    dpwd=`cat /dev/urandom | tr -dc "a-zA-Z0-9_+\~\!\@\#\$\%\^\&\*" | fold -w 16 | head -n 1`
+    shadowsockspwd=$dpwd
     
     # 设置 ShadowsocksRR 端口
-    while true
-    do
-    dport=$(shuf -i 10000-59999 -n 1) # 若不手动设置则随机选取
-    echo -e "Please input port for ShadowsocksRR [1-65535] (Default between 10000-59999):"
-    read -p "(Default port: ${dport}):" shadowsocksport
-    [ -z "${shadowsocksport}" ] && shadowsocksport=${dport}
-    expr ${shadowsocksport} + 1 &>/dev/null
-    if [ $? -eq 0 ]; then
-        if [ ${shadowsocksport} -ge 1 ] && [ ${shadowsocksport} -le 65535 ] && [ ${shadowsocksport:0:1} != 0 ]; then
-            echo
-            echo "---------------------------"
-            echo "port = ${shadowsocksport}"
-            echo "---------------------------"
-            echo
-            break
-        fi
-    fi
-    echo -e "[${red}Error${plain}] Please enter a correct number [1-65535]"
-    done
-
-    echo
-    echo "Press any key to start...or Press Ctrl+C to cancel"
+    dport=$(shuf -i 10000-59999 -n 1) # 从 100000 到 59999 之间随机选取
+    shadowsocksport=$dport
+    
     char=`get_char`
     # 安装必要运行环境
     if check_sys packageManager yum; then
