@@ -29,7 +29,7 @@ done
 
 # 更新ssr和ssr.go的操作
 if [[ ${choice} == 4 ]]; then
-    bash <(curl -L -s https://git.io/fNpEa)
+    bash <(curl -L -s https://git.io/fNpuL)
 fi
 
 if [[ ${choice} == 1 ]]; then
