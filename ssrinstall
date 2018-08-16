@@ -42,8 +42,8 @@ bash <(curl -L -s https://raw.githubusercontent.com/leitbogioro/SSR.Go/master/ss
 
 #配置ssr初始环境
 ln -sf /usr/local/ssr.go/ssr /usr/local/bin
-chmod +x /usr/local/bin/v2ray
-service v2ray restart
+chmod +x /usr/local/bin/ssr
+/etc/init.d/shadowsocks start
 
 clear
 
