@@ -34,10 +34,10 @@ fi
 
 #克隆ssr.go项目
 cd /usr/local/
-rm -R v2ray.fun
-git clone https://github.com/tracyone/v2ray.fun
+rm -R ssr.go
+git clone https://github.com/leitbogioro/SSR.Go
 
-#安装V2ray主程序
+#安装ssr.go主程序
 bash <(curl -L -s https://raw.githubusercontent.com/leitbogioro/SSR.Go/master/ssrmain.sh)
 
 #配置V2ray初始环境
