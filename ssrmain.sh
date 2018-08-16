@@ -10,14 +10,6 @@ export PATH
 #=================================================================#
 
 clear
-echo
-echo "#############################################################"
-echo "# One click Install ShadowsocksRR Server                    #"
-echo "# Intro: https://goo.gl/SjXFKi                              #"
-echo "# Author: MollyLau                                          #"
-echo "# Github: https://github.com/shadowsocksrr                  #"
-echo "#############################################################"
-echo
 
 # Current folder
 cur_dir=`pwd`
