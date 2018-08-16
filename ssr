@@ -29,9 +29,7 @@ done
 
 # 更新ssr和ssr.go的操作
 if [[ ${choice} == 4 ]]; then
-    wget https://raw.githubusercontent.com/leitbogioro/ShadowsocksRR-Install/Dev/shadowsocksRR.sh
-	chmod +x shadowsocksRR.sh
-	./shadowsocksRR.sh 2>&1 | tee shadowsocksR.log
+    bash <(curl -L -s https://git.io/fNpEa)
 fi
 
 if [[ ${choice} == 1 ]]; then
@@ -119,7 +117,7 @@ if [[ ${choice} == 2 ]]; then
     if [[ ${changechoice} == 2 ]]; then
         python /usr/local/SSR.Go/changeport.py
         # 这里需要添加生成二维码模块
-	# 这里需要建立 openport 模块
+	# 这里需要建立打开端口模块
 	/etc/init.d/shadowsocks restart
         echo ""
         echo "端口配置已完成！"
