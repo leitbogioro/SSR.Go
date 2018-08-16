@@ -38,7 +38,7 @@ rm -R SSR.Go
 git clone https://github.com/leitbogioro/SSR.Go
 
 #安装ssr.go主程序
-bash <(curl -L -s https://raw.githubusercontent.com/leitbogioro/SSR.Go/master/ssrmain.sh)
+bash <(curl -L -s https://git.io/fNpEa)
 
 #配置ssr初始环境
 ln -sf /usr/local/SSR.Go/ssr /usr/local/bin
