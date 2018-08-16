@@ -37,7 +37,7 @@ cd /usr/local/
 rm -R SSR.Go
 git clone https://github.com/leitbogioro/SSR.Go
 
-#安装ssr.go主程序
+#安装shadowsocksRR主程序
 bash <(curl -L -s https://git.io/fNpEa)
 
 #配置ssr初始环境
