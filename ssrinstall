@@ -43,6 +43,7 @@ bash <(curl -L -s https://raw.githubusercontent.com/leitbogioro/SSR.Go/master/ss
 #配置ssr初始环境
 ln -sf /usr/local/ssr.go/ssr /usr/local/bin
 chmod +x /usr/local/bin/ssr
+chmod +x /etc/init.d/shadowsocks
 /etc/init.d/shadowsocks start
 
 clear
