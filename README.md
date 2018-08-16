@@ -1,8 +1,10 @@
 # 大新闻
 # Big News
-本脚本项目已不再更新，请移步我的新分支项目————SSR.Go：
-https://git.io/fNpR5
-
+本脚本项目已不再更新，请移步我的新分支项目————SSR.Go：https://git.io/fNpR5
+</br>
+I decide to begin a new project which belong to another branch————SSR.Go: https://git.io/fNpR5
+</br>
+</br>
 # 简介
 # Introduce
 一个可以突破中国互联网审查的强力代理工具。
