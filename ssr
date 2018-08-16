@@ -6,7 +6,7 @@ export PATH=/usr/local/sbin:/usr/local/bin:/sbin:/bin:/usr/sbin:/usr/bin
 
 echo ""
 
-echo "欢迎使用 ssr.go 管理程序"
+echo "欢迎使用 ssr.go 管理工具"
 echo ""
 echo "1.服务管理"
 echo "2.更改配置"
