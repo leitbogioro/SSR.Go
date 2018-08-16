@@ -117,15 +117,15 @@ get_ip(){
     [ ! -z ${IP} ] && echo ${IP} || echo
 }
 
-get_char(){
-    SAVEDSTTY=`stty -g`
-    stty -echo
-    stty cbreak
-    dd if=/dev/tty bs=1 count=1 2> /dev/null
-    stty -raw
-    stty echo
-    stty $SAVEDSTTY
-}
+# get_char(){
+#     SAVEDSTTY=`stty -g`
+#     stty -echo
+#     stty cbreak
+#     dd if=/dev/tty bs=1 count=1 2> /dev/null
+#     stty -raw
+#     stty echo
+#     stty $SAVEDSTTY
+# }
 
 # 预安装检测
 pre_install(){
@@ -148,7 +148,7 @@ pre_install(){
     dport=$(shuf -i 10000-59999 -n 1) # 从 100000 到 59999 之间随机选取
     shadowsocksport=$dport
     
-    get_char
+#     get_char
     # 安装必要运行环境
     if check_sys packageManager yum; then
         yum install -y python python-devel python-setuptools openssl openssl-devel curl wget unzip gcc automake autoconf make libtool
