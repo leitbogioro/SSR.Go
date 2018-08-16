@@ -273,15 +273,8 @@ install(){
 
         clear
         echo
-        echo -e "Congratulations, ShadowsocksRR server install completed!"
-        echo -e "Your Server IP        : \033[41;37m $(get_ip) \033[0m"
-        echo -e "Your Server Port      : \033[41;37m ${shadowsocksport} \033[0m"
-        echo -e "Your Password         : \033[41;37m ${shadowsockspwd} \033[0m"
-        echo -e "Your Protocol         : \033[41;37m auth_akarin_rand \033[0m"
-        echo -e "Your obfs             : \033[41;37m tls1.2_ticket_auth \033[0m"
-        echo -e "Your Encryption Method: \033[41;37m chacha20-ietf \033[0m"
-        echo
-        echo "Welcome to visit:https://git.io/vdMTQ"
+        echo -e "ssr主程序已安装完成！"
+        echo "欢迎访问项目主页: https://git.io/vdMTQ"
         echo "Just access to a wide world!"
         echo
     else
