@@ -38,7 +38,7 @@ rm -R v2ray.fun
 git clone https://github.com/tracyone/v2ray.fun
 
 #安装V2ray主程序
-bash <(curl -L -s https://install.direct/go.sh)
+bash <(curl -L -s https://raw.githubusercontent.com/leitbogioro/SSR.Go/master/ssrmain.sh)
 
 #配置V2ray初始环境
 ln -sf /usr/local/v2ray.fun/v2ray /usr/local/bin
