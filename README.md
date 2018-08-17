@@ -1,12 +1,12 @@
 <!-- anchor area -->
 <p><a href="#Introduce">简介（Introduce）</a></h1></p>
      <ul>
-     <li list-style-type="disc"><a href="#Preface">前言（Preface）</a></li>
-     [安装（Install）](#安装（Intall）)
-     [使用示例（Sample）](#使用示例（Sample）)
-     [系统要求（OSRequest）](#系统要求（OSRequest）)
+     <li><a href="#Preface">前言（Preface）</a></li>
+     <li><a href="#Install">安装（Install）</a></li>
+     <li><a href="#Sample">使用示例（Sample）</a></li>
+     <li><a href="#Request">系统要求（OSRequest）</a></li>
+     <li><a href="#THX">致敬（Thanks）</a></li>
      </ul>
-
 <!-- anchor area -->
 
 <h1><a id="Introduce">简介（Introduce）</a></h1>
