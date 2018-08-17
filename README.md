@@ -54,8 +54,8 @@ A linux virtual private server which run the following system:
 <li>Debian 8</li>
 <li>Ubuntu 14</li>
 <li><b>Ubuntu 16（推荐 Recommend）</b></li>
-<li><b>CentOS 7</b></li>
+<li>CentOS 7</li>
 </ul>
-2. ssh连接工具（推荐：<a href="https://www.netsarang.com/products/xsh_overview.html">Xshell</a>或<a href="https://www.chiark.greenend.org.uk/~sgtatham/putty/latest.html">Putty</a>）
+2. ssh连接工具（推荐：<a href="https://www.netsarang.com/products/xsh_overview.html">Xshell</a> 或 <a href="https://www.chiark.greenend.org.uk/~sgtatham/putty/latest.html">Putty</a>）
 <br />
 A ssh connect tool（Recommend <a href="https://www.netsarang.com/products/xsh_overview.html">Xshell</a> or <a href="https://www.chiark.greenend.org.uk/~sgtatham/putty/latest.html">Putty</a>）
