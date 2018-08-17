@@ -4,6 +4,7 @@
     * [前言（Preface）](#前言（Preface）)
     * [安装（Install）](#安装（Intall）)
     * [使用示例（Sample）](#使用示例（Sample）)
+    * [系统要求（OSRequest）](#系统要求（OSRequest）)
 
 <!-- vim-markdown-toc -->
 
@@ -19,4 +20,13 @@ ShadowSocksRR powered by SSR.Go is a robust proxy which can breakthrough Chinese
 <br />
 I'm not only hate GFW, but also fighting with it. No matter from where, human has natural rights to access to uncensored information to escape from authoritarianism and oppression.
 
-## 
+## 安装（Install）
+
+## 使用示例（Sample）
+
+## 系统要求（OSRequest）
+- Debian 7 
+- Debian 8
+- Ubuntu 14 
+- **Ubuntu 16（推荐 Recommend）** 
+- CentOS 7
