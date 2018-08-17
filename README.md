@@ -59,6 +59,13 @@
 <p>2. ssh连接工具（推荐：<a href="https://www.netsarang.com/products/xsh_overview.html">Xshell</a> 或 <a href="https://www.chiark.greenend.org.uk/~sgtatham/putty/latest.html">Putty</a>）</p>
 <p>A ssh connect tool（Recommend <a href="https://www.netsarang.com/products/xsh_overview.html">Xshell</a> or <a href="https://www.chiark.greenend.org.uk/~sgtatham/putty/latest.html">Putty</a>）</p>
 <br />
+<p>3. 部分系统在执行安装命令时，需要安装curl组件，对应命令如下：
+<p>Some environment need to install curl before download and install SSR.Go, you should do:</p>
+<p>Cent OS</p>
+<pre><code>yum -y install curl</code></pre>
+<p>Debian/Ubuntu</p>
+<pre><code>apt-get install curl -y</code></pre>
+<br />
 
 <h2><a id="Updates">更新日志（Updates）：</a></h2>
 <ul>
