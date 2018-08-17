@@ -1,11 +1,11 @@
 <!-- vim-markdown-toc GFM -->
 
-* [SSR.Go简介（SSR.Go Introduce）](#SSR.Go简介（SSR.Go Introduce）)
+* [简介（Introduce）](#简介（Introduce）)
     * [前言](Preface)
 
 <!-- vim-markdown-toc -->
 
-# SSR.Go简介（SSR.Go Introduce）
+# 简介（Introduce）
 由SSR.Go强力驱动的ShadowSocksRR，是一款可突破中国互联网审查的强力代理工具。使用本工具，你可方便地调整、管理 ShadowSocksRR 的配置和运行。以下是本工具的说明，你可以点击相应的跳转链接，寻找你感兴趣或对你而言感觉重要的部分。
 <br />
 <br />
