@@ -69,7 +69,8 @@
 </ul>
 
 <h2><a id="THX">致谢（Thanks）：</a></h2>
-tracyone：<a href="https://github.com/tracyone/v2ray.fun">v2ray.fun</a>
-v2ray.fun 原作者：<a href="https://github.com/YLWS-4617">雨落无声</a>
-ShadowSocksR 原作者：<a href="https://github.com/breakwa11">破娃酱</a>
-ShadowSocksRR 现维护者和其主页：<a href="https://github.com/Akkariiin">Akarrin</a>、<a href="https://github.com/shadowsocksrr">ShadowSocksRR</a>
+<p>tracyone：<a href="https://github.com/tracyone/v2ray.fun">v2ray.fun</a></p>
+<p>v2ray.fun 原作者：<a href="https://github.com/YLWS-4617">雨落无声</a></p>
+<p>ShadowSocksR 原作者：<a href="https://github.com/breakwa11">破娃酱</a></p>
+<p>ShadowSocksRR 现维护者<a href="https://github.com/Akkariiin">Akarrin</a>和其项目主页：<a href="https://github.com/shadowsocksrr">ShadowSocksRR</a></p>
+<p>ShadowsocksR 一键安装包作者：<a href="https://teddysun.com">TeddySun</a></p>
