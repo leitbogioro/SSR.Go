@@ -1,12 +1,10 @@
 <!-- anchor area -->
 
 <a href="#Introduce">简介（Introduce）</a></h1>
-    <li>
-    * [前言（Preface）](#前言（Preface）)
+    * <a href="#Preface">前言（Preface）</a>
     * [安装（Install）](#安装（Intall）)
     * [使用示例（Sample）](#使用示例（Sample）)
     * [系统要求（OSRequest）](#系统要求（OSRequest）)
-    </li>
 
 <!-- anchor area -->
 
@@ -17,7 +15,7 @@ ShadowSocksRR powered by SSR.Go is a robust proxy which can breakthrough Chinese
 <br />
 <br />
 
-## 前言（Preface）
+<h2><a id="Preface">前言（Preface）</a></h2>
 面对威权压迫，你是甘为一辈子懦夫，还是坚定勇气，试着改变这个污浊不堪的世界？于此，虽千万人吾往矣。全新的shadowsocksR管理助手——SSR.Go，现已问世。长夜漫漫，父说，擦亮双眸的你，需要一道光明，使者便从了他的意，把光明给带来了。
 <br />
 I'm not only hate GFW, but also fighting with it. No matter from where, human has natural rights to access to uncensored information to escape from authoritarianism and oppression.
