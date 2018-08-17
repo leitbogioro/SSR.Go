@@ -1,16 +1,7 @@
-<!-- format -->
-<style type="text/css">
-ul ul, ol ul {
-    list-style-type: circle;
-}
-</style>
-<!-- format -->
-
 <!-- anchor area -->
-
 <p><a href="#Introduce">简介（Introduce）</a></h1></p>
      <ul>
-     <li><a href="#Preface">前言（Preface）</a></li>
+     <li list-style-type="disc"><a href="#Preface">前言（Preface）</a></li>
      [安装（Install）](#安装（Intall）)
      [使用示例（Sample）](#使用示例（Sample）)
      [系统要求（OSRequest）](#系统要求（OSRequest）)
