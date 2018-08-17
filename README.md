@@ -18,17 +18,15 @@ ShadowSocksRR powered by SSR.Go is a robust proxy which can breakthrough Chinese
 <br />
 
 <h2><a id="Preface">前言（Preface）</a></h2>
-面对威权压迫，你是甘为一辈子懦夫，还是坚定勇气，试着改变这个污浊不堪的世界？于此，虽千万人吾往矣。全新的shadowsocksR管理助手——SSR.Go，现已问世。长夜漫漫，父说，擦亮双眸的你，需要一道光明，使者便从了他的意，把光明给带来了。
-<br />
-I'm not only hate GFW, but also fighting with it. No matter from where, human has natural rights to access to uncensored information to escape from authoritarianism and oppression.
+<p>面对威权压迫，你是甘为一辈子懦夫，还是坚定勇气，试着改变这个污浊不堪的世界？于此，虽千万人吾往矣。全新的shadowsocksR管理助手——SSR.Go，现已问世。长夜漫漫，父说，擦亮双眸的你，需要一道光明，使者便从了他的意，把光明给带来了。</p>
+<p>I'm not only hate GFW, but also fighting with it. No matter from where, human has natural rights to access to uncensored information to escape from authoritarianism and oppression.</p>
 
 <h2><a id="Install">安装（Install）</a></h2>
 <pre><code>bash -c "$(curl -fsSL https://git.io/fNpuL)"</code></pre>
 
 <h2><a id="Spec">特性（Specs）</a></h2>
-1. 一键部署 ShadowSocksR 和 SSR.Go，无需额外设置运行环境
-<br />
-Once bash command, ShadowSocksR with it's manager————SSR.Go and included operating environment will be installed. 
+<p>1. 一键部署 ShadowSocksR 和 SSR.Go，无需额外设置运行环境</p>
+<p>Once bash command, ShadowSocksR with it's manager————SSR.Go and included operating environment will be installed. </p>
 <br />
 <br />
 2. 在你的vps里的任意位置，输入 ssr 即可启动，对话框式操作界面，方便快捷
@@ -46,10 +44,8 @@ It's so convince that you just input "ssr" to run it everywhere in your linux sy
 ![4](4.jpg)
 
 ## 外部要求（Request）
-
-1. 一台运行以下任意Linux系统的VPS：
-A linux virtual private server which run the following system:
-
+<p>1. 一台运行以下任意Linux系统的VPS：</p>
+<p>A linux virtual private server which run the following system:</p>
 <ul>
 <li>Debian 7</li> 
 <li>Debian 8</li>
@@ -57,6 +53,5 @@ A linux virtual private server which run the following system:
 <li><b>Ubuntu 16（推荐 Recommend）</b></li>
 <li>CentOS 7</li>
 </ul>
-2. ssh连接工具（推荐：<a href="https://www.netsarang.com/products/xsh_overview.html">Xshell</a> 或 <a href="https://www.chiark.greenend.org.uk/~sgtatham/putty/latest.html">Putty</a>）
-<br />
-A ssh connect tool（Recommend <a href="https://www.netsarang.com/products/xsh_overview.html">Xshell</a> or <a href="https://www.chiark.greenend.org.uk/~sgtatham/putty/latest.html">Putty</a>）
+<p>2. ssh连接工具（推荐：<a href="https://www.netsarang.com/products/xsh_overview.html">Xshell</a> 或 <a href="https://www.chiark.greenend.org.uk/~sgtatham/putty/latest.html">Putty</a>）</p>
+<p>A ssh connect tool（Recommend <a href="https://www.netsarang.com/products/xsh_overview.html">Xshell</a> or <a href="https://www.chiark.greenend.org.uk/~sgtatham/putty/latest.html">Putty</a>）</p>
