@@ -1,7 +1,7 @@
 <!-- vim-markdown-toc GFM -->
 
-[SSR.Go简介（SSR.Go Introduce）](#SSR.Go简介（SSR.Go Introduce）)
-* []
+* [SSR.Go简介（SSR.Go Introduce）](#SSR.Go简介（SSR.Go Introduce）)
+    * [前言](Preface)
 
 <!-- vim-markdown-toc -->
 
