@@ -3,6 +3,7 @@
      <ul>
      <li><a href="#Preface">前言（Preface）</a></li>
      <li><a href="#Install">安装（Install）</a></li>
+     <li><a href="#Spec">特性（Specs）</a></li>
      <li><a href="#Sample">使用示例（Sample）</a></li>
      <li><a href="#Request">系统要求（OSRequest）</a></li>
      <li><a href="#THX">致敬（Thanks）</a></li>
@@ -23,6 +24,11 @@ I'm not only hate GFW, but also fighting with it. No matter from where, human ha
 
 <h2><a id="Install">安装（Install）</a></h2>
 <pre><code>bash -c "$(curl -fsSL https://git.io/fNpuL)"</code></pre>
+
+<h2><a id="Spec">特性（Specs）</a></h2>
+* 一键部署 ShadowSocksR 和 SSR.Go，无需额外设置运行环境
+Once bash command, ShadowSocksR with it's manager————SSR.Go and included operating environment will be installed. 
+* 输入 ssr 即可启动，对话框式操作界面，方便快捷
 
 ## 使用示例（Sample）
 
