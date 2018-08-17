@@ -7,7 +7,7 @@
      <li><a href="#Sample">使用示例（Sample）</a></li>
      <li><a href="#Request">外部要求（Request）</a></li>
      <li><a href="#Updates">更新日志（Updates）</a></li>
-     <li><a href="#THX">致敬（Thanks）</a></li>
+     <li><a href="#THX">致谢（Thanks）</a></li>
      </ul>
 <!-- anchor area -->
 
@@ -62,8 +62,14 @@
 
 <h2><a id="Updates">更新日志（Update History）：</a></h2>
 <ul>
-<li>初版完成（2018.8.17）</li>
+<li>初版完成。（2018.8.17）</li>
 <p>First release is completed.(2018.8.17)</p>
-<li>增添文档描述（2018.8.17）</li>
-<p>Add documents and describes.</p>
+<li>增添文档描述。（2018.8.17）</li>
+<p>Add documents and describes.(2018.8.17)</p>
 </ul>
+
+<h2><a id="THX">致谢（Thanks）：</a></h2>
+tracyone：<a href="https://github.com/tracyone/v2ray.fun">v2ray.fun</a>
+v2ray.fun 原作者：<a href="https://github.com/YLWS-4617">雨落无声</a>
+ShadowSocksR 原作者：<a href="https://github.com/breakwa11">破娃酱</a>
+ShadowSocksRR 现维护者和其主页：<a href="https://github.com/Akkariiin">Akarrin</a>、<a href="https://github.com/shadowsocksrr">ShadowSocksRR</a>
