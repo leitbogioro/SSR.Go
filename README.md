@@ -1,7 +1,9 @@
 <!-- format -->
+<style type="text/css">
 ul ul, ol ul {
     list-style-type: circle;
 }
+</style>
 <!-- format -->
 
 <!-- anchor area -->
