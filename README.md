@@ -1,7 +1,7 @@
 <!-- vim-markdown-toc GFM -->
 
 * [简介（Introduce）](#简介（Introduce）)
-    * [前言(Preface)](#前言（Preface）)
+    * [前言（Preface）](#前言（Preface）)
     * [安装（Install）](#安装（Intall）)
     * [使用示例（Sample）](#使用示例（Sample）)
 
