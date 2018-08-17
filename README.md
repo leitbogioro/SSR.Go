@@ -6,6 +6,7 @@
 <br />
 以下是本工具的说明，你可以点击相应的跳转链接，寻找你感兴趣或对你而言感觉重要的部分。
 <br />
+<br />
 ShadowSocksRR powere by SSR.Go is a robust proxy which can breakthrough Chinese internet censorship.
 <br />
 You can use it easily to configurate and manage ShadowSocksRR program and keep it running. 
