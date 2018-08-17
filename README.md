@@ -47,7 +47,6 @@ It's so convince that you just input "ssr" to run it everywhere in your linux sy
 
 ## 外部要求（Request）
 1. 一台运行以下任意Linux系统的VPS：
-<br />
 A linux virtual private server which run the following system:
 <ul>
 <li>Debian 7</li> 
