@@ -25,6 +25,10 @@ I'm not only hate GFW, but also fighting with it. No matter from where, human ha
 <pre><code>bash -c "$(curl -fsSL https://git.io/fNpuL)"</code></pre>
 
 ## 使用示例（Sample）
+![1](1.jpg)
+![2](2.jpg)
+![3](1.jpg)
+![4](1.jpg)
 
 ## 系统要求（OSRequest）
 - Debian 7 
