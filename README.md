@@ -46,8 +46,10 @@ It's so convince that you just input "ssr" to run it everywhere in your linux sy
 ![4](4.jpg)
 
 ## 外部要求（Request）
+
 1. 一台运行以下任意Linux系统的VPS：
 A linux virtual private server which run the following system:
+
 <ul>
 <li>Debian 7</li> 
 <li>Debian 8</li>
