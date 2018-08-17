@@ -1,4 +1,3 @@
-<!-- vim-markdown-toc GFM -->
 
 * [简介](#简介)
     * [前言（Preface）](#前言（Preface）)
@@ -6,7 +5,6 @@
     * [使用示例（Sample）](#使用示例（Sample）)
     * [系统要求（OSRequest）](#系统要求（OSRequest）)
 
-<!-- vim-markdown-toc -->
 
 # 简介
 全新面貌的SSR.Go，现已启航！她是一款可突破中国互联网审查的强力代理工具。使用本工具，你可方便地调整、管理 ShadowSocksRR 的配置和运行。以下是本工具的说明，你可以点击相应的跳转链接，寻找你感兴趣或对你而言感觉重要的部分。
