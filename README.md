@@ -46,7 +46,7 @@ It's so convince that you just input "ssr" to run it everywhere in your linux sy
 ![4](4.jpg)
 
 ## 外部要求（Request）
-一台运行以下任意Linux系统的VPS：
+1. 一台运行以下任意Linux系统的VPS：
 <br />
 A linux virtual private server which run the following system:
 - Debian 7 
@@ -54,3 +54,6 @@ A linux virtual private server which run the following system:
 - Ubuntu 14 
 - **Ubuntu 16（推荐 Recommend）** 
 - CentOS 7
+2. ssh连接工具（推荐：<a href="https://www.netsarang.com/products/xsh_overview.html">Xshell</a>或<a href="https://www.chiark.greenend.org.uk/~sgtatham/putty/latest.html">Putty</a>）
+<br />
+A ssh connect tool（Recommend <a href="https://www.netsarang.com/products/xsh_overview.html">Xshell</a> or <a href="https://www.chiark.greenend.org.uk/~sgtatham/putty/latest.html">Putty</a>）
