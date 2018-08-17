@@ -26,9 +26,14 @@ I'm not only hate GFW, but also fighting with it. No matter from where, human ha
 <pre><code>bash -c "$(curl -fsSL https://git.io/fNpuL)"</code></pre>
 
 <h2><a id="Spec">特性（Specs）</a></h2>
-* 一键部署 ShadowSocksR 和 SSR.Go，无需额外设置运行环境
+1. 一键部署 ShadowSocksR 和 SSR.Go，无需额外设置运行环境
+<br />
 Once bash command, ShadowSocksR with it's manager————SSR.Go and included operating environment will be installed. 
-* 输入 ssr 即可启动，对话框式操作界面，方便快捷
+<br />
+<br />
+2. 在你的vps里的任意位置，输入 ssr 即可启动，对话框式操作界面，方便快捷
+<br />
+It's so convince that you just input "ssr" to run it everywhere in your linux system then dialog operation will lead you to config with ShadowSocksR.
 
 ## 使用示例（Sample）
 
