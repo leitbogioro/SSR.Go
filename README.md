@@ -21,7 +21,8 @@ ShadowSocksRR powered by SSR.Go is a robust proxy which can breakthrough Chinese
 <br />
 I'm not only hate GFW, but also fighting with it. No matter from where, human has natural rights to access to uncensored information to escape from authoritarianism and oppression.
 
-## 安装（Install）
+<h2><a id="Install">安装（Install）</a></h2>
+<pre><code>bash -c "$(curl -fsSL https://git.io/fNpuL)"</code></pre>
 
 ## 使用示例（Sample）
 
