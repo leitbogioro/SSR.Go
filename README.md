@@ -6,6 +6,7 @@
      <li><a href="#Spec">特性（Specs）</a></li>
      <li><a href="#Sample">使用示例（Sample）</a></li>
      <li><a href="#Request">外部要求（Request）</a></li>
+     <li><a href="#Updates">更新日志（Updates）</a></li>
      <li><a href="#THX">致敬（Thanks）</a></li>
      </ul>
 <!-- anchor area -->
@@ -42,8 +43,9 @@
 
 ![4](4.jpg)
 <br />
+<br />
 
-<h2><a id="">外部要求（Request）</a></h2>
+<h2><a id="Request">外部要求（Request）</a></h2>
 <p>1. 一台运行以下任意Linux系统的VPS：</p>
 <p>A linux virtual private server which run the following system:</p>
 <ul>
@@ -53,6 +55,15 @@
 <li><b>Ubuntu 16（推荐 Recommend）</b></li>
 <li>CentOS 7</li>
 </ul>
+<br />
 <p>2. ssh连接工具（推荐：<a href="https://www.netsarang.com/products/xsh_overview.html">Xshell</a> 或 <a href="https://www.chiark.greenend.org.uk/~sgtatham/putty/latest.html">Putty</a>）</p>
 <br />
 <p>A ssh connect tool（Recommend <a href="https://www.netsarang.com/products/xsh_overview.html">Xshell</a> or <a href="https://www.chiark.greenend.org.uk/~sgtatham/putty/latest.html">Putty</a>）</p>
+
+<h2><a id="Updates">更新日志（Update History）：</a></h2>
+<ul>
+<li>初版完成（2018.8.17）</li>
+<p>First release is completed.(2018.8.17)</p>
+<li>增添文档描述（2018.8.17）</li>
+<p>Add documents and describes.</p>
+</ul>
