@@ -60,7 +60,7 @@
 <p>A ssh connect tool（Recommend <a href="https://www.netsarang.com/products/xsh_overview.html">Xshell</a> or <a href="https://www.chiark.greenend.org.uk/~sgtatham/putty/latest.html">Putty</a>）</p>
 <br />
 
-<h2><a id="Updates">更新日志（Update History）：</a></h2>
+<h2><a id="Updates">更新日志（Updates）：</a></h2>
 <ul>
 <li>初版完成。（2018.8.17）</li>
 <p>First release is completed.(2018.8.17)</p>
