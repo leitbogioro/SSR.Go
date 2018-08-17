@@ -28,9 +28,9 @@
 <p>Once bash command, ShadowSocksR with it's manager————SSR.Go and included operating environment will be installed. </p>
 <br />
 <p>2. 在你的vps里的任意位置，输入 ssr 即可启动，对话框式操作界面，方便快捷</p>
-<p>It's so convince that you just input "ssr" to run it everywhere in your linux system then dialog operation will lead you to config with ShadowSocksR.</p>
+<p>It's so convince that you just need input "ssr" to run it everywhere in your linux system then dialog operation will lead you to config with ShadowSocksR.</p>
 
-## 使用示例（Sample）
+<h2><a id="Sample">使用示例（Sample）</a></h2>
 
 ![1](1.jpg)
 
@@ -40,7 +40,7 @@
 
 ![4](4.jpg)
 
-## 外部要求（Request）
+<h2><a id="">外部要求（Request）</a></h2>
 <p>1. 一台运行以下任意Linux系统的VPS：</p>
 <p>A linux virtual private server which run the following system:</p>
 <ul>
