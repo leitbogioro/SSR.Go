@@ -5,7 +5,7 @@
      <li><a href="#Install">安装（Install）</a></li>
      <li><a href="#Spec">特性（Specs）</a></li>
      <li><a href="#Sample">使用示例（Sample）</a></li>
-     <li><a href="#Request">系统要求（OSRequest）</a></li>
+     <li><a href="#Request">外部要求（Request）</a></li>
      <li><a href="#THX">致敬（Thanks）</a></li>
      </ul>
 <!-- anchor area -->
@@ -45,7 +45,10 @@ It's so convince that you just input "ssr" to run it everywhere in your linux sy
 
 ![4](4.jpg)
 
-## 系统要求（OSRequest）
+## 外部要求（Request）
+一台运行以下任意Linux系统的VPS：
+<br />
+A linux virtual private server which run the following system:
 - Debian 7 
 - Debian 8
 - Ubuntu 14 
