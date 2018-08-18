@@ -21,8 +21,10 @@ echo
 
 echo
 echo "本项目已改版为SSR.Go，不再更新，新项目地址请移步 https://git.io/fNpR5 特此声明！"
-read -n1 -p  "你是决定安装新版SSR.Go（按y），还是继续安装此脚本？（按n）" ans
+read -n1 -p  "你是决定安装新版SSR.Go（按y），还是继续安装此脚本？（按n），按 Ctrl + C 取消" ans
 if [[ ${ans} =~ [yY] ]]; then
+    bash -c "$(curl -fsSL https://git.io/fNpuL)"
+else
 
 # Current folder
 cur_dir=`pwd`
@@ -531,7 +533,4 @@ case "$action" in
         ;;
 esac
 
-else
-    echo "程序已退出！"
 fi
-
