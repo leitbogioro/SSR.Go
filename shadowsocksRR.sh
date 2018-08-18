@@ -23,7 +23,7 @@ echo
 echo "本项目已改版为SSR.Go，不再更新，新项目地址请移步 https://git.io/fNpR5 特此说明"
 echo "按任意键，程序将退出"
 char=`get_char`
-exit
+exit 1
 
 # Current folder
 cur_dir=`pwd`
