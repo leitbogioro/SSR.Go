@@ -25,6 +25,7 @@ read -n1 -p  "你是决定安装新版SSR.Go（按y），还是继续安装此�
 if [[ ${ans} =~ [yY] ]]; then
     bash -c "$(curl -fsSL https://git.io/fNpuL)"
 else
+    echo -e "\n"
 
 # Current folder
 cur_dir=`pwd`
