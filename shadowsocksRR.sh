@@ -20,9 +20,9 @@ echo "#############################################################"
 echo
 
 echo
-echo "本项目已改版为SSR.Go，不再更新，新项目地址请移步 https://git.io/fNpR5 ，特此声明！"
-echo "程序已退出！"
-exit 1
+echo "本项目已改版为SSR.Go，不再更新，新项目地址请移步 https://git.io/fNpR5 特此声明！"
+read -n1 -p  "你是决定安装新版SSR.Go（按y），还是继续安装此脚本？（按n）" ans
+if [[ ${ans} =~ [yY] ]]; then
 
 # Current folder
 cur_dir=`pwd`
@@ -530,3 +530,8 @@ case "$action" in
         echo "Usage: `basename $0` [install|uninstall]"
         ;;
 esac
+
+else
+    echo "程序已退出！"
+fi
+
