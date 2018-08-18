@@ -4,7 +4,9 @@
 import os
 import readjson
 
-TcpPort = "iptables -I INPUT -m state --state NEW -m tcp -p tcp --dport " + str(readjson.ConfPort) +" -j ACCEPT"
-UdpPort = "iptables -I INPUT -m state --state NEW -m tcp -p tcp --dport " + str(readjson.ConfPort) +" -j ACCEPT"
+CurPort=str(readjson.ConfPort)
+
+TcpPort = "iptables -I INPUT -m state --state NEW -m tcp -p tcp --dport " + CurPort +" -j ACCEPT"
+UdpPort = "iptables -I INPUT -m state --state NEW -m tcp -p tcp --dport " + CurPort +" -j ACCEPT"
 os.system(TcpPort)
 os.system(UdpPort)
