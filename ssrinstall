@@ -50,4 +50,4 @@ chmod +x /usr/local/shadowsocks/
 clear
 
 echo "SSR 安装成功！"
-echo "输入 srr 并回车即可使用"
+echo "输入 ssr 并回车即可使用"
