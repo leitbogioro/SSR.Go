@@ -53,7 +53,7 @@ if [[ ${choice} == 1 ]]; then
     done
 	# 启动ssr
     if [[ ${schoice} == 1 ]]; then
-        python /usr/local/SSR.Go/addport.py
+        python /usr/local/SSR.Go/addportrules.py
         /etc/init.d/shadowsocks start
         # 这里需要添加生成二维码模块
         echo "ssrr服务启动成功！"
@@ -65,7 +65,7 @@ if [[ ${choice} == 1 ]]; then
         bash /usr/local/bin/ssr
     fi
     if [[ ${schoice} == 3 ]]; then
-        python /usr/local/SSR.Go/addport.py
+        python /usr/local/SSR.Go/addportrules.py
         /etc/init.d/shadowsocks restart
         # 这里需要添加生成二维码模块
         echo "ssrr服务已重启！"
@@ -119,7 +119,7 @@ if [[ ${choice} == 2 ]]; then
     if [[ ${changechoice} == 2 ]]; then
         python /usr/local/SSR.Go/changeport.py
         # 这里需要添加生成二维码模块
-	python /usr/local/SSR.Go/addport.py
+	python /usr/local/SSR.Go/addportrules.py
 	/etc/init.d/shadowsocks restart
         echo ""
         echo "端口配置已完成！"
