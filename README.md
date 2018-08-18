@@ -69,6 +69,12 @@
 
 <h2><a id="Updates">更新日志（Updates）：</a></h2>
 <ul>
+<li>修改增添端口策略，如果 iptables 里已经有了 SSR 运行的端口，则不重复添加，以致引发大量冗余规则。（2018.8.19）</li>
+<p>Change add ports tactics, if there are same ports which SSR running need in iptables it won't add rules indeed to avoid mass redundancy.(2018.8.19)</p>
+<li>新增将 SSR 运行端口添加到系统防火墙功能。（2018.8.19）</li>
+<p>Expand a new function for add iptables port rules about port of SSR used.(2018.8.19)</p>
+<li>修改安装后提示“输入 srr 并回车使用即可使用”的错误描述（2018.8.18）</li>
+<p>Change wrong prompt after installed(2018.8.18)</p>
 <li>初版完成。（2018.8.17）</li>
 <p>First release is completed.(2018.8.17)</p>
 <li>增添文档描述。（2018.8.17）</li>
