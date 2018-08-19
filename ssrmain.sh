@@ -11,6 +11,9 @@ export PATH
 
 clear
 
+libsodium_file="libsodium-1.0.16"
+libsodium_url="https://github.com/jedisct1/libsodium/releases/download/1.0.16/libsodium-1.0.16.tar.gz"
+
 # Current folder
 cur_dir=`pwd`
 
@@ -140,7 +143,7 @@ pre_install(){
     dport=$(shuf -i 10000-59999 -n 1) # 从 100000 到 59999 之间随机选取
     shadowsocksport=$dport
     
-#     get_char
+    # get_char
     # 安装必要运行环境
     if check_sys packageManager yum; then
         yum install -y python python-devel python-setuptools openssl openssl-devel curl wget unzip gcc automake autoconf make libtool
@@ -153,8 +156,8 @@ pre_install(){
 # 下载必要运行组件
 download_files(){
     # 下载 libsodium 依赖
-    if ! wget --no-check-certificate -O libsodium-1.0.16.tar.gz https://github.com/jedisct1/libsodium/releases/download/1.0.16/libsodium-1.0.16.tar.gz; then
-        echo -e "[${red}Error${plain}] Failed to download libsodium-1.0.16.tar.gz!"
+    if ! wget --no-check-certificate -O ${libsodium_file}.tar.gz ${libsodium_url}; then
+        echo -e "[${red}Error${plain}] Failed to download ${libsodium_file}.tar.gz!"
         exit 1
     fi
     # 下载 ShadowsocksRR 主程序
@@ -236,8 +239,8 @@ install(){
     # 安装 libsodium
     if [ ! -f /usr/lib/libsodium.a ]; then
         cd ${cur_dir}
-        tar zxf libsodium-1.0.16.tar.gz
-        cd libsodium-1.0.16
+        tar zxf ${libsodium_file}.tar.gz
+        cd ${libsodium_file}
         ./configure --prefix=/usr && make && make install
         if [ $? -ne 0 ]; then
             echo -e "[${red}Error${plain}] libsodium install failed!"
