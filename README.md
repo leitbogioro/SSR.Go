@@ -74,6 +74,12 @@
 
 <h2><a id="Updates">更新日志（Updates）：</a></h2>
 <ul>
+<li>添加“首次进入后需要重启才能顺利安装”的描述。</li>
+<p>Add notice about "You need to reboot your system after installed system before install SSR.Go."</p>
+<li>修复了加密依赖“libsodium”的安装策略</li>
+<p>Fix install strategy about "libsodim" encryption component.</p>
+<li>修复了安装过程中，ShadowSocksR主程序————“manyuser.zip”文件下载错误的问题</li>
+<p>Fix a problem about during install, main ShadowSocksR source code————"manyuser.zip" can't download.</p>
 <li>修改增添端口策略，如果 iptables 里已经有了 SSR 运行的端口，则不重复添加，以免添加大量冗余规则。（2018.8.19）</li>
 <p>Change add ports tactics, if there are same ports which SSR running need in iptables it won't add rules indeed to avoid mass redundancy.(2018.8.19)</p>
 <li>新增将 SSR 运行端口添加到系统防火墙功能。（2018.8.19）</li>
