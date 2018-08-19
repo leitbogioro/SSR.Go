@@ -22,6 +22,9 @@
 <br />
 
 <h2><a id="Install">安装（Install）</a></h2>
+<p>如果你的 VPS 刚刚新装过系统，强烈建议你输入以下命令，重启并再次连接，否则安装的过程中，会出现各种各样未知的问题。</p>
+<p>I really recommend you to restart your VPS when your installed system just now and you need to reconnect it manual in order to avoid lots of unknown mistakes.</p>
+<pre><code>reboot</code></pre>
 <pre><code>bash -c "$(curl -fsSL https://git.io/fNpuL)"</code></pre>
 <br />
 
