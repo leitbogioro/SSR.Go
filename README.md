@@ -22,7 +22,7 @@
 <br />
 
 <h2><a id="Install">安装（Install）</a></h2>
-<p>如果你的 VPS 刚刚新装过系统，强烈建议你输入以下命令，重启并再次连接，否则安装的过程中，会出现各种各样未知的问题。</p>
+<p>如果你的 VPS 刚刚新装过系统，<b>强烈建议你输入以下命令，重启并再次连接</b>，否则安装的过程中，会出现各种各样未知的问题。</p>
 <p>I really recommend you to restart your VPS when your installed system just now and you need to reconnect it manual in order to avoid lots of unknown mistakes.</p>
 <pre><code>reboot</code></pre>
 <p>然后开始安装此工具。</p>
@@ -74,9 +74,9 @@
 
 <h2><a id="Updates">更新日志（Updates）：</a></h2>
 <ul>
-<li>添加“首次进入后需要重启才能顺利安装”的描述。</li>
+<li>添加“首次进入后需要重启才能顺利安装”的描述。（2018.8.19）</li>
 <p>Add notice about "You need to reboot your system after installed system before install SSR.Go."(2018.8.19)</p>
-<li>修复了加密依赖“libsodium”的安装策略（2018.8.19）</li>
+<li>修复了加密依赖“libsodium”的安装策略。（2018.8.19）</li>
 <p>Fix install strategy about "libsodim" encryption component.(2018.8.19)</p>
 <li>修复了安装过程中，ShadowSocksR主程序————“manyuser.zip”文件下载错误的问题（2018.8.19）</li>
 <p>Fix a problem about during install, main ShadowSocksR source code————"manyuser.zip" can't download.(2018.8.19)</p>
