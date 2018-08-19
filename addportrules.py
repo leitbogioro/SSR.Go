@@ -17,7 +17,7 @@ def JudgeAddPort():
     runShell=subprocess.Popen(SetRules, shell=True, stdout=subprocess.PIPE)
     # 输出包含 SSR 端口的防火墙规则
     shellOutput=runShell.communicate()[0]
-    if int(shellOutput.find(CurPort)) == 0:
+    if int(shellOutput.find(CurPort)) == -1:
         os.system(TcpPort)
         os.system(UdpPort)
 
