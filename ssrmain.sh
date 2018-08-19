@@ -110,16 +110,6 @@ get_ip(){
     [ ! -z ${IP} ] && echo ${IP} || echo
 }
 
-# get_char(){
-#     SAVEDSTTY=`stty -g`
-#     stty -echo
-#     stty cbreak
-#     dd if=/dev/tty bs=1 count=1 2> /dev/null
-#     stty -raw
-#     stty echo
-#     stty $SAVEDSTTY
-# }
-
 # 预安装检测
 pre_install(){
     if check_sys packageManager yum || check_sys packageManager apt; then
@@ -141,7 +131,6 @@ pre_install(){
     dport=$(shuf -i 10000-59999 -n 1) # 从 100000 到 59999 之间随机选取
     shadowsocksport=$dport
     
-    # get_char
     # 安装必要运行环境
     if check_sys packageManager yum; then
         yum install -y python python-devel python-setuptools openssl openssl-devel curl wget unzip gcc automake autoconf make libtool
@@ -267,7 +256,7 @@ install(){
         echo -e "ssr主程序已安装完成！"
         echo
     else
-        echo "ShadowsocksRR install failed, please send private messages to <https://goo.gl/SjXFKi> and contact me"
+        echo "ShadowsocksRR 安装失败，若要获得帮助，请通过以下链接联系我 <https://goo.gl/SjXFKi>"
         install_cleanup
         exit 1
     fi
@@ -276,13 +265,13 @@ install(){
 # 安装完成后清理
 install_cleanup(){
     cd ${cur_dir}
-    rm -rf manyuser.zip shadowsocksr-manyuser libsodium-1.0.16.tar.gz libsodium-1.0.16
+    rm -rf manyuser.zip shadowsocksr-manyuser ${libsodium_file}.tar.gz ${libsodium_file}
 }
 
 
 # 卸载 ShadowsocksRR
 uninstall_shadowsocksr(){
-    printf "Are you sure uninstall ShadowsocksRR? (y/n)"
+    printf "你想卸载 ShadowsocksRR 吗? (y/n)"
     printf "\n"
     read -p "(Default: n):" answer
     [ -z ${answer} ] && answer="n"
@@ -300,10 +289,10 @@ uninstall_shadowsocksr(){
         rm -f /etc/init.d/shadowsocks
         rm -f /var/log/shadowsocks.log
         rm -rf /usr/local/shadowsocks
-        echo "ShadowsocksRR uninstall success!"
+        echo "ShadowsocksRR 卸载成功!"
     else
         echo
-        echo "uninstall cancelled, nothing to do..."
+        echo "卸载已取消, 未执行任何操作..."
         echo
     fi
 }
