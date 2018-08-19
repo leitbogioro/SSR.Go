@@ -152,13 +152,13 @@ pre_install(){
 }
 # 下载必要运行组件
 download_files(){
-    # 下载 libsodium
+    # 下载 libsodium 依赖
     if ! wget --no-check-certificate -O libsodium-1.0.16.tar.gz https://github.com/jedisct1/libsodium/releases/download/1.0.16/libsodium-1.0.16.tar.gz; then
         echo -e "[${red}Error${plain}] Failed to download libsodium-1.0.16.tar.gz!"
         exit 1
     fi
-    # 下载 ShadowsocksRR
-    if ! wget --no-check-certificate -O manyuser.zip https://github.com/leitbogioro/SSR.Go/releases/download/archive/manyuser.zip; then
+    # 下载 ShadowsocksRR 主程序
+    if ! wget --no-check-certificate -O manyuser.zip https://github.com/leitbogioro/SSRGo/raw/master/manyuser.zip; then
         echo -e "[${red}Error${plain}] Failed to download ShadowsocksRR file!"
         exit 1
     fi
