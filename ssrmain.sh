@@ -248,7 +248,6 @@ install(){
             exit 1
         fi
     fi
-
     ldconfig
     # 安装 ShadowsocksRR
     cd ${cur_dir}
