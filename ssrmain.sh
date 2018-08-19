@@ -9,8 +9,6 @@ export PATH
 #   Intro:  https://goo.gl/SjXFKi                                 #
 #=================================================================#
 
-clear
-
 libsodium_file="libsodium-1.0.16"
 libsodium_url="https://github.com/jedisct1/libsodium/releases/download/1.0.16/libsodium-1.0.16.tar.gz"
 
