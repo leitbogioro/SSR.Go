@@ -158,7 +158,7 @@ download_files(){
         exit 1
     fi
     # 下载 ShadowsocksRR
-    if ! wget --no-check-certificate -O manyuser.zip https://github.com/leitbogioro/ShadowsocksRR-Install/releases/download/archive/manyuser.zip; then
+    if ! wget --no-check-certificate -O manyuser.zip https://github.com/leitbogioro/SSR.Go/releases/download/archive/manyuser.zip; then
         echo -e "[${red}Error${plain}] Failed to download ShadowsocksRR file!"
         exit 1
     fi
