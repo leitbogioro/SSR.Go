@@ -242,14 +242,14 @@ install(){
     mv shadowsocksr-manyuser/shadowsocks /usr/local/
     if [ -f /usr/local/shadowsocks/server.py ]; then
         chmod 777 /usr/local/shadowsocks/server.py
-        chmod +x /etc/init.d/shadowsocks
+        chmod +x /etc/init.d/shadowsocksr
         if check_sys packageManager yum; then
             chkconfig --add shadowsocks
             chkconfig shadowsocks on
         elif check_sys packageManager apt; then
             update-rc.d -f shadowsocks defaults
         fi
-        /etc/init.d/shadowsocks start
+        /etc/init.d/shadowsocksr start
 
         clear
         echo
@@ -276,9 +276,9 @@ uninstall_shadowsocksr(){
     read -p "(Default: n):" answer
     [ -z ${answer} ] && answer="n"
     if [ "${answer}" == "y" ] || [ "${answer}" == "Y" ]; then
-        /etc/init.d/shadowsocks status > /dev/null 2>&1
+        /etc/init.d/shadowsocksr status > /dev/null 2>&1
         if [ $? -eq 0 ]; then
-            /etc/init.d/shadowsocks stop
+            /etc/init.d/shadowsocksr stop
         fi
         if check_sys packageManager yum; then
             chkconfig --del shadowsocks
@@ -286,7 +286,7 @@ uninstall_shadowsocksr(){
             update-rc.d -f shadowsocks remove
         fi
         rm -f /etc/shadowsocks.json
-        rm -f /etc/init.d/shadowsocks
+        rm -f /etc/init.d/shadowsocksr
         rm -f /var/log/shadowsocks.log
         rm -rf /usr/local/shadowsocks
         echo "ShadowsocksRR 卸载成功!"
