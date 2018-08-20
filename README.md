@@ -37,7 +37,7 @@
 <p>2. 在你的vps里的任意位置，输入 ssr 即可启动，对话框式操作界面，方便快捷</p>
 <p>It's so convince that you just need input "ssr" to run it everywhere in your linux system then dialog operation will lead you to config with ShadowSocksR.</p>
 <br />
-<p>3. <b>默认采用最新版实验型协议————akarrin 系列</b>，抗封锁能力较强，<b>目前只有 Windows 客户端支持，手机/路由器均不能用，强烈建议使用</b>，下载链接<a href="https://github.com/leitbogioro/ShadowsocksRR-Install/files/2127044/ShadowsocksR-win-4.9.0.zip-dev.zip">ShadowsocksR-win-4.9.0.zip-dev</a></p>
+<p>3. <b>默认采用最新版实验型协议————akarrin 系列</b>，抗封锁能力较强，<b>目前只有 Windows 客户端支持，手机/路由器均不能用，但仍然强烈建议使用</b>，下载链接：<a href="https://github.com/leitbogioro/ShadowsocksRR-Install/files/2127044/ShadowsocksR-win-4.9.0.zip-dev.zip">ShadowsocksR-win-4.9.0.zip-dev</a>。</p>
 <p>Use akarrin series protocol as ShadowSocksR's config, <b>I recommend this protocol because it has strong anti-blocking ability but it can only supported on Windows and doesn't work on smartphone or wireless-router.</b></p>
 <br />
 
