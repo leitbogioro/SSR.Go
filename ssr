@@ -54,25 +54,25 @@ if [[ ${choice} == 1 ]]; then
 	# 启动ssr
     if [[ ${schoice} == 1 ]]; then
         python /usr/local/SSR.Go/addportrules.py
-        /etc/init.d/shadowsocks start
+        /etc/init.d/shadowsocksr start
         # 这里需要添加生成二维码模块
         echo "ssrr服务启动成功！"
         bash /usr/local/bin/ssr
     fi
     if [[ ${schoice} == 2 ]]; then
-        /etc/init.d/shadowsocks stop
+        /etc/init.d/shadowsocksr stop
         echo "ssrr服务停止成功！"
         bash /usr/local/bin/ssr
     fi
     if [[ ${schoice} == 3 ]]; then
         python /usr/local/SSR.Go/addportrules.py
-        /etc/init.d/shadowsocks restart
+        /etc/init.d/shadowsocksr restart
         # 这里需要添加生成二维码模块
         echo "ssrr服务已重启！"
         bash /usr/local/bin/ssr
     fi
     if [[ ${schoice} == 4 ]]; then
-        /etc/init.d/shadowsocks status
+        /etc/init.d/shadowsocksr status
         bash /usr/local/bin/ssr
     fi
     if [[ ${schoice} == 5 ]]; then
@@ -110,7 +110,7 @@ if [[ ${choice} == 2 ]]; then
     if [[ ${changechoice} == 1 ]]; then
         python /usr/local/SSR.Go/changepwd.py
         # 这里需要添加生成二维码模块
-	/etc/init.d/shadowsocks restart
+	/etc/init.d/shadowsocksr restart
         echo ""
         echo "密码配置已完成！"
         bash /usr/local/bin/ssr
@@ -120,7 +120,7 @@ if [[ ${choice} == 2 ]]; then
         python /usr/local/SSR.Go/changeport.py
         # 这里需要添加生成二维码模块
 	python /usr/local/SSR.Go/addportrules.py
-	/etc/init.d/shadowsocks restart
+	/etc/init.d/shadowsocksr restart
         echo ""
         echo "端口配置已完成！"
         bash /usr/local/bin/ssr
@@ -129,7 +129,7 @@ if [[ ${choice} == 2 ]]; then
     if [[ ${changechoice} == 3 ]]; then
         python /usr/local/SSR.Go/changemethod.py
         # 这里需要添加生成二维码模块
-	/etc/init.d/shadowsocks restart
+	/etc/init.d/shadowsocksr restart
         echo ""
         echo "加密方式配置已完成！"
         bash /usr/local/bin/ssr
@@ -138,7 +138,7 @@ if [[ ${choice} == 2 ]]; then
     if [[ ${changechoice} == 4 ]]; then
         python /usr/local/SSR.Go/changeprotocol.py
         # 这里需要添加生成二维码模块
-	/etc/init.d/shadowsocks restart
+	/etc/init.d/shadowsocksr restart
         echo ""
         echo "传输协议配置已完成！"
         bash /usr/local/bin/ssr
@@ -147,7 +147,7 @@ if [[ ${choice} == 2 ]]; then
     if [[ ${changechoice} == 5 ]]; then
         python /usr/local/SSR.Go/changeobfs.py
         # 这里需要添加生成二维码模块
-	/etc/init.d/shadowsocks restart
+	/etc/init.d/shadowsocksr restart
         echo ""
         echo "混淆模式配置已完成！"
         bash /usr/local/bin/ssr
