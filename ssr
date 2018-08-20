@@ -78,7 +78,7 @@ if [[ ${choice} == 1 ]]; then
     if [[ ${schoice} == 5 ]]; then
         echo "按Ctrl + C 以退出日志功能"
         echo ""
-        tail -f /var/log/shadowsocksr.log
+        tail -f /var/log/shadowsocks.log
         bash /usr/local/bin/ssr
     fi
 fi
