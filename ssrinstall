@@ -43,9 +43,9 @@ bash <(curl -L -s https://git.io/fNpEa)
 #配置ssr初始环境
 ln -sf /usr/local/SSR.Go/ssr /usr/local/bin
 chmod +x /usr/local/bin/ssr
-chmod +x /etc/init.d/shadowsocks
+chmod +x /etc/init.d/shadowsocksr
 chmod +x /usr/local/shadowsocks/
-/etc/init.d/shadowsocks start
+/etc/init.d/shadowsocksr start
 
 clear
 
