@@ -154,12 +154,12 @@ download_files(){
     fi
     # 下载 ShadowsocksRR 运行脚本
     if check_sys packageManager yum; then
-        if ! wget --no-check-certificate https://raw.githubusercontent.com/leitbogioro/shadowsocks_install/master/shadowsocksR -O /etc/init.d/shadowsocksr; then
+        if ! wget --no-check-certificate https://github.com/leitbogioro/SSR.Go/raw/master/shadowsocksR-redhat -O /etc/init.d/shadowsocksr; then
             echo -e "[${red}Error${plain}] Failed to download ShadowsocksRR chkconfig file!"
             exit 1
         fi
     elif check_sys packageManager apt; then
-        if ! wget --no-check-certificate https://raw.githubusercontent.com/leitbogioro/shadowsocks_install/master/shadowsocksR-debian -O /etc/init.d/shadowsocksr; then
+        if ! wget --no-check-certificate https://github.com/leitbogioro/SSR.Go/raw/master/shadowsocksR-debian -O /etc/init.d/shadowsocksr; then
             echo -e "[${red}Error${plain}] Failed to download ShadowsocksRR chkconfig file!"
             exit 1
         fi
