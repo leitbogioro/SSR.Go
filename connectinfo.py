@@ -25,12 +25,12 @@ SecondPart = "/?obfsparam="
 
 # 输出客户端连接配置信息
 
-print("服务器IP：%s") % IP
-print("端口：%s") % Port
-print("密码：%s") % Pwd
-print("加密方式: %s") % Method
-print("传输协议：%s") % Protocol
-print("混淆模式：%s") % Obfs
+print("Server IP: %s") % IP
+print("Port: %s") % Port
+print("Password: %s") % Pwd
+print("Encryption method: %s") % Method
+print("Transmission protocol: %s") % Protocol
+print("Obfs model: %s") % Obfs
 
 # 获取 ssr 链接
 
@@ -49,8 +49,8 @@ def GreenText(string):
     print("\033[0m")
 
 print("\n")
-print("==================== SSR 配置链接 ====================")
-print("    你可以复制以下链接分享给你的设备和朋友们使用了！  ")
+print("======================================== SSR Configuration url ========================================")
+print("    Now you can copy the following url to share to your devices and friends to access a wide world!    ")
 GreenText(GetSsrUrl())
 
 
