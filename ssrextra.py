@@ -47,9 +47,9 @@ def Whether(ask, c1, c2, config, describe ,item, cancel):
     pick = raw_input()
     if pick == c1 or pick == '':
         config(item)
-	print("新的"+ describe + "为：%s") % item
+	print("New"+ describe + "is %s") % item
     elif pick == c2:
-        print("已取消" + cancel + ",未执行任何操作")
+        print("Cancelled" + cancel + ", any operation hadn't changed.")
     else:
-        print("输入不正确，请输入 " + c1 + " 或 " + c2)
+        print("Input error, please input " + c1 + " or " + c2)
 
