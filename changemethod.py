@@ -6,8 +6,8 @@ import ssrextra
 from ssrextra import is_number
 from ssrextra import Whether
 
-print ("当前加密方式为：%s") % str(readjson.ConfMethod)
-print ("请选择新的加密方式：")
+print ("Current encryption method is: %s") % str(readjson.ConfMethod)
+print ("Please choose a new method: ")
 print ("1.none")
 print ("2.aes-256-cfb")
 print ("3.aes-256-cfb8")
@@ -28,43 +28,43 @@ print ("17.table")
 newmethod = raw_input()
 
 if ( not is_number(newmethod) ):
-    print ("输入错误，请检查你输入的内容！")
+    print ("Input error, please try it again! ")
     exit
 else:
     if (newmethod=="1"):
 	writejson.WriteMethod("none")
-	Whether("该模式适合搭配 auth_chain 和 auth_akarin 系列协议使用，是否要选择？(y/n)", "y", "n", writejson.WriteMethod, "加密方式", "none", "加密方式选择")
+	Whether("This model is suitable with auth_chain / auth_akarin, 	surely it? (y/n)", "y", "n", writejson.WriteMethod, "encryption method", "none", "choose encryption method")
     elif (newmethod=="2"):
-	Whether("该模式可能影响低功耗设备（手机、路由器）的性能，是否选择？(y/n)", "y", "n", writejson.WriteMethod, "加密方式", "aes-256-cfb", "加密方式选择")
+	Whether("This model may cause bad performance of low-power device(smartphone, wireless-router etc)，surely it? (y/n)", "y", "n", writejson.WriteMethod, "encryption method", "aes-256-cfb", "choose encryption method")
     elif (newmethod=="3"):
-        Whether("该模式可能影响低功耗设备（手机、路由器）的性能，是否选择？(y/n)", "y", "n", writejson.WriteMethod, "加密方式", "aes-256-cfb8", "加密方式选择")
+        Whether("This model may cause bad performance of low-power device(smartphone, wireless-router etc)，surely it? (y/n)", "y", "n", writejson.WriteMethod, "encryption method", "aes-256-cfb8", "choose encryption method")
     elif (newmethod=="4"):
-        Whether("该模式可能影响低功耗设备（手机、路由器）的性能，是否选择？(y/n)", "y", "n", writejson.WriteMethod, "加密方式", "aes-256-ctr", "加密方式选择")
+        Whether("This model may cause bad performance of low-power device(smartphone, wireless-router etc)，surely it? (y/n)", "y", "n", writejson.WriteMethod, "encryption method", "aes-256-ctr", "choose encryption method")
     elif (newmethod=="5"):
         writejson.WriteMethod("bf-cfb")
     elif (newmethod=="6"):
-	Whether("该模式可能不支持移动设备，是否选择？(y/n)", "y", "n", writejson.WriteMethod, "加密方式", "camellia-256-cfb", "加密方式选择")
+	Whether("This model may not support low-power device(smartphone, wireless-router etc), surely it? (y/n)", "y", "n", writejson.WriteMethod, "encryption method", "camellia-256-cfb", "choose encryption method")
     elif (newmethod=="7"):
-	Whether("该模式可能不支持移动设备，是否选择？(y/n)", "y", "n", writejson.WriteMethod, "加密方式", "cast5-cfb", "加密方式选择")
+	Whether("This model may not support low-power device(smartphone, wireless-router etc), surely it? (y/n)", "y", "n", writejson.WriteMethod, "encryption method", "cast5-cfb", "choose encryption method")
     elif (newmethod=="8"):
         writejson.WriteMethod("chacha20-ietf")
     elif (newmethod=="9"):
         writejson.WriteMethod("chacha20")
     elif (newmethod=="10"):
-	Whether("该模式可能不支持移动设备，是否选择？(y/n)", "y", "n", writejson.WriteMethod, "加密方式", "xchacha20", "加密方式选择")
+	Whether("This model may not support low-power device(smartphone, wireless-router etc), surely it? ", "y", "n", writejson.WriteMethod, "encryption method", "xchacha20", "choose encryption method")
     elif (newmethod=="11"):
         writejson.WriteMethod("salsa20")
     elif (newmethod=="12"):
-	Whether("该模式可能不支持移动设备，是否选择？(y/n)", "y", "n", writejson.WriteMethod, "加密方式", "xsalsa20", "加密方式选择")
+	Whether("This model may not support low-power device(smartphone, wireless-router etc), surely it? ", "y", "n", writejson.WriteMethod, "encryption method", "xsalsa20", "choose encryption method")
     elif (newmethod=="13"):
         writejson.WriteMethod("idea-cfb")
     elif (newmethod=="14"):
         writejson.WriteMethod("seed-cfb")
     elif (newmethod=="15"):
-	Whether("该加密方式强度不够，容易被破解，是否要选择？(y/n)", "y", "n", writejson.WriteMethod, "加密方式", "rc4-md5", "加密方式选择")
+	Whether("This model's is so weak that may be cracked easily, surely it? (y/n)", "y", "n", writejson.WriteMethod, "encryption method", "rc4-md5", "choose encryption method")
     elif (newmethod=="16"):
         writejson.WriteMethod("rc4-md5-6")
     elif (newmethod=="17"):
         writejson.WriteMethod("table")
     else:
-	print("请按 1 到 17 之间的数字！")
+	print("Please input number on keyboard from 1 to 17! ")
