@@ -10,7 +10,7 @@ echo "Welcome to the SSR.Go management assistant"
 echo ""
 echo "1.Service management"
 echo "2.Change configuration"
-echo "3.View client configuration information"
+echo "3.View client config information"
 echo "4.Update ShadowSocksR and SSR.Go"
 echo "Input number to pick a function.(Press enter to exit): "
 
@@ -91,7 +91,7 @@ if [[ ${choice} == 2 ]]; then
     echo "3.Change encryption method"
     echo "4.Change protocol"
     echo "5.Change obfs(Confuse)"
-    echo "Please choose a function that you need:"
+    echo "Pick a function that you need:"
 
     while :; do echo
 	    read -n1 -p "Choose: " changechoice
@@ -149,7 +149,7 @@ if [[ ${choice} == 2 ]]; then
         # 这里需要添加生成二维码模块
 	/etc/init.d/shadowsocks restart
         echo ""
-        echo "Confuse model configuration is completed!"
+        echo "Obfs model configuration is completed!"
         bash /usr/local/bin/ssr
     fi
 fi
