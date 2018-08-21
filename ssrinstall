@@ -2,7 +2,7 @@
 export PATH=/usr/local/sbin:/usr/local/bin:/sbin:/bin:/usr/sbin:/usr/bin
 
 #检查是否为Root
-[ $(id -u) != "0" ] && { echo "Error: You must be root to run this script"; exit 1; }
+[ $(id -u) != "0" ] && { echo "发生错误，你必须以 root 用户执行此安装程序"; exit 1; }
 
 #检查系统信息
 if [ -f /etc/redhat-release ];then
@@ -12,7 +12,7 @@ if [ -f /etc/redhat-release ];then
     elif [ ! -z "`cat /etc/issue | grep Ubuntu`" ];then
         OS='Ubuntu'
     else
-        echo "Not support OS, Please reinstall OS and retry!"
+        echo "你的操作系统不受支持，请选择在 Ubuntu/Debian/CentOS 操作系统上安装！"
         exit 1
 fi
 
@@ -49,5 +49,5 @@ chmod +x /usr/local/shadowsocks/
 
 clear
 
-echo "SSR 安装成功！"
+echo "SSR.Go 和 ShadowSocksR 安装成功！"
 echo "输入 ssr 并回车即可使用"
