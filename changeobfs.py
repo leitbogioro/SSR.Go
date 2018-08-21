@@ -22,7 +22,7 @@ print ("10.random_head")
 newobfs = raw_input()
 
 if ( not is_number(newobfs) ):
-    print ("Input error, please try it again!")
+    print ("Incorrect input, try it again!")
     exit
 else:
     if (newobfs=="1"):
@@ -47,4 +47,4 @@ else:
     elif (newobfs=="10"):
         Whether("This model will send random data package but features of the end random package will be obvious affected by GFW and then translate data, surely it? (y/n)", "y", "n", writejson.WriteObfs, "obfs", "random_head", "choose obfs")
     else:
-	print("Please input number on keyboard from 1 to 10! ")
+	print("Please input number from 1 to 10! ")
