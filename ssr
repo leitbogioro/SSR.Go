@@ -6,21 +6,21 @@ export PATH=/usr/local/sbin:/usr/local/bin:/sbin:/bin:/usr/sbin:/usr/bin
 
 echo ""
 
-echo "欢迎使用 ssr.go 管理助手"
+echo "Welcome to the SSR.Go management assistant"
 echo ""
-echo "1.服务管理"
-echo "2.更改配置"
-echo "3.查看服务端信息"
-echo "4.更新ssr和ssr.go"
-echo "请输入数字选择功能(按回车键退出)："
+echo "1.Service management"
+echo "2.Change configuration"
+echo "3.View client configuration information"
+echo "4.Update ShadowSocksR and SSR.Go"
+echo "Please input a number on keyboard to choose the function that you need.(press enter key to exit): "
 
 while :; do echo
-	read -n1 -p "请选择： " choice
+	read -n1 -p "Choose: " choice
 	if [[ ! $choice =~ ^[1-4]$ ]]; then
         if [[ -z ${choice} ]];then
             exit 0
         fi
-		echo "输入错误! 请输入正确的数字!"
+		echo "Input error, please input a correct number!"
 	else
         echo -e "\n"
 		break	
@@ -33,19 +33,19 @@ if [[ ${choice} == 4 ]]; then
 fi
 
 if [[ ${choice} == 1 ]]; then
-    echo "1.启动服务"
-    echo "2.停止服务"
-    echo "3.重启服务"
-    echo "4.运行状态"
-    echo "5.运行日志"
+    echo "1.Start service"
+    echo "2.Stop service"
+    echo "3.Restart service"
+    echo "4.Operating status"
+    echo "5.Operation log"
     while :; do echo
-	    read -n1 -p "请选择： " schoice
+	    read -n1 -p "Choose: " schoice
 	    if [[ ! $schoice =~ ^[1-5]$ ]]; then
             if [[ -z ${schoice} ]];then
                 bash /usr/local/bin/ssr
                 exit 0
             fi
-		    echo "输入错误! 请输入正确的数字!"
+		    echo "Input error, please input a correct number!"
 	    else
             echo -e "\n"
 		    break
@@ -56,19 +56,19 @@ if [[ ${choice} == 1 ]]; then
         python /usr/local/SSR.Go/addportrules.py
         /etc/init.d/shadowsocks start
         # 这里需要添加生成二维码模块
-        echo "ssrr服务启动成功！"
+        echo "ShadowSocksR service has been started!"
         bash /usr/local/bin/ssr
     fi
     if [[ ${schoice} == 2 ]]; then
         /etc/init.d/shadowsocks stop
-        echo "ssrr服务停止成功！"
+        echo "ShadowSocksR service has been stopped!"
         bash /usr/local/bin/ssr
     fi
     if [[ ${schoice} == 3 ]]; then
         python /usr/local/SSR.Go/addportrules.py
         /etc/init.d/shadowsocks restart
         # 这里需要添加生成二维码模块
-        echo "ssrr服务已重启！"
+        echo "ShadowSocksR service has been restarted!"
         bash /usr/local/bin/ssr
     fi
     if [[ ${schoice} == 4 ]]; then
@@ -76,7 +76,7 @@ if [[ ${choice} == 1 ]]; then
         bash /usr/local/bin/ssr
     fi
     if [[ ${schoice} == 5 ]]; then
-        echo "按Ctrl + C 以退出日志功能"
+        echo "Press Ctrl + C on keyboard to cancel view log."
         echo ""
         tail -f /var/log/shadowsocksr.log
         bash /usr/local/bin/ssr
@@ -86,21 +86,21 @@ fi
 # 更改配置模块
 if [[ ${choice} == 2 ]]; then
     echo ""
-    echo "1.更改密码"
-    echo "2.更改端口"
-    echo "3.更改加密方式"
-    echo "4.更改协议"
-    echo "5.更改混淆模式"
-    echo "请输入数字选择功能："
+    echo "1.Change password"
+    echo "2.Change port"
+    echo "3.Change encryption method"
+    echo "4.Change protocol"
+    echo "5.Change obfs(Confuse)"
+    echo "Please choose a function that you need:"
 
     while :; do echo
-	    read -n1 -p "请选择： " changechoice
+	    read -n1 -p "Choose: " changechoice
 	    if [[ ! $changechoice =~ ^[1-5]$ ]]; then
             if [[ -z ${changechoice} ]];then
                 bash /usr/local/bin/ssr
                 exit 0
             fi
-		    echo "输入错误! 请输入正确的数字!"
+		    echo "Input error, please input a correct number!"
 	    else
             echo -e "\n"
 		    break
@@ -112,7 +112,7 @@ if [[ ${choice} == 2 ]]; then
         # 这里需要添加生成二维码模块
 	/etc/init.d/shadowsocks restart
         echo ""
-        echo "密码配置已完成！"
+        echo "Password configuration is completed!"
         bash /usr/local/bin/ssr
     fi
     
@@ -122,7 +122,7 @@ if [[ ${choice} == 2 ]]; then
 	python /usr/local/SSR.Go/addportrules.py
 	/etc/init.d/shadowsocks restart
         echo ""
-        echo "端口配置已完成！"
+        echo "Port configuration is completed!"
         bash /usr/local/bin/ssr
     fi
     
@@ -131,7 +131,7 @@ if [[ ${choice} == 2 ]]; then
         # 这里需要添加生成二维码模块
 	/etc/init.d/shadowsocks restart
         echo ""
-        echo "加密方式配置已完成！"
+        echo "Encrypt method configuration is completed!"
         bash /usr/local/bin/ssr
     fi
     
@@ -140,7 +140,7 @@ if [[ ${choice} == 2 ]]; then
         # 这里需要添加生成二维码模块
 	/etc/init.d/shadowsocks restart
         echo ""
-        echo "传输协议配置已完成！"
+        echo "Transmission protocol configuration is completed!"
         bash /usr/local/bin/ssr
     fi
     
@@ -149,7 +149,7 @@ if [[ ${choice} == 2 ]]; then
         # 这里需要添加生成二维码模块
 	/etc/init.d/shadowsocks restart
         echo ""
-        echo "混淆模式配置已完成！"
+        echo "Confuse model configuration is completed!"
         bash /usr/local/bin/ssr
     fi
 fi
