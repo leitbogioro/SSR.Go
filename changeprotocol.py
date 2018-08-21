@@ -30,34 +30,33 @@ if ( not is_number(newprotocol) ):
     exit
 else:
     if (newprotocol=="1"):
-	Whether("该协议来自原生shadowsocks协议，已无法适用于审查严密的环境，是否要选择？(y/n)", "y", "n", writejson.WriteProtocol, "协议", "origin", "协议选择")
+	Whether("This protocol cames from original ShadowSocks and it cannot suitable with contemporary internet censorship, surely it? (y/n)", "y", "n", writejson.WriteProtocol, "protocol", "origin", "choose protocol")
     elif (newprotocol=="2"):
-	Whether("该协议压缩解压缩效率低，大量用户连接可能会导致 CPU 占用率高，是否要选择？(y/n)", "y", "n", writejson.WriteProtocol, "协议", "verify_deflate", "协议选择")
+	Whether("This protocol's compression and decompression are so ineffective that it will cause a higher CPU occupy, surely it? (y/n)", "y", "n", writejson.WriteProtocol, "protocol", "verify_deflate", "choose protocol")
     elif (newprotocol=="3"):
-	Whether("该协议已不可抵御防火长城的重放攻击，不建议使用，是否要选择？(y/n)", "y", "n", writejson.WriteProtocol, "协议", "auth_sha1_v4", "协议选择")
+	Whether("This protocol cannot resistant GFW's replay attack so I don't recommend it, surely it? (y/n)", "y", "n", writejson.WriteProtocol, "protocol", "auth_sha1_v4", "choose protocol")
     elif (newprotocol=="4"):
-	Whether("该协议已不可抵御防火长城的重放攻击，不建议使用，是否要选择？(y/n)", "y", "n", writejson.WriteProtocol, "协议", "auth_sha1_v4_compatible", "协议选择")
+	Whether("This protocol cannot resistant GFW's replay attack so I don't recommend it, surely it? (y/n)", "y", "n", writejson.WriteProtocol, "protocol", "auth_sha1_v4_compatible", "choose protocol")
     elif (newprotocol=="5"):
-	Whether("防火长城可迅速探测该协议的特征，不建议使用，是否要选择？(y/n)", "y", "n", writejson.WriteProtocol, "协议", "auth_aes128_md5", "协议选择")
+	Whether("This protocol can attacked by GFW rapidly so I don't recommend it, surely it? (y/n)", "y", "n", writejson.WriteProtocol, "protocol", "auth_aes128_md5", "choose protocol")
     elif (newprotocol=="6"):
-	Whether("防火长城可迅速探测该协议的特征，不建议使用，是否要选择？(y/n)", "y", "n", writejson.WriteProtocol, "协议", "auth_aes128_sha1", "协议选择")
+	Whether("This protocol can attacked by GFW rapidly so I don't recommend it, surely it? (y/n)", "y", "n", writejson.WriteProtocol, "protocol", "auth_aes128_sha1", "choose protocol")
     elif (newprotocol=="7"):
-        Whether("防火长城可迅速探测该协议的特征，不建议使用，是否要选择？(y/n)", "y", "n", writejson.WriteProtocol, "协议", "auth_chain_a", "协议选择")
+        Whether("This protocol can attacked by GFW rapidly so I don't recommend it, surely it? (y/n)", "y", "n", writejson.WriteProtocol, "protocol", "auth_chain_a", "choose protocol")
     elif (newprotocol=="8"):
         writejson.WriteProtocol("auth_chain_b")
-	print("新的协议为：auth_chain_b")
+	print("New protocol is auth_chain_b")
     elif (newprotocol=="9"):
-	Whether("使用该协议偶尔可能会导致与服务端通信失败，是否要选择？(y/n)", "y", "n", writejson.WriteProtocol, "协议", "auth_chain_c", "协议选择")
+	Whether("This protocol will cause a failure telecommunication between server and client, surely it? (y/n)", "y", "n", writejson.WriteProtocol, "协议", "auth_chain_c", "协议选择")
     elif (newprotocol=="10"):
-	Whether("该协议仅 Windows 和 Android 客户端支持，是否要选择？(y/n)", "y", "n", writejson.WriteProtocol, "协议", "auth_chain_d", "协议选择")
+	Whether("This protocol is only supported by Windows and Android client, surely it? (y/n)", "y", "n", writejson.WriteProtocol, "协议", "auth_chain_d", "协议选择")
     elif (newprotocol=="11"):
-        Whether("该协议仅支持 Windows 客户端，是否要选择？(y/n)", "y", "n", writejson.WriteProtocol, "协议", "auth_chain_e", "协议选择")
+        Whether("This protocol is only supported by Windows and Android client, surely it? (y/n)", "y", "n", writejson.WriteProtocol, "协议", "auth_chain_e", "协议选择")
     elif (newprotocol=="12"):
-	Whether("该协议仅支持 Windows 客户端，是否要选择？(y/n)", "y", "n", writejson.WriteProtocol, "协议", "auth_chain_f", "协议选择")
+	Whether("This protocol is only supported by Windows and Android client, surely it? (y/n)", "y", "n", writejson.WriteProtocol, "协议", "auth_chain_f", "协议选择")
     elif (newprotocol=="13"):
-	Whether("该协议尚处试验阶段，仅支持 Windows 客户端，暂不支持移动客户端，是否要选择？(y/n)", "y", "n", writejson.WriteProtocol, "协议", "auth_akarin_rand", "协议选择")
+	Whether("This is an experiment protocol so it can only support Windows client except movement client and also included by Mac OS, surely it? (y/n)", "y", "n", writejson.WriteProtocol, "协议", "auth_akarin_rand", "协议选择")
     elif (newprotocol=="14"):
-        Whether("该协议尚处试验阶段，仅支持 Windows 客户端，暂不支持移动客户端，是否要选择？(y/n)", "y", "n", writejson.WriteProtocol, "协议", "auth_akarin_spec_a", "协议选择")
+        Whether("This is an experiment protocol so it can only support Windows client except movement client and also included by Mac OS, surely it? (y/n)", "y", "n", writejson.WriteProtocol, "协议", "auth_akarin_spec_a", "协议选择")
     else:
-	print("输入错误，请按 1 到 14 之间的数字！")
-
+	print("Please input number on keyboard from 1 to 14!")
