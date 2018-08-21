@@ -12,7 +12,7 @@ echo "1.Service management"
 echo "2.Change configuration"
 echo "3.View client configuration information"
 echo "4.Update ShadowSocksR and SSR.Go"
-echo "Please input a number on keyboard to choose the function that you need.(press enter key to exit): "
+echo "Input a number to pick a function.(press enter to exit): "
 
 while :; do echo
 	read -n1 -p "Choose: " choice
