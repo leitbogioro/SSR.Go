@@ -7,8 +7,8 @@ import ssrextra
 from ssrextra import is_number
 from ssrextra import Whether
 
-print ("当前加密方式为：%s") % str(readjson.ConfProtocol)
-print ("请选择新的加密方式：")
+print ("当前传输协议为：%s") % str(readjson.ConfProtocol)
+print ("请选择新的传输协议：")
 print ("1.origin")
 print ("2.verify_deflate")
 print ("3.auth_sha1_v4")
@@ -60,4 +60,3 @@ else:
         Whether("该协议尚处试验阶段，仅支持 Windows 客户端，暂不支持移动客户端，是否要选择？(y/n)", "y", "n", writejson.WriteProtocol, "协议", "auth_akarin_spec_a", "协议选择")
     else:
 	print("输入错误，请按 1 到 14 之间的数字！")
-
