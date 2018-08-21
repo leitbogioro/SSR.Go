@@ -25,9 +25,12 @@
 <p>如果你的 VPS 刚刚新装过系统，<b>强烈建议你输入以下命令，重启并再次连接</b>，否则安装的过程中，会出现各种各样未知的问题。</p>
 <p>I really recommend you to restart your VPS when your installed system just now and you need to reconnect it manual in order to avoid lots of unknown mistakes.</p>
 <pre><code>reboot</code></pre>
-<p>然后开始安装此工具。</p>
-<p>And then you can install it.</p>
+<p>然后开始安装此工具（简体中文版）。</p>
 <pre><code>bash -c "$(curl -fsSL https://git.io/fNpuL)"</code></pre>
+<p>And then you can install it(An English version).</p>
+<pre><code>bash -c "$(curl -fsSL https://git.io/fAU32)"</code></pre>
+<p>需要注意的是，<b>简体中文版 SSR.Go 和英文版 SSR.Go 只能同时使用其中的一个，不可共存。</b></p>
+<p>You need to consider that <b>only one version of simplified Chinese or English version of SSR.Go can run on your environment</b>.</p>
 <br />
 
 <h2><a id="Spec">特性（Specs）</a></h2>
