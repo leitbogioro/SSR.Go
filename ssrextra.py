@@ -49,7 +49,7 @@ def Whether(ask, c1, c2, config, describe ,item, cancel):
         config(item)
 	print("New"+ describe + "is %s") % item
     elif pick == c2:
-        print("Cancelled" + cancel + ", any operation hadn't changed.")
+        print("Cancelled" + cancel + ", any operation had ever been changed.")
     else:
         print("Input error, please input " + c1 + " or " + c2)
 
