@@ -26,7 +26,7 @@ print ("14.auth_akarin_spec_a")
 newprotocol = raw_input()
 
 if ( not is_number(newprotocol) ):
-    print ("Input error, please try it again!")
+    print ("Incorrect input, try it again!")
     exit
 else:
     if (newprotocol=="1"):
@@ -59,4 +59,4 @@ else:
     elif (newprotocol=="14"):
         Whether("This is an experiment protocol so it can only support Windows client except movement client and also included by Mac OS, surely it? (y/n)", "y", "n", writejson.WriteProtocol, "协议", "auth_akarin_spec_a", "协议选择")
     else:
-	print("Please input number on keyboard from 1 to 14!")
+	print("Please input a number from 1 to 14!")
