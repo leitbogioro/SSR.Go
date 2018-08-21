@@ -27,7 +27,7 @@
 <pre><code>reboot</code></pre>
 <p>然后开始安装此工具（简体中文版）。</p>
 <pre><code>bash -c "$(curl -fsSL https://git.io/fNpuL)"</code></pre>
-<p>And then you can install it(An English version).</p>
+<p>And then you can install it ( An English version ).</p>
 <pre><code>bash -c "$(curl -fsSL https://git.io/fAU32)"</code></pre>
 <p>需要注意的是，<b>简体中文版 SSR.Go 和英文版 SSR.Go 只能同时使用其中的一个，不可共存。</b></p>
 <p>You need to consider that <b>only one version of simplified Chinese or English version of SSR.Go can run on your environment</b>.</p>
@@ -80,8 +80,10 @@
 
 <h2><a id="Updates">更新日志（Updates）：</a></h2>
 <ul>
-<li>添加“首次进入后需要重启才能顺利安装”的描述。（2018.8.19）</li>
-<p>Add notice about "You need to reboot your system after installed system before install SSR.Go."(2018.8.19)</p>
+<li>正式推出英文版。（2018.8.21）</li>
+<p>An English version of SSR.Go is released.(2018.8.21)</p>
+<li>添加“首次进入后需要重启才能顺利安装”的描述。（2018.8.20）</li>
+<p>Add notice about "You need to reboot your system after installed system before install SSR.Go."(2018.8.20)</p>
 <li>修复了加密依赖“libsodium”的安装策略。（2018.8.19）</li>
 <p>Fix install strategy about "libsodim" encryption component.(2018.8.19)</p>
 <li>修复了安装过程中，ShadowSocksR主程序————“manyuser.zip”文件下载错误的问题（2018.8.19）</li>
