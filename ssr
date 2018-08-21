@@ -20,7 +20,7 @@ while :; do echo
         if [[ -z ${choice} ]];then
             exit 0
         fi
-		echo "Input error, please input a correct number!"
+		echo "Incorrect input, try it again! "
 	else
         echo -e "\n"
 		break	
@@ -45,7 +45,7 @@ if [[ ${choice} == 1 ]]; then
                 bash /usr/local/bin/ssr
                 exit 0
             fi
-		    echo "Input error, please input a correct number!"
+		    echo "Incorrect input, try it again! "
 	    else
             echo -e "\n"
 		    break
@@ -76,7 +76,7 @@ if [[ ${choice} == 1 ]]; then
         bash /usr/local/bin/ssr
     fi
     if [[ ${schoice} == 5 ]]; then
-        echo "Press Ctrl + C on keyboard to cancel view log."
+        echo "Press Ctrl + C to cancel viewing log."
         echo ""
         tail -f /var/log/shadowsocksr.log
         bash /usr/local/bin/ssr
@@ -100,7 +100,7 @@ if [[ ${choice} == 2 ]]; then
                 bash /usr/local/bin/ssr
                 exit 0
             fi
-		    echo "Input error, please input a correct number!"
+		    echo "Incorrect input, try it again! "
 	    else
             echo -e "\n"
 		    break
