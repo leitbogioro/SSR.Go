@@ -49,5 +49,5 @@ chmod +x /usr/local/shadowsocks/
 
 clear
 
-echo "SSR installed successful!"
-echo "Input ssr and press enter, you can enjoy it!"
+echo "SSR installed successfully!"
+echo "Input 'ssr' and press enter, just access to a wide world!"
