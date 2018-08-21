@@ -35,9 +35,9 @@ fi
 #克隆ssr.go英文版项目
 cd /usr/local/
 rm -R SSR.Go
-git clone https://github.com/leitbogioro/SSR.Go/tree/En
+git clone -b En https://github.com/leitbogioro/SSR.Go
 
-#安装shadowsocksRR主程序
+#安装shadowsocksRR英文版主程序
 bash <(curl -L -s https://git.io/fAUqY)
 
 #配置ssr初始环境
