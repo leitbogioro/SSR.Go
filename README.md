@@ -28,7 +28,7 @@
 <p>然后开始安装此工具（简体中文版）。</p>
 <pre><code>bash -c "$(curl -fsSL https://git.io/fNpuL)"</code></pre>
 <p>And then you can install it ( An English version ).</p>
-<pre><code>bash -c "$(curl -fsSL https://git.io/fAU32)"</code></pre>
+<pre><code>bash -c "$(curl -fsSL https://git.io/fAUCf)"</code></pre>
 <p>需要注意的是，<b>简体中文版 SSR.Go 和英文版 SSR.Go 只能同时使用其中的一个，不可共存。</b></p>
 <p>You need to consider that <b>only one version of simplified Chinese or English version of SSR.Go can run on your environment</b>.</p>
 <br />
