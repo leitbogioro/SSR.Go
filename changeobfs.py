@@ -7,8 +7,8 @@ import ssrextra
 from ssrextra import is_number
 from ssrextra import Whether
 
-print ("当前混淆模式为：%s") % str(readjson.ConfObfs)
-print ("请选择新的混淆模式：")
+print ("Current obfs model is: %s") % str(readjson.ConfObfs)
+print ("Please choose a new obfs:")
 print ("1.plain")
 print ("2.http_simple")
 print ("3.http_simple_compatible")
@@ -22,30 +22,29 @@ print ("10.random_head")
 newobfs = raw_input()
 
 if ( not is_number(newobfs) ):
-    print ("输入错误，请确保你的输入内容正确！")
+    print ("Input error, please try it again!")
     exit
 else:
     if (newobfs=="1"):
-        Whether("该模式表示不添加混淆，建议配合最新协议使用，是否要选择？(y/n)", "y", "n", writejson.WriteObfs, "混淆", "plain", "混淆选择")
+        Whether("This model mean no obfs, I recommend you to use it with latest protocol, surely it? (y/n)", "y", "n", writejson.WriteObfs, "obfs", "plain", "choose obfs")
     elif (newobfs=="2"):
-        Whether("该模式仅制造一次请求和回应包，中途依旧不采用混淆模式通信，建议配合最新协议使用，是否要选择？(y/n)", "y", "n", writejson.WriteObfs, "混淆", "http_simple", "混淆选择")
+        Whether("This model only build one request and respond package on the begining of the communication and during translate data has no disguise with obfs, surely it? (y/n)", "y", "n", writejson.WriteObfs, "obfs", "http_simple", "choose obfs")
     elif (newobfs=="3"):
-        Whether("该模式的作用和 http_simple 一致，可兼容原版 shadowsocks 协议，是否要选择？(y/n)", "y", "n", writejson.WriteObfs, "混淆", "http_simple_compatible", "混淆选择")
+        Whether("This model has same utility to http_simple, and it compatible with original edition of ShadowSocks, surely it? (y/n)", "y", "n", writejson.WriteObfs, "obfs", "http_simple_compatible", "choose obfs")
     elif (newobfs=="4"):
-        Whether("该模式的作用和 http_simple 类似，区别在于制造的是 POST 请求头，建议配合最新协议使用，是否要选择？(y/n)", "y", "n", writejson.WriteObfs, "混淆", "http_post", "混淆选择")
+        Whether("This model has same utility to http_simple, the difference from them is the latter build a POST request header, I recommend you to use it with latest protocol, surely it? (y/n)", "y", "n", writejson.WriteObfs, "obfs", "http_post", "choose obfs")
     elif (newobfs=="5"):
-        Whether("该模式的作用和 http_simple 一致，可兼容原版 shadowsocks 协议，是否要选择？(y/n)", "y", "n", writejson.WriteObfs, "混淆", "http_post_compatible", "混淆选择")
+        Whether("This model has same utility to http_post, and it compatible with original edition of ShadowSocks, surely it? (y/n)", "y", "n", writejson.WriteObfs, "obfs", "http_post_compatible", "choose obfs")
     elif (newobfs=="6"):
         writejson.WriteObfs("tls1.2_ticket_auth")
-        print("新的协议为：tls1.2_ticket_auth")
+        print("New obfs model is: tls1.2_ticket_auth")
     elif (newobfs=="7"):
-        Whether("该模式的作用和 tls1.2_ticket_auth 一致，可兼容原版 shadowsocks 协议，是否要选择？(y/n)", "y", "n", writejson.WriteObfs, "混淆", "tls1.2_ticket_auth_compatible", "混淆选择")
+        Whether("This model has same utility to tls1.2_ticket_auth, and it compatible with original edition of ShadowSocks, surely it? (y/n)", "y", "n", writejson.WriteObfs, "obfs", "tls1.2_ticket_auth_compatible", "choose obfs")
     elif (newobfs=="8"):
-        Whether("该模式和 tls1.2_ticket_auth 区别是，它不会等待服务端的响应，可有效降低延迟，是否要选择？(y/n)", "y", "n", writejson.WriteObfs, "混淆", "tls1.2_ticket_fastauth", "混淆选择")
+        Whether("This model has same utility to tls1.2_ticket_auth, the difference from them is the latter doesn't need to wait for response of the server and it can effectively reduce latency, surely it? (y/n)", "y", "n", writejson.WriteObfs, "obfs", "tls1.2_ticket_fastauth", "choose obfs")
     elif (newobfs=="9"):
-        Whether("该模式的作用和 tls1.2_ticket_fastauth 一致，可兼容原版 shadowsocks 协议，是否要选择？(y/n)", "y", "n", writejson.WriteObfs, "混淆", "tls1.2_ticket_fastauth_compatible", "混淆选择")
+        Whether("This model has same utility to tls1.2_ticket_fastauth, and it compatible with original edition of ShadowSocks, surely it? (y/n)", "y", "n", writejson.WriteObfs, "obfs", "tls1.2_ticket_fastauth_compatible", "choose obfs")
     elif (newobfs=="10"):
-        Whether("该模式通讯前会发送随机数据包，但包的末尾特征明显，容易被防火长城干扰，之后是协议数据流，是否要选择？(y/n)", "y", "n", writejson.WriteObfs, "混淆", "random_head", "混淆选择")
+        Whether("This model will send random data package but features of the end random package will be obvious affected by GFW and then translate data, surely it? (y/n)", "y", "n", writejson.WriteObfs, "obfs", "random_head", "choose obfs")
     else:
-	print("请按 1 到 10 之间的数字！")
-
+	print("Please input number on keyboard from 1 to 10! ")
