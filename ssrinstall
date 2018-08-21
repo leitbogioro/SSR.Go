@@ -12,7 +12,7 @@ if [ -f /etc/redhat-release ];then
     elif [ ! -z "`cat /etc/issue | grep Ubuntu`" ];then
         OS='Ubuntu'
     else
-        echo "Not support OS, Please reinstall OS and retry!"
+        echo "Your OS is not supported, Please run it on Ubuntu/Debian/CentOS!"
         exit 1
 fi
 
