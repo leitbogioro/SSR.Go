@@ -7,21 +7,21 @@ from ssrextra import is_number
 
 # 主程序
 
-print ("当前主端口为：%s") % str(readjson.ConfPort)
-print ("生成随机端口 (r) 还是自定义端口 (m)：")
+print ("Current port is: %s") % str(readjson.ConfPort)
+print ("Would you like to generate a new random port (r) or custom a new port by yourself (m)? ")
 ifgenport = raw_input()
 
 if ifgenport == "r" or ifgenport == '':
     newport=ssrextra.Port(10000, 65535)
     writejson.WritePort(newport)
-    print("新的端口为：%s") % newport
+    print("New port is: %s") % newport
 elif ifgenport == "m":
-    print ("请输入新端口：")
+    print ("Please input a new port: ")
     newport = raw_input()
     if (is_number(newport)) and int(newport) >= 0 and int(newport) <= 65535:
 	writejson.WritePort(newport)
-        print("新的端口为：%s") % newport
+        print("New port is: %s") % newport
     else:
-	print("输入错误，请输入 1 至 65535 之间的数字！")
+	print("Input error, please input a number between 1 and 65535 ! ")
 else:
-    print("输入不正确，请输入 r 或 m")
+    print("Input error, please input 'r' or 'm'! ")
