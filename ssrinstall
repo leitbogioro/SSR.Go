@@ -32,13 +32,13 @@ else
 	apt-get install curl unzip git ntp wget ntpdate python socat lrzsz -y
 fi
 
-#克隆ssr.go项目
+#克隆ssr.go英文版项目
 cd /usr/local/
 rm -R SSR.Go
-git clone https://github.com/leitbogioro/SSR.Go
+git clone https://github.com/leitbogioro/SSR.Go/tree/En
 
 #安装shadowsocksRR主程序
-bash <(curl -L -s https://git.io/fNpEa)
+bash <(curl -L -s https://git.io/fAUqY)
 
 #配置ssr初始环境
 ln -sf /usr/local/SSR.Go/ssr /usr/local/bin
