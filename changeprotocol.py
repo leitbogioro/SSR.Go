@@ -7,8 +7,8 @@ import ssrextra
 from ssrextra import is_number
 from ssrextra import Whether
 
-print ("当前加密方式为：%s") % str(readjson.ConfProtocol)
-print ("请选择新的加密方式：")
+print ("Current transmission protocol: %s") % str(readjson.ConfProtocol)
+print ("Please choose a new protocol: ")
 print ("1.origin")
 print ("2.verify_deflate")
 print ("3.auth_sha1_v4")
@@ -26,7 +26,7 @@ print ("14.auth_akarin_spec_a")
 newprotocol = raw_input()
 
 if ( not is_number(newprotocol) ):
-    print ("输入错误，请检查你输入的内容！")
+    print ("Input error, please try it again!")
     exit
 else:
     if (newprotocol=="1"):
