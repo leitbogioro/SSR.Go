@@ -24,4 +24,4 @@ elif ifgenpwd=="n":
 	writejson.WritePwd(newpwd)
 	print("New password is: %s") % newpwd
 else:
-    print("Input incorrect! Please input y or n! ")
+    print("Incorrect input! Please press 'y' or 'n'! ")
