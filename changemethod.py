@@ -28,7 +28,7 @@ print ("17.table")
 newmethod = raw_input()
 
 if ( not is_number(newmethod) ):
-    print ("Input error, please try it again! ")
+    print ("Incorrect input, try it again! ")
     exit
 else:
     if (newmethod=="1"):
@@ -67,4 +67,4 @@ else:
     elif (newmethod=="17"):
         writejson.WriteMethod("table")
     else:
-	print("Please input number on keyboard from 1 to 17! ")
+	print("Please input number from 1 to 17! ")
