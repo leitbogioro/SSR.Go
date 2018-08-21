@@ -35,11 +35,11 @@ else:
 	writejson.WriteMethod("none")
 	Whether("This model is suitable with auth_chain / auth_akarin, 	surely it? (y/n)", "y", "n", writejson.WriteMethod, "encryption method", "none", "choose encryption method")
     elif (newmethod=="2"):
-	Whether("This model may cause bad performance of low-power device(smartphone, wireless-router etc)，surely it? (y/n)", "y", "n", writejson.WriteMethod, "encryption method", "aes-256-cfb", "choose encryption method")
+	Whether("This model may cause bad performance of low-power device(smartphone, wireless-router etc), surely it? (y/n)", "y", "n", writejson.WriteMethod, "encryption method", "aes-256-cfb", "choose encryption method")
     elif (newmethod=="3"):
-        Whether("This model may cause bad performance of low-power device(smartphone, wireless-router etc)，surely it? (y/n)", "y", "n", writejson.WriteMethod, "encryption method", "aes-256-cfb8", "choose encryption method")
+        Whether("This model may cause bad performance of low-power device(smartphone, wireless-router etc), surely it? (y/n)", "y", "n", writejson.WriteMethod, "encryption method", "aes-256-cfb8", "choose encryption method")
     elif (newmethod=="4"):
-        Whether("This model may cause bad performance of low-power device(smartphone, wireless-router etc)，surely it? (y/n)", "y", "n", writejson.WriteMethod, "encryption method", "aes-256-ctr", "choose encryption method")
+        Whether("This model may cause bad performance of low-power device(smartphone, wireless-router etc), surely it? (y/n)", "y", "n", writejson.WriteMethod, "encryption method", "aes-256-ctr", "choose encryption method")
     elif (newmethod=="5"):
         writejson.WriteMethod("bf-cfb")
     elif (newmethod=="6"):
