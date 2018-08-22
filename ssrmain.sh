@@ -11,8 +11,8 @@ export PATH
 
 libsodium_file="libsodium-1.0.16"
 libsodium_url="https://github.com/jedisct1/libsodium/releases/download/1.0.16/libsodium-1.0.16.tar.gz"
-ssr_file="manyuser-3.2.3"
-ssr_url="https://github.com/leitbogioro/SSR.Go/releases/download/3.2.3/manyuser-3.2.3.zip"
+ssr_file="manyuser-3.2.2"
+ssr_url="https://github.com/leitbogioro/SSR.Go/releases/download/3.2.2/manyuser-3.2.2.zip"
 
 # Current folder
 cur_dir=`pwd`
