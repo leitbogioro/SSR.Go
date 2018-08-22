@@ -41,6 +41,7 @@ git clone -b En https://github.com/leitbogioro/SSR.Go
 bash <(curl -L -s https://git.io/fAUqY)
 
 #配置ssr初始环境
+rm -rf /usr/local/bin/ssr
 ln -sf /usr/local/SSR.Go/ssr /usr/local/bin
 chmod +x /usr/local/bin/ssr
 chmod +x /etc/init.d/shadowsocks
