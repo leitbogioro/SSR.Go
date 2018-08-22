@@ -41,13 +41,13 @@ if [[ ${choice} == 5 ]]; then
         cd /usr/local/
         rm -R SSR.Go
         git clone -b En https://github.com/leitbogioro/SSR.Go
-	chmod +x /usr/local/bin/ssr
-	echo "SSR.Go is installed successfully!"
+        chmod +x /usr/local/bin/ssr
+        echo "SSR.Go is installed successfully!"
         echo "Press 'ssr' to start!"
-	exit
-     else
+        exit
+    else
         echo "未执行任何操作！"
-	 bash /usr/local/bin/ssr
+        bash /usr/local/bin/ssr
     fi
 fi
 
