@@ -35,19 +35,19 @@ fi
 
 # 切换语言版本
 if [[ ${choice} == 5 ]]; then
-        read -n1 -p "SSR.Go 简体中文版和英文版只允许同时运行一个，不可共存，是否继续操作？(y/n)" ans
-	echo -e "\n"
-        if [[ ${ans} =~ [yY] ]]; then
-            cd /usr/local/
-            rm -R SSR.Go
-            git clone -b En https://github.com/leitbogioro/SSR.Go
-	    chmod +x /usr/local/bin/ssr
-	    echo "SSR.Go is installed successfully!"
-            echo "Press 'ssr' to start!"
-	    exit
-        else
-            echo "未执行任何操作！"
-	fi
+    read -n1 -p "SSR.Go 简体中文版和英文版只允许同时运行一个，不可共存，是否继续操作？(y/n)" ans
+    echo -e "\n"
+    if [[ ${ans} =~ [yY] ]]; then
+        cd /usr/local/
+        rm -R SSR.Go
+        git clone -b En https://github.com/leitbogioro/SSR.Go
+	chmod +x /usr/local/bin/ssr
+	echo "SSR.Go is installed successfully!"
+        echo "Press 'ssr' to start!"
+	exit
+     else
+        echo "未执行任何操作！"
+    fi
 fi
 
 # 服务管理 
