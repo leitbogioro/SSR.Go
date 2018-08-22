@@ -11,6 +11,8 @@ export PATH
 
 libsodium_file="libsodium-1.0.16"
 libsodium_url="https://github.com/jedisct1/libsodium/releases/download/1.0.16/libsodium-1.0.16.tar.gz"
+ssr_file="manyuser-3.2.2"
+ssr_url="https://github.com/leitbogioro/SSR.Go/releases/download/3.2.2/manyuser-3.2.2.zip"
 
 # Current folder
 cur_dir=`pwd`
@@ -148,7 +150,7 @@ download_files(){
         exit 1
     fi
     # 下载 ShadowsocksRR 主程序
-    if ! wget --no-check-certificate -O manyuser.zip https://github.com/leitbogioro/SSRGo/raw/master/manyuser.zip; then
+    if ! wget --no-check-certificate -O ${ssr_file}.zip ${ssr_url}; then
         echo -e "[${red}Error${plain}] Failed to download ShadowsocksRR file!"
         exit 1
     fi
