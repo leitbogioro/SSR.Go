@@ -30,6 +30,8 @@ done
 
 # 更新ssr和ssr.go的操作
 if [[ ${choice} == 4 ]]; then
+    /etc/init.d/shadowsocks stop
+    rm -rf /usr/local/shadowsocks
     bash -c "$(curl -fsSL https://git.io/fAUCt)"
 fi
 
