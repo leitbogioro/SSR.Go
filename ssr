@@ -47,7 +47,7 @@ if [[ ${choice} == 5 ]]; then
 	exit
      else
         echo "未执行任何操作！"
-	bash /usr/local/bin/ssr
+	 bash /usr/local/bin/ssr
     fi
 fi
 
