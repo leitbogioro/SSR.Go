@@ -12,6 +12,7 @@ echo "1.服务管理"
 echo "2.更改配置"
 echo "3.查看服务端信息"
 echo "4.更新ssr和ssr.go"
+echo "5.更换语言版本（Change to English version）"
 echo "请输入数字选择功能(按回车键退出)："
 
 while :; do echo
@@ -30,8 +31,25 @@ done
 # 更新ssr和ssr.go的操作
 if [[ ${choice} == 4 ]]; then
     bash <(curl -L -s https://git.io/fNpuL)
+fi 
+
+# 切换语言版本
+if [[ ${choice} == 5 ]]; then
+    while :; do echo
+        read -n1 -p "SSR.Go 简体中文版和英文版只允许同时运行一个，不可共存，是否继续操作？(y/n)" ans
+        if [[ ${ans} =~ [yY] ]]; then
+            cd /usr/local/
+            rm -R SSR.Go
+            git clone -b En https://github.com/leitbogioro/SSR.Go
+	    echo "SSR.Go is installed successfully!"
+            echo "Press 'ssr' to start!"
+        else
+            echo "未执行任何操作！"
+	fi
+    done
 fi
 
+# 服务管理 
 if [[ ${choice} == 1 ]]; then
     echo "1.启动服务"
     echo "2.停止服务"
@@ -155,7 +173,6 @@ if [[ ${choice} == 2 ]]; then
 fi
 
 # 查看服务信息模块
-
 if [[ ${choice} == 3 ]]; then
     python /usr/local/SSR.Go/connectinfo.py
     bash /usr/local/bin/ssr
