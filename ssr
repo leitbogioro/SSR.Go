@@ -12,24 +12,44 @@ echo "1.服务管理"
 echo "2.更改配置"
 echo "3.查看服务端信息"
 echo "4.更新ssr和ssr.go"
+echo "5.更换语言版本（Switch to English version）"
 echo "请输入数字选择功能(按回车键退出)："
 
 while :; do echo
-	read -n1 -p "请选择： " choice
-	if [[ ! $choice =~ ^[1-4]$ ]]; then
-        if [[ -z ${choice} ]];then
-            exit 0
-        fi
-		echo "输入错误! 请输入正确的数字!"
-	else
+    read -n1 -p "请选择： " choice
+    if [[ ! $choice =~ ^[1-5]$ ]]; then
+    if [[ -z ${choice} ]];then
+        exit 0
+    fi
+        echo "输入错误! 请输入正确的数字!"
+    else
         echo -e "\n"
-		break	
-	fi
+        break	
+    fi
 done
 
 # 更新ssr和ssr.go的操作
 if [[ ${choice} == 4 ]]; then
     bash -c "$(curl -fsSL https://git.io/fNpuL)"
+fi
+
+# 切换语言版本
+if [[ ${choice} == 5 ]]; then
+    echo "SSR.Go 简体中文版和英文版只允许同时运行一个，不可共存，是否继续操作？(y/n)"
+    read -n1 -p "Only one version of simplified Chinese or English version of SSR.Go can run, surely it? (y/n)" ans
+    echo -e "\n"
+    if [[ ${ans} =~ [yY] ]]; then
+        cd /usr/local/
+        rm -R SSR.Go
+        git clone -b En https://github.com/leitbogioro/SSR.Go
+        chmod +x /usr/local/bin/ssr
+        echo "English version of SSR.Go installed successfully!"
+        echo "Input 'ssr' then press enter to start!"
+        exit
+    else
+        echo "未执行任何操作！"
+        bash /usr/local/bin/ssr
+    fi
 fi
 
 if [[ ${choice} == 1 ]]; then
