@@ -270,7 +270,6 @@ install_cleanup(){
     rm -rf manyuser.zip shadowsocksr-manyuser ${libsodium_file}.tar.gz ${libsodium_file}
 }
 
-
 # 卸载 ShadowsocksRR
 uninstall_shadowsocksr(){
     printf "你想卸载 ShadowsocksRR 吗? (y/n)"
