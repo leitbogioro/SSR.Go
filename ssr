@@ -17,15 +17,15 @@ echo "请输入数字选择功能(按回车键退出)："
 
 while :; do echo
 	read -n1 -p "请选择： " choice
-	if [[ ! $choice =~ ^[1-5]$ ]]; then
+        if [[ ! $choice =~ ^[1-5]$ ]]; then
         if [[ -z ${choice} ]];then
             exit 0
         fi
-		echo "输入错误! 请输入正确的数字!"
-	else
-        echo -e "\n"
-		break	
-	fi
+            echo "输入错误! 请输入正确的数字!"
+        else
+            echo -e "\n"
+            break	
+        fi
 done
 
 # 更新ssr和ssr.go的操作
