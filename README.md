@@ -80,14 +80,14 @@
 
 <h2><a id="Updates">更新日志（Updates）：</a></h2>
 <ul>
-<li>修正更新 ssr 和 SSR.Go 功能无效的问题。</li>
-<p>Fix an invalid mistake about updating ssr and SSR.Go.</p>
-<li>优化安装流程</li>
-<p>Optimize installation process.</p>
-<li>修复在 CentOS 6/7 上运行错误的<a href="https://github.com/leitbogioro/SSR.Go/issues/9#issue-352075641">问题</a>，详情请<a href="https://github.com/leitbogioro/SSR.Go/issues/9#issuecomment-415026731">参见</a>。</li>
-<p>Fix an error about running with <a href="https://github.com/leitbogioro/SSR.Go/issues/9#issue-352075641">mistakes</a> on CentOS 6/7, for more details, please <a href="https://github.com/leitbogioro/SSR.Go/issues/9#issuecomment-415026731">view</a>.</p>
-<li>新增中英文切换功能（2018.8.22）</li>
-<p>Add a function about switch a version between simplified Chinese and English each other.(2018.8.22)</p>
+<li>修正更新 ssr 和 SSR.Go 功能无效的问题。（2018.8.22）</li>
+<p>Fix an invalid mistake about updating ssr and SSR.Go.(2018.8.22)</p>
+<li>优化安装流程（2018.8.22）</li>
+<p>Optimize installation process.(2018.8.22)</p>
+<li>修复在 CentOS 6/7 上运行错误的<a href="https://github.com/leitbogioro/SSR.Go/issues/9#issue-352075641">问题</a>，详情请<a href="https://github.com/leitbogioro/SSR.Go/issues/9#issuecomment-415026731">参见</a>。（2018.8.22）</li>
+<p>Fix an error about running with <a href="https://github.com/leitbogioro/SSR.Go/issues/9#issue-352075641">mistakes</a> on CentOS 6/7, for more details, please <a href="https://github.com/leitbogioro/SSR.Go/issues/9#issuecomment-415026731">view</a>.(2018.8.22)</p>
+<li>新增中英文切换功能（2018.8.21）</li>
+<p>Add a function about switch a version between simplified Chinese and English each other.(2018.8.21)</p>
 <li>正式推出英文版。（2018.8.21）</li>
 <p>An English version of SSR.Go is released.(2018.8.21)</p>
 <li>添加“首次进入后需要重启才能顺利安装”的描述。（2018.8.20）</li>
