@@ -12,7 +12,7 @@ echo "1.服务管理"
 echo "2.更改配置"
 echo "3.查看服务端信息"
 echo "4.更新ssr和ssr.go"
-echo "5.更换语言版本（Change to English version）"
+echo "5.更换语言版本（Switch to English version）"
 echo "请输入数字选择功能(按回车键退出)："
 
 while :; do echo
