@@ -33,6 +33,7 @@ if [[ ${choice} == 4 ]]; then
     /etc/init.d/shadowsocks stop
     rm -rf /usr/local/shadowsocks
     bash -c "$(curl -fsSL https://git.io/fNpuL)"
+    rm -rf /usr/local/bin/ssr
 fi
 
 # 切换语言版本
