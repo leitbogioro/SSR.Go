@@ -17,7 +17,7 @@ echo "请输入数字选择功能(按回车键退出)："
 
 while :; do echo
 	read -n1 -p "请选择： " choice
-	if [[ ! $choice =~ ^[1-4]$ ]]; then
+	if [[ ! $choice =~ ^[1-5]$ ]]; then
         if [[ -z ${choice} ]];then
             exit 0
         fi
