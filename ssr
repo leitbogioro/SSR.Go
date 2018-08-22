@@ -16,16 +16,16 @@ echo "5.更换语言版本（Change to English version）"
 echo "请输入数字选择功能(按回车键退出)："
 
 while :; do echo
-	read -n1 -p "请选择： " choice
-        if [[ ! $choice =~ ^[1-5]$ ]]; then
-        if [[ -z ${choice} ]];then
-            exit 0
-        fi
-            echo "输入错误! 请输入正确的数字!"
-        else
-            echo -e "\n"
-            break	
-        fi
+    read -n1 -p "请选择： " choice
+    if [[ ! $choice =~ ^[1-5]$ ]]; then
+    if [[ -z ${choice} ]];then
+        exit 0
+    fi
+        echo "输入错误! 请输入正确的数字!"
+    else
+        echo -e "\n"
+        break	
+    fi
 done
 
 # 更新ssr和ssr.go的操作
@@ -35,7 +35,8 @@ fi
 
 # 切换语言版本
 if [[ ${choice} == 5 ]]; then
-    read -n1 -p "SSR.Go 简体中文版和英文版只允许同时运行一个，不可共存，是否继续操作？(y/n)" ans
+    echo "SSR.Go 简体中文版和英文版只允许同时运行一个，不可共存，是否继续操作？(y/n)"
+    read -n1 -p "Only one version of simplified Chinese or English version of SSR.Go can run, surely it? (y/n)" ans
     echo -e "\n"
     if [[ ${ans} =~ [yY] ]]; then
         cd /usr/local/
