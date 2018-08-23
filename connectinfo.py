@@ -65,7 +65,7 @@ def GreenText(string):
 print("\n")
 print("==================== SSR 配置链接 ====================")
 print("    你可以复制以下链接分享给你的设备和朋友们使用了！  ")
-GreenText(GetSsrUrl())
+GreenText(SSR_Url)
 
 # 获得客户端二维码
 
