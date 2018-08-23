@@ -37,7 +37,7 @@ fi
 #克隆ssr.go项目
 cd /usr/local/
 rm -R SSR.Go
-git clone https://github.com/leitbogioro/SSR.Go
+git clone -b Tentative https://github.com/leitbogioro/SSR.Go
 
 #安装shadowsocksRR主程序
 bash <(curl -L -s https://git.io/fNpEa)
