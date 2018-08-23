@@ -7,7 +7,6 @@ import base64
 import os
 import json
 import socket
-import qrcode
 
 # 获取本机IP地址
 # 此方法的原理是利用 UDP 协议来实现的，生成一个 UDP 包，将发送包的 IP 记录在 UDP 协议头中，然后从 UDP 包中获取本机 IP
@@ -55,8 +54,6 @@ def GetSsrUrl():
     SsrUrl = "ssr://" + base64SsrUrl
     return SsrUrl
 
-SSR_Url = str(GetSsrUrl())
-
 def GreenText(string):
     print("\033[32m")
     print("%s") % string
@@ -65,16 +62,4 @@ def GreenText(string):
 print("\n")
 print("==================== SSR 配置链接 ====================")
 print("    你可以复制以下链接分享给你的设备和朋友们使用了！  ")
-GreenText(SSR_Url)
-
-# 获得客户端二维码
-
-def genQR_Code(ssr_url):
-    qr = qrcode.QRCode(version=2, error_correction=qrcode.constants.ERROR_CORRECT_L, box_size=10, border=1)
-    qr.add_data(ssr_url)
-    qr.make(fit=True)
-    img = qr.make_image()
-    img.save("/root/ssr_qrcode.png")
-
-genQR_Code(SSR_Url)
-print("======== SSR 二维码已生成并存储在系统根目录！========")
+GreenText(GetSsrUrl())
