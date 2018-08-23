@@ -119,5 +119,6 @@
 <p>ShadowsocksR 一键安装包作者：<a href="https://teddysun.com">TeddySun</a></p>
 <br />
 
-<p>喜欢就请我吃顿煎饼果子吧</p>
+<h2>喜欢就请我吃顿煎饼果子呗</h2>
+
 ![5](5.jpg)
