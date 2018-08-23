@@ -6,11 +6,22 @@ import urllib2
 import base64
 import os
 import json
+import socket
 
 # 获取本机IP地址
+# 此方法的原理是利用 UDP 协议来实现的，生成一个 UDP 包，将发送包的 IP 记录在 UDP 协议头中，然后从 UDP 包中获取本机 IP
 
-thisip = urllib2.urlopen('http://api.ipify.org').read()
-thisip = thisip.strip()
+def get_host_ip():
+    try:
+        s = socket.socket(socket.AF_INET, socket.SOCK_DGRAM)
+        s.connect(('8.8.8.8', 80))
+        ip = s.getsockname()[0]
+    finally:
+        s.close()
+
+    return ip
+
+thisip = get_host_ip()
 
 # 定义配置变量
 
