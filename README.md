@@ -118,3 +118,7 @@
 <p>ShadowSocksRR 现维护者<a href="https://github.com/Akkariiin"> Akarrin </a>和其项目主页：<a href="https://github.com/shadowsocksrr">ShadowSocksRR</a></p>
 <p>ShadowsocksR 一键安装包作者：<a href="https://teddysun.com">TeddySun</a></p>
 <br />
+
+<p>喜欢就请我吃顿煎饼果子吧</p>
+<br />
+![5](5.jpg)
