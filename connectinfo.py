@@ -77,5 +77,4 @@ def genQR_Code(ssr_url):
     img.save("/root/ssr_qrcode.png")
 
 genQR_Code(SSR_Url)
-
 print("======== SSR 二维码已生成并存储在系统根目录！========")
