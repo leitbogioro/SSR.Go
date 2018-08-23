@@ -80,6 +80,8 @@
 
 <h2><a id="Updates">更新日志（Updates）：</a></h2>
 <ul>
+<li>更新获取服务端 IP 地址逻辑。（2018.8.23）</li>
+<p>Update get server IP address logic.(2018.8.23)</p>
 <li>修正更新 ssr 和 SSR.Go 功能无效的问题。（2018.8.22）</li>
 <p>Fix an invalid mistake about updating ssr and SSR.Go.(2018.8.22)</p>
 <li>优化安装流程（2018.8.22）</li>
