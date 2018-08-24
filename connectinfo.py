@@ -50,6 +50,7 @@ def GreenText(string):
     print("%s") % string
     print("\033[0m")
 
+# 输出信息
 print("\n")
 print("==================== SSR 配置链接 ====================")
 print("    你可以复制以下链接分享给你的设备和朋友们使用了！  ")
