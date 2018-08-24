@@ -34,6 +34,9 @@ print("加密方式: %s") % Method
 print("传输协议：%s") % Protocol
 print("混淆模式：%s") % Obfs
 
+# ssr客户端链接
+ssr_url=str(GetSsrUrl(IP, Port, Protocol, Method, Obfs, base64Pwd, SecondPart))
+
 # 绿色字体
 def GreenText(string):
     print("\033[32m")
@@ -44,8 +47,8 @@ def GreenText(string):
 print("\n")
 print("==================== SSR 配置链接 ====================")
 print("    你可以复制以下链接分享给你的设备和朋友们使用了！  ")
-GreenText(GetSsrUrl(IP, Port, Protocol, Method, Obfs, base64Pwd, SecondPart))
+GreenText(ssr_url)
 
 # 生成客户端二维码
-genQR_Code(SSR_Url, "/root/ssr_qrcode.png")
+genQR_Code(ssr_url, "/root/ssr_qrcode.png")
 print("======== SSR 二维码已生成并存储在系统根目录！=========")
