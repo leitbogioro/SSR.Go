@@ -5,7 +5,7 @@ import readjson
 import base64
 import os
 import json
-from ssrextra import (is_internal_ip, get_host_ip, look_ip_from)
+from ssrextra import (is_internal_ip, get_host_ip, look_ip_from, GetSsrUrl)
 
 # 获取本机IP地址
 
@@ -34,16 +34,6 @@ print("加密方式: %s") % Method
 print("传输协议：%s") % Protocol
 print("混淆模式：%s") % Obfs
 
-# 获取 ssr 链接
-def GetSsrUrl():
-    parts = [IP, Port, Protocol, Method, Obfs, base64Pwd]
-    configs = str(':'.join(parts))
-    RealSsrUrl = configs + SecondPart
-    base64SsrUrl = str(base64.encodestring(RealSsrUrl))
-    base64SsrUrl = base64SsrUrl.replace("\n", "")
-    SsrUrl = "ssr://" + base64SsrUrl
-    return SsrUrl
-
 # 绿色字体
 def GreenText(string):
     print("\033[32m")
@@ -54,4 +44,4 @@ def GreenText(string):
 print("\n")
 print("==================== SSR 配置链接 ====================")
 print("    你可以复制以下链接分享给你的设备和朋友们使用了！  ")
-GreenText(GetSsrUrl())
+GreenText(GetSsrUrl(IP, Port, Protocol, Method, Obfs, base64Pwd, SecondPart))
