@@ -5,7 +5,7 @@ import readjson
 import base64
 import os
 import json
-from ssrextra import (is_internal_ip, get_host_ip, look_ip_from, GetSsrUrl)
+from ssrextra import (is_internal_ip, get_host_ip, look_ip_from, GetSsrUrl, genQR_Code)
 
 # 获取本机IP地址
 
@@ -45,3 +45,7 @@ print("\n")
 print("==================== SSR 配置链接 ====================")
 print("    你可以复制以下链接分享给你的设备和朋友们使用了！  ")
 GreenText(GetSsrUrl(IP, Port, Protocol, Method, Obfs, base64Pwd, SecondPart))
+
+# 生成客户端二维码
+genQR_Code(SSR_Url)
+print("======== SSR 二维码已生成并存储在系统根目录！=========")
