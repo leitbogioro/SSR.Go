@@ -5,6 +5,7 @@ import random
 import string
 import socket
 import urllib2
+import base64
 
 # 生成随机密码
 # python3中为string.ascii_letters,而python2下则可以使用string.letters和string.ascii_letters
@@ -81,3 +82,13 @@ def look_ip_from():
     thisip = urllib2.urlopen('https://ipv4.icanhazip.com/').read()
     thisip = thisip.strip()
     return thisip
+
+# 生成 SSR 链接
+def GetSsrUrl(IP, Port, Protocol, Method, Obfs, base64Pwd, SecondPart):
+    parts = [IP, Port, Protocol, Method, Obfs, base64Pwd]
+    configs = str(':'.join(parts))
+    RealSsrUrl = configs + SecondPart
+    base64SsrUrl = str(base64.encodestring(RealSsrUrl))
+    base64SsrUrl = base64SsrUrl.replace("\n", "")
+    SsrUrl = "ssr://" + base64SsrUrl
+    return SsrUrl
