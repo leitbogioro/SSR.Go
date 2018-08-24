@@ -4,6 +4,8 @@ export PATH=/usr/local/sbin:/usr/local/bin:/sbin:/bin:/usr/sbin:/usr/bin
 # 检测是否以 root 用户运行
 [ $(id -u) != "0" ] && { echo "Error: You must be root to run this script"; exit 1; }
 
+SSRGo_start="bash /usr/local/bin/ssr"
+
 echo ""
 
 echo "欢迎使用 ssr.go 管理助手"
@@ -48,7 +50,7 @@ if [[ ${choice} == 5 ]]; then
         exit
     else
         echo "未执行任何操作！"
-        bash /usr/local/bin/ssr
+        ${SSRGo_start}
     fi
 fi
 
@@ -63,7 +65,7 @@ if [[ ${choice} == 1 ]]; then
 	    read -n1 -p "请选择： " schoice
 	    if [[ ! $schoice =~ ^[1-5]$ ]]; then
             if [[ -z ${schoice} ]];then
-                bash /usr/local/bin/ssr
+                ${SSRGo_start}
                 exit 0
             fi
 		    echo "输入错误! 请输入正确的数字!"
@@ -78,29 +80,29 @@ if [[ ${choice} == 1 ]]; then
         /etc/init.d/shadowsocks start
         # 这里需要添加生成二维码模块
         echo "ssrr服务启动成功！"
-        bash /usr/local/bin/ssr
+        ${SSRGo_start}
     fi
     if [[ ${schoice} == 2 ]]; then
         /etc/init.d/shadowsocks stop
         echo "ssrr服务停止成功！"
-        bash /usr/local/bin/ssr
+        ${SSRGo_start}
     fi
     if [[ ${schoice} == 3 ]]; then
         python /usr/local/SSR.Go/addportrules.py
         /etc/init.d/shadowsocks restart
         # 这里需要添加生成二维码模块
         echo "ssrr服务已重启！"
-        bash /usr/local/bin/ssr
+        ${SSRGo_start}
     fi
     if [[ ${schoice} == 4 ]]; then
         /etc/init.d/shadowsocks status
-        bash /usr/local/bin/ssr
+        ${SSRGo_start}
     fi
     if [[ ${schoice} == 5 ]]; then
         echo "按Ctrl + C 以退出日志功能"
         echo ""
         tail -f /var/log/shadowsocksr.log
-        bash /usr/local/bin/ssr
+        ${SSRGo_start}
     fi
 fi
 
@@ -118,7 +120,7 @@ if [[ ${choice} == 2 ]]; then
 	    read -n1 -p "请选择： " changechoice
 	    if [[ ! $changechoice =~ ^[1-5]$ ]]; then
             if [[ -z ${changechoice} ]];then
-                bash /usr/local/bin/ssr
+                ${SSRGo_start}
                 exit 0
             fi
 		    echo "输入错误! 请输入正确的数字!"
@@ -134,7 +136,7 @@ if [[ ${choice} == 2 ]]; then
 	/etc/init.d/shadowsocks restart
         echo ""
         echo "密码配置已完成！"
-        bash /usr/local/bin/ssr
+        ${SSRGo_start}
     fi
     
     if [[ ${changechoice} == 2 ]]; then
@@ -144,7 +146,7 @@ if [[ ${choice} == 2 ]]; then
 	/etc/init.d/shadowsocks restart
         echo ""
         echo "端口配置已完成！"
-        bash /usr/local/bin/ssr
+        ${SSRGo_start}
     fi
     
     if [[ ${changechoice} == 3 ]]; then
@@ -153,7 +155,7 @@ if [[ ${choice} == 2 ]]; then
 	/etc/init.d/shadowsocks restart
         echo ""
         echo "加密方式配置已完成！"
-        bash /usr/local/bin/ssr
+        ${SSRGo_start}
     fi
     
     if [[ ${changechoice} == 4 ]]; then
@@ -162,7 +164,7 @@ if [[ ${choice} == 2 ]]; then
 	/etc/init.d/shadowsocks restart
         echo ""
         echo "传输协议配置已完成！"
-        bash /usr/local/bin/ssr
+        ${SSRGo_start}
     fi
     
     if [[ ${changechoice} == 5 ]]; then
@@ -171,12 +173,25 @@ if [[ ${choice} == 2 ]]; then
 	/etc/init.d/shadowsocks restart
         echo ""
         echo "混淆模式配置已完成！"
-        bash /usr/local/bin/ssr
+        ${SSRGo_start}
     fi
 fi
 
 # 查看服务信息模块
 if [[ ${choice} == 3 ]]; then
+    rm -rf /root/ssr_qrcode.png
     python /usr/local/SSR.Go/connectinfo.py
-    bash /usr/local/bin/ssr
+    echo ""
+    read -n1 -p  "==是否将 SSR 客户端配置二维码下载到你的电脑？(y/n)==" ans
+    echo -e "\n"
+    if [[ ${ans} =~ [yY] ]]; then
+        sz /root/ssr_qrcode.png
+        echo -e "\n"
+        echo "SSR 二维码已传送完成！"
+        ${SSRGo_start}
+    else
+        echo "传送已取消！"
+        ${SSRGo_start}
+    fi
+    ${SSRGo_start}
 fi
