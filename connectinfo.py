@@ -47,5 +47,5 @@ print("    你可以复制以下链接分享给你的设备和朋友们使用了
 GreenText(GetSsrUrl(IP, Port, Protocol, Method, Obfs, base64Pwd, SecondPart))
 
 # 生成客户端二维码
-genQR_Code(SSR_Url)
+genQR_Code(SSR_Url, "/root/ssr_qrcode.png")
 print("======== SSR 二维码已生成并存储在系统根目录！=========")
