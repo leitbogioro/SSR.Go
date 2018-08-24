@@ -2,30 +2,21 @@
 # -*- coding: utf-8 -*-
 
 import readjson
-import urllib2
 import base64
 import os
 import json
-import socket
-import qrcode
+from ssrextra import (is_internal_ip, get_host_ip, look_ip_from)
 
 # 获取本机IP地址
-# 此方法的原理是利用 UDP 协议来实现的，生成一个 UDP 包，将发送包的 IP 记录在 UDP 协议头中，然后从 UDP 包中获取本机 IP
 
-def get_host_ip():
-    try:
-        s = socket.socket(socket.AF_INET, socket.SOCK_DGRAM)
-        s.connect(('8.8.8.8', 53))
-        ip = s.getsockname()[0]
-    finally:
-        s.close()
-
-    return ip
-
+# 默认采用发送 UDP 数据包的方式获取 IP 地址
 thisip = get_host_ip()
 
-# 定义配置变量
+# 如果检测到的是内网 IP，进一步的操作
+if int(is_internal_ip(thisip)) == 1:
+    thisip = look_ip_from()
 
+# 定义配置变量
 IP = str(thisip)
 Port = str(readjson.ConfPort)
 Pwd = str(readjson.ConfPwd)
@@ -36,7 +27,6 @@ Obfs = str(readjson.ConfObfs)
 SecondPart = "/?obfsparam="
 
 # 输出客户端连接配置信息
-
 print("服务器IP：%s") % IP
 print("端口：%s") % Port
 print("密码：%s") % Pwd
@@ -45,7 +35,6 @@ print("传输协议：%s") % Protocol
 print("混淆模式：%s") % Obfs
 
 # 获取 ssr 链接
-
 def GetSsrUrl():
     parts = [IP, Port, Protocol, Method, Obfs, base64Pwd]
     configs = str(':'.join(parts))
@@ -55,26 +44,14 @@ def GetSsrUrl():
     SsrUrl = "ssr://" + base64SsrUrl
     return SsrUrl
 
-SSR_Url = str(GetSsrUrl())
-
+# 绿色字体
 def GreenText(string):
     print("\033[32m")
     print("%s") % string
     print("\033[0m")
 
+# 输出信息
 print("\n")
 print("==================== SSR 配置链接 ====================")
 print("    你可以复制以下链接分享给你的设备和朋友们使用了！  ")
-GreenText(SSR_Url)
-
-# 获得客户端二维码
-
-def genQR_Code(ssr_url):
-    qr = qrcode.QRCode(version=2, error_correction=qrcode.constants.ERROR_CORRECT_L, box_size=10, border=1)
-    qr.add_data(ssr_url)
-    qr.make(fit=True)
-    img = qr.make_image()
-    img.save("/root/ssr_qrcode.png")
-
-genQR_Code(SSR_Url)
-print("======== SSR 二维码已生成并存储在系统根目录！========")
+GreenText(GetSsrUrl())
