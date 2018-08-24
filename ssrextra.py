@@ -5,6 +5,8 @@ import random
 import string
 import socket
 import urllib2
+import base64
+import qrcode
 
 # 生成随机密码
 # python3中为string.ascii_letters,而python2下则可以使用string.letters和string.ascii_letters
@@ -81,3 +83,21 @@ def look_ip_from():
     thisip = urllib2.urlopen('https://ipv4.icanhazip.com/').read()
     thisip = thisip.strip()
     return thisip
+
+# 生成 SSR 链接
+def GetSsrUrl(IP, Port, Protocol, Method, Obfs, base64Pwd, SecondPart):
+    parts = [IP, Port, Protocol, Method, Obfs, base64Pwd]
+    configs = str(':'.join(parts))
+    RealSsrUrl = configs + SecondPart
+    base64SsrUrl = str(base64.encodestring(RealSsrUrl))
+    base64SsrUrl = base64SsrUrl.replace("\n", "")
+    SsrUrl = "ssr://" + base64SsrUrl
+    return SsrUrl
+
+# 生成客户端二维码
+def genQR_Code(ssr_url, path):
+    qr = qrcode.QRCode(version=2, error_correction=qrcode.constants.ERROR_CORRECT_L, box_size=10, border=1)
+    qr.add_data(ssr_url)
+    qr.make(fit=True)
+    img = qr.make_image()
+    img.save(path)
