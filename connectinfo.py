@@ -5,7 +5,7 @@ import readjson
 import base64
 import os
 import json
-from ssrextra import (is_internal_ip, get_host_ip, look_ip_from)
+from ssrextra import (is_internal_ip, get_host_ip, look_ip_from, GetSsrUrl, genQR_Code)
 
 # 获取本机IP地址
 
@@ -34,15 +34,8 @@ print("Encryption method: %s") % Method
 print("Transmission protocol: %s") % Protocol
 print("Obfs model: %s") % Obfs
 
-# 获取 ssr 链接
-def GetSsrUrl():
-    parts = [IP, Port, Protocol, Method, Obfs, base64Pwd]
-    configs = str(':'.join(parts))
-    RealSsrUrl = configs + SecondPart
-    base64SsrUrl = str(base64.encodestring(RealSsrUrl))
-    base64SsrUrl = base64SsrUrl.replace("\n", "")
-    SsrUrl = "ssr://" + base64SsrUrl
-    return SsrUrl
+# ssr客户端链接
+ssr_url=str(GetSsrUrl(IP, Port, Protocol, Method, Obfs, base64Pwd, SecondPart))
 
 # 绿色字体
 def GreenText(string):
@@ -54,4 +47,8 @@ def GreenText(string):
 print("\n")
 print("======================================== SSR Configuration url ========================================")
 print("    Now you can copy the following url to share to your devices and friends to access a wide world!    ")
-GreenText(GetSsrUrl())
+GreenText(ssr_url)
+
+# 生成客户端二维码
+genQR_Code(ssr_url, "/root/ssr_qrcode.png")
+print("============= SSR Configuration QRCode has been storaged into root folder of the system! ==============")
