@@ -5,6 +5,8 @@ export PATH=/usr/local/sbin:/usr/local/bin:/sbin:/bin:/usr/sbin:/usr/bin
 [ $(id -u) != "0" ] && { echo "Error: You must be root to run this script"; exit 1; }
 
 SSRGo_start="bash /usr/local/bin/ssr"
+QR_Code="/root/ssr_qrcode.png"
+Show_Conf="python /usr/local/SSR.Go/connectinfo.py"
 
 echo ""
 
@@ -132,7 +134,7 @@ if [[ ${choice} == 2 ]]; then
     
     if [[ ${changechoice} == 1 ]]; then
         python /usr/local/SSR.Go/changepwd.py
-        # 这里需要添加生成二维码模块
+        ${Show_Conf}
 	/etc/init.d/shadowsocks restart
         echo ""
         echo "密码配置已完成！"
@@ -141,7 +143,7 @@ if [[ ${choice} == 2 ]]; then
     
     if [[ ${changechoice} == 2 ]]; then
         python /usr/local/SSR.Go/changeport.py
-        # 这里需要添加生成二维码模块
+        ${Show_Conf}
 	python /usr/local/SSR.Go/addportrules.py
 	/etc/init.d/shadowsocks restart
         echo ""
@@ -151,7 +153,7 @@ if [[ ${choice} == 2 ]]; then
     
     if [[ ${changechoice} == 3 ]]; then
         python /usr/local/SSR.Go/changemethod.py
-        # 这里需要添加生成二维码模块
+        ${Show_Conf}
 	/etc/init.d/shadowsocks restart
         echo ""
         echo "加密方式配置已完成！"
@@ -160,7 +162,7 @@ if [[ ${choice} == 2 ]]; then
     
     if [[ ${changechoice} == 4 ]]; then
         python /usr/local/SSR.Go/changeprotocol.py
-        # 这里需要添加生成二维码模块
+        ${Show_Conf}
 	/etc/init.d/shadowsocks restart
         echo ""
         echo "传输协议配置已完成！"
@@ -169,7 +171,7 @@ if [[ ${choice} == 2 ]]; then
     
     if [[ ${changechoice} == 5 ]]; then
         python /usr/local/SSR.Go/changeobfs.py
-        # 这里需要添加生成二维码模块
+        ${Show_Conf}
 	/etc/init.d/shadowsocks restart
         echo ""
         echo "混淆模式配置已完成！"
@@ -179,8 +181,8 @@ fi
 
 # 查看服务信息模块
 if [[ ${choice} == 3 ]]; then
-    rm -rf /root/ssr_qrcode.png
-    python /usr/local/SSR.Go/connectinfo.py
+    rm -rf ${QR_Code}
+    ${Show_Conf}
     echo ""
     read -n1 -p  "==是否将 SSR 客户端配置二维码下载到你的电脑？(y/n)==" ans
     echo -e "\n"
