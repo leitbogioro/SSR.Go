@@ -80,6 +80,10 @@
 
 <h2><a id="Updates">更新日志（Updates）：</a></h2>
 <ul>
+<li>增加生成二维码功能，因 Cent OS 6 自带的 python 版本与 qrcode 组件的运行环境不兼容，故暂时功能异常，正在修复中。（2018.8.24）</li>
+<p>Add a function about generate client qrcode, but it depends on qrcode pip kit for python2.7 and it doesn't complain with python2.6 in Cent OS 6 so I'm fixing it.</p>
+<li>修复了阿里云、腾讯云、Azure、Amazon、Google Cloud Platform等自带安全组规则的vps获取 IP 地址会变成内网地址的问题。（2018.8.24）</li>
+<p>Fix a problem about getting external network IP address but it causes to local IP address in vps from AlibabaCloud, TencentCloud, Azure, Amazon, Google Cloud Platform etc which has it's own security group rule.(2018.8.24)</p>
 <li>更新获取服务端 IP 地址逻辑。（2018.8.23）</li>
 <p>Update get server IP address logic.(2018.8.23)</p>
 <li>修正更新 ssr 和 SSR.Go 功能无效的问题。（2018.8.22）</li>
