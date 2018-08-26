@@ -29,7 +29,9 @@ if [[ ${OS} == 'CentOS' ]];then
 else
     curl sudo -E bash -
 	apt-get update
-	apt-get install curl unzip git ntp wget ntpdate python socat lrzsz -y
+	apt-get install curl unzip git ntp wget ntpdate python python-pip socat lrzsz -y
+	pip install pillow
+	pip install qrcode
 fi
 
 #克隆ssr.go项目
