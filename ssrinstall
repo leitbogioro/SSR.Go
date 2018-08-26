@@ -4,6 +4,11 @@ export PATH=/usr/local/sbin:/usr/local/bin:/sbin:/bin:/usr/sbin:/usr/bin
 #检查是否为Root
 [ $(id -u) != "0" ] && { echo "发生错误，你必须以 root 用户执行此安装程序"; exit 1; }
 
+# 脚本字体颜色
+green='\033[0;32m'
+red='\033[0;31m'
+plain='\033[0m'
+
 #检查系统信息
 if [ -f /etc/redhat-release ];then
         OS='CentOS'
@@ -22,16 +27,47 @@ if [ -s /etc/selinux/config ] && grep 'SELINUX=enforcing' /etc/selinux/config; t
     setenforce 0
 fi
 
+# CentOS 6 专用 python
+py_for_centos="https://raw.githubusercontent.com/leitbogioro/SSR.Go/master/python_for_centos6.sh"
+py_intall="python_for_centos6.sh"
+
+# 输出 centos 系统大版本号
+System_CentOS=`rpm -q centos-release|cut -d- -f1`
+CentOS_Version=`cat /etc/redhat-release|sed -r 's/.* ([0-9]+)\..*/\1/'`
+
+# Python QRCode 依赖
+py_qrcode(){
+    pip install pillow
+    pip install qrcode
+}
+
 #安装依赖
-if [[ ${OS} == 'CentOS' ]];then
+if [[ ${OS} == 'CentOS' ]] && [[ ${CentOS_Version} -eq "7" ]]; then
     curl sudo bash -
-	yum install curl wget unzip git ntp ntpdate lrzsz python -y
+	yum install epel-release update curl wget unzip git ntp ntpdate lrzsz python python-pip -y
+    pip install --upgrade pip
+    py_qrcode
+elif [[ ${OS} == 'CentOS' ]] && [[ ${CentOS_Version} -eq "6" ]]; then
+    curl sudo bash -
+	yum install update wget -y
+    wget ${py_for_centos}
+    if ! wget ${py_for_centos}; then
+        echo -e "[${red}错误${plain}] ${py_file} 下载失败，请检测你的网络！"
+        exit 1
+    fi
+    bash ${py_intall}
+    curl sudo bash -
+	yum install curl unzip git ntp ntpdate lrzsz -y
+    py_qrcode
+    rm -rf ${py_intall}
+elif [[ ${OS} == 'CentOS' ]] && [[ ${CentOS_Version} -le "5" ]]; then
+    echo "您的系统版本是（${System_CentOS} ${CentOS_Version}），此系统不受支持，SSR.Go 安装程序即将退出！"
+    exit 1
 else
     curl sudo -E bash -
 	apt-get update
 	apt-get install curl unzip git ntp wget ntpdate python python-pip socat lrzsz -y
-	pip install pillow
-	pip install qrcode
+	py_qrcode
 fi
 
 #克隆ssr.go项目
