@@ -64,7 +64,7 @@ install_python(){
     pip install distribute
 
     # 清理 python 安装包
-    rm -rf ${python_file} ${python_file}.tgz
+    rm -rf /root/$python_file /root/$python_file.tgz
 }
 
 prevent_yum(){
