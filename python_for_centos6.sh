@@ -18,7 +18,7 @@ install_python(){
     yum groupinstall -y "Development tools"
 
     # 安装其它的必需包
-    yum install -y zlib-devel bzip2-devel openssl-devel ncurses-devel sqlite-devel wget
+    yum install -y update zlib-devel bzip2-devel openssl-devel ncurses-devel sqlite-devel wget
 
     # 下载、编译和安装 Python 2.7
     wget ${python_url}
