@@ -42,8 +42,10 @@
 <br />
 <p>3. <b>默认采用最新版实验型协议————akarrin 系列</b>，抗封锁能力较强，<b>目前只有 Windows 客户端支持，手机/路由器均不能用，但仍然强烈建议使用</b>，下载链接：<a href="https://github.com/leitbogioro/ShadowsocksRR-Install/files/2127044/ShadowsocksR-win-4.9.0.zip-dev.zip">ShadowsocksR-win-4.9.0.zip-dev</a>。</p>
 <p>Use akarrin series protocol as ShadowSocksR's config, <b>I recommend this protocol because it has strong anti-blocking ability but it can only supported on Windows and doesn't work on smartphone or wireless-router.</b>Press it to download: <a href="https://github.com/leitbogioro/ShadowsocksRR-Install/files/2127044/ShadowsocksR-win-4.9.0.zip-dev.zip">ShadowsocksR-win-4.9.0.zip-dev</a>.</p>
+<br />
 <p>4. <b>可快速直观地生成、查看客户端配置信息，无需费劲巴拉地手动修改 config.json 文件。</p>
 <p><b>You can quickly and intuitively generate, look up client configurate information instead of manually modifiy a fuckin "config.json" which you don't have any patient to deal with!</b></p>
+<br />
 <p>5. <b>专为 CentOS 6/7 解决了复杂的二维码生成组件配置环境（你知道我 TM 花了多大劲吗！）</b>，你可以在 CentOS 系统上愉快地使用它们。</p>
 <p><b>Especially complained a complex compatibility problem about qrcode generation library on CentOS 6/7（do you know how much fuckin difficult I had suffered!）</b>, now you can have a perfect experience on CentOS.</p>
 <br />
