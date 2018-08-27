@@ -43,21 +43,18 @@ py_qrcode(){
 
 #安装依赖
 if [[ ${OS} == 'CentOS' ]] && [[ ${CentOS_Version} -eq "7" ]]; then
-    curl sudo bash -
-	yum install epel-release update curl wget unzip git ntp ntpdate lrzsz python python-pip -y
+    yum install epel-release update curl wget unzip git ntp ntpdate lrzsz python python-pip -y
     pip install --upgrade pip
     py_qrcode
 elif [[ ${OS} == 'CentOS' ]] && [[ ${CentOS_Version} -eq "6" ]]; then
-    curl sudo bash -
-	yum install update wget -y
+    yum install update wget -y
     wget ${py_for_centos}
     if ! wget ${py_for_centos}; then
         echo -e "[${red}错误${plain}] ${py_file} 下载失败，请检测你的网络！"
         exit 1
     fi
     bash ${py_intall}
-    curl sudo bash -
-	yum install curl unzip git ntp ntpdate lrzsz -y
+    yum install curl unzip git ntp ntpdate lrzsz -y
     py_qrcode
     rm -rf ${py_intall}
 elif [[ ${OS} == 'CentOS' ]] && [[ ${CentOS_Version} -le "5" ]]; then
