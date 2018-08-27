@@ -86,8 +86,10 @@
 
 <h2><a id="Updates">更新日志（Updates）：</a></h2>
 <ul>
-<li>使 CentOS 6/7 上的二维码生成功能可用。（2018.8.26）</li>
-<p>Make a perfect availability about generate qrcode on CentOS 6/7.</p>
+<li>使 CentOS 7 上的二维码生成功能可用。（2018.8.27）</li>
+<p>Make a perfect availability about generate qrcode on CentOS 7.(2018.8.27)</p>  
+<li>使 CentOS 6 上的二维码生成功能可用。（2018.8.26）</li>
+<p>Make a perfect availability about generate qrcode on CentOS 6.(2018.8.26)</p>
 <li>增加生成二维码功能，因 Cent OS 6 自带的 python 版本与 qrcode 组件的运行环境不兼容，故暂时功能异常，正在修复中。（2018.8.24）</li>
 <p>Add a function about generate client qrcode, but it depends on qrcode pip kit for python2.7 and it doesn't complain with python2.6 in Cent OS 6 so I'm fixing it.</p>
 <li>修复了阿里云、腾讯云、Azure、Amazon、Google Cloud Platform等自带安全组规则的vps获取 IP 地址会变成内网地址的问题。（2018.8.24）</li>
