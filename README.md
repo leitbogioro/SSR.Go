@@ -42,6 +42,10 @@
 <br />
 <p>3. <b>默认采用最新版实验型协议————akarrin 系列</b>，抗封锁能力较强，<b>目前只有 Windows 客户端支持，手机/路由器均不能用，但仍然强烈建议使用</b>，下载链接：<a href="https://github.com/leitbogioro/ShadowsocksRR-Install/files/2127044/ShadowsocksR-win-4.9.0.zip-dev.zip">ShadowsocksR-win-4.9.0.zip-dev</a>。</p>
 <p>Use akarrin series protocol as ShadowSocksR's config, <b>I recommend this protocol because it has strong anti-blocking ability but it can only supported on Windows and doesn't work on smartphone or wireless-router.</b>Press it to download: <a href="https://github.com/leitbogioro/ShadowsocksRR-Install/files/2127044/ShadowsocksR-win-4.9.0.zip-dev.zip">ShadowsocksR-win-4.9.0.zip-dev</a>.</p>
+<p>可快速生成、查看客户端配置信息，无需费劲巴拉地修改 config.json 文件。</p>
+<p>You can quickly generate, look up client configurate information instead of modifiy a "config.json" which you don't have any fuckin patient to deal with!</p>
+<p>5. 专为 CentOS 6/7 解决了复杂的二维码生成组件配置环境，你可以在 CentOS 系统上愉快地使用它们。</p>
+<p>Especially complained a complex compatibility problem about qrcode generation library on CentOS 6/7, now you can have a perfect experience on CentOS.</p>
 <br />
 
 <h2><a id="Sample">使用示例（Sample）</a></h2>
@@ -80,6 +84,8 @@
 
 <h2><a id="Updates">更新日志（Updates）：</a></h2>
 <ul>
+<li>使 CentOS 6/7 上的二维码生成功能可用。（2018.8.26）</li>
+<p>Make a perfect availability about generate qrcode on CentOS 6/7.</p>
 <li>增加生成二维码功能，因 Cent OS 6 自带的 python 版本与 qrcode 组件的运行环境不兼容，故暂时功能异常，正在修复中。（2018.8.24）</li>
 <p>Add a function about generate client qrcode, but it depends on qrcode pip kit for python2.7 and it doesn't complain with python2.6 in Cent OS 6 so I'm fixing it.</p>
 <li>修复了阿里云、腾讯云、Azure、Amazon、Google Cloud Platform等自带安全组规则的vps获取 IP 地址会变成内网地址的问题。（2018.8.24）</li>
