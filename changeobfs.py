@@ -1,14 +1,15 @@
 #! /usr/bin/env python
 # -*- coding: utf-8 -*-
-
-import readjson
+from readjson import ConfObfs
 import writejson
-import ssrextra
-from ssrextra import is_number
-from ssrextra import Whether
+from ssrextra import (is_number, Whether, runpy, runshell, Show_conf)
 
-print ("当前混淆模式为：%s") % str(readjson.ConfObfs)
-print ("请选择新的混淆模式：")
+co="changeobfs"
+
+Show_conf("当前混淆模式", ConfObfs)
+print ("按数字键选择混淆模式")
+print ("")
+print ("0.返回上一级")
 print ("1.plain")
 print ("2.http_simple")
 print ("3.http_simple_compatible")
@@ -23,29 +24,31 @@ newobfs = raw_input()
 
 if ( not is_number(newobfs) ):
     print ("输入错误，请确保你的输入内容正确！")
-    exit
+    runpy(co)
 else:
-    if (newobfs=="1"):
-        Whether("该模式表示不添加混淆，建议配合最新协议使用，是否要选择？(y/n)", "y", "n", writejson.WriteObfs, "混淆", "plain", "混淆选择")
+    if (newobfs=="0"):
+        runshell("/usr/local/bin/ssr", "change_config")
+    elif (newobfs=="1"):
+        Whether("该模式表示不添加混淆，建议配合最新协议使用，是否要选择？(y/n)", "y", "n", writejson.WriteObfs, "混淆", "plain", "混淆选择", co)
     elif (newobfs=="2"):
-        Whether("该模式仅制造一次请求和回应包，中途依旧不采用混淆模式通信，建议配合最新协议使用，是否要选择？(y/n)", "y", "n", writejson.WriteObfs, "混淆", "http_simple", "混淆选择")
+        Whether("该模式仅制造一次请求和回应包，中途依旧不采用混淆模式通信，建议配合最新协议使用，是否要选择？(y/n)", "y", "n", writejson.WriteObfs, "混淆", "http_simple", "混淆选择", co)
     elif (newobfs=="3"):
-        Whether("该模式的作用和 http_simple 一致，可兼容原版 shadowsocks 协议，是否要选择？(y/n)", "y", "n", writejson.WriteObfs, "混淆", "http_simple_compatible", "混淆选择")
+        Whether("该模式的作用和 http_simple 一致，可兼容原版 shadowsocks 协议，是否要选择？(y/n)", "y", "n", writejson.WriteObfs, "混淆", "http_simple_compatible", "混淆选择", co)
     elif (newobfs=="4"):
-        Whether("该模式的作用和 http_simple 类似，区别在于制造的是 POST 请求头，建议配合最新协议使用，是否要选择？(y/n)", "y", "n", writejson.WriteObfs, "混淆", "http_post", "混淆选择")
+        Whether("该模式的作用和 http_simple 类似，区别在于制造的是 POST 请求头，建议配合最新协议使用，是否要选择？(y/n)", "y", "n", writejson.WriteObfs, "混淆", "http_post", "混淆选择", co)
     elif (newobfs=="5"):
-        Whether("该模式的作用和 http_simple 一致，可兼容原版 shadowsocks 协议，是否要选择？(y/n)", "y", "n", writejson.WriteObfs, "混淆", "http_post_compatible", "混淆选择")
+        Whether("该模式的作用和 http_simple 一致，可兼容原版 shadowsocks 协议，是否要选择？(y/n)", "y", "n", writejson.WriteObfs, "混淆", "http_post_compatible", "混淆选择", co)
     elif (newobfs=="6"):
         writejson.WriteObfs("tls1.2_ticket_auth")
-        print("新的协议为：tls1.2_ticket_auth")
+        Show_conf("新的混淆模式", "tls1.2_ticket_auth")
     elif (newobfs=="7"):
-        Whether("该模式的作用和 tls1.2_ticket_auth 一致，可兼容原版 shadowsocks 协议，是否要选择？(y/n)", "y", "n", writejson.WriteObfs, "混淆", "tls1.2_ticket_auth_compatible", "混淆选择")
+        Whether("该模式的作用和 tls1.2_ticket_auth 一致，可兼容原版 shadowsocks 协议，是否要选择？(y/n)", "y", "n", writejson.WriteObfs, "混淆", "tls1.2_ticket_auth_compatible", "混淆选择", co)
     elif (newobfs=="8"):
-        Whether("该模式和 tls1.2_ticket_auth 区别是，它不会等待服务端的响应，可有效降低延迟，是否要选择？(y/n)", "y", "n", writejson.WriteObfs, "混淆", "tls1.2_ticket_fastauth", "混淆选择")
+        Whether("该模式和 tls1.2_ticket_auth 区别是，它不会等待服务端的响应，可有效降低延迟，是否要选择？(y/n)", "y", "n", writejson.WriteObfs, "混淆", "tls1.2_ticket_fastauth", "混淆选择", co)
     elif (newobfs=="9"):
-        Whether("该模式的作用和 tls1.2_ticket_fastauth 一致，可兼容原版 shadowsocks 协议，是否要选择？(y/n)", "y", "n", writejson.WriteObfs, "混淆", "tls1.2_ticket_fastauth_compatible", "混淆选择")
+        Whether("该模式的作用和 tls1.2_ticket_fastauth 一致，可兼容原版 shadowsocks 协议，是否要选择？(y/n)", "y", "n", writejson.WriteObfs, "混淆", "tls1.2_ticket_fastauth_compatible", "混淆选择", co)
     elif (newobfs=="10"):
-        Whether("该模式通讯前会发送随机数据包，但包的末尾特征明显，容易被防火长城干扰，之后是协议数据流，是否要选择？(y/n)", "y", "n", writejson.WriteObfs, "混淆", "random_head", "混淆选择")
+        Whether("该模式通讯前会发送随机数据包，但包的末尾特征明显，容易被防火长城干扰，之后是协议数据流，是否要选择？(y/n)", "y", "n", writejson.WriteObfs, "混淆", "random_head", "混淆选择", co)
     else:
 	print("请按 1 到 10 之间的数字！")
-
+        runpy(co)
