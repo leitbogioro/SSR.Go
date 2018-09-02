@@ -1,12 +1,20 @@
 #! /usr/bin/env python
 # -*- coding: utf-8 -*-
-import os
-import random
-import string
-import socket
-import urllib2
-import base64
-import qrcode
+import os, random, string, socket, urllib2, base64, qrcode, subprocess
+
+# 运行 python 脚本
+def runpy(ssrfile):
+    os.system("python /usr/local/SSR.Go/"+ssrfile+".py")
+
+# 运行 shell 脚本
+def runshell(src, cmd):
+    setShell="bash "+src+" "+cmd
+    print subprocess.call(setShell, shell=True)
+
+# 输出 json 配置参数
+def Show_conf(txt, item):
+    print (txt+"为：%s") % str(item)
+    print ("")
 
 # 生成随机密码
 # python3中为string.ascii_letters,而python2下则可以使用string.letters和string.ascii_letters
@@ -30,27 +38,28 @@ def is_number(s):
         return True
     except ValueError:
         pass
- 
     try:
         import unicodedata
         unicodedata.numeric(s)
         return True
     except (TypeError, ValueError):
         pass
- 
     return False
 
 # 协议、加密方式、混淆模式函数
-def Whether(ask, c1, c2, config, describe ,item, cancel):
+def Whether(ask, c1, c2, config, describe ,item, cancel, ssrfile):
     print(ask)
     pick = raw_input()
     if pick == c1 or pick == '':
         config(item)
-	print("新的"+ describe + "为：%s") % item
+	print ("新的"+ describe + "为：%s") % item
+        print ("")
     elif pick == c2:
-        print("已取消" + cancel + ",未执行任何操作")
+        print ("已取消" + cancel + ",未执行任何操作")
+        runpy(ssrfile)
     else:
-        print("输入不正确，请输入 " + c1 + " 或 " + c2)
+        print ("输入不正确，请输入 " + c1 + " 或 " + c2)
+        runpy(ssrfile)
 
 # 将 IP 地址转换成 16 进制，再去掉中间的 "." 后转换成 10 进制
 def ip_into_int(ip):
