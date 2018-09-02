@@ -85,6 +85,8 @@
 
 <h2><a id="Updates">更新日志（Updates）：</a></h2>
 <ul>
+<li>优化脚本交互逻辑，使用某级列表下的功能后仍将返回到某级列表。（2018.9.2）</li>
+<p>Optimized script interaction logic, When you explor some function in one list which you will come back this list.(2018.9.2)</p>
 <li>使 CentOS 7 上的二维码生成功能可用。（2018.8.27）</li>
 <p>Make a perfect availability about generate qrcode on CentOS 7.(2018.8.27)</p>  
 <li>使 CentOS 6 上的二维码生成功能可用。（2018.8.26）</li>
