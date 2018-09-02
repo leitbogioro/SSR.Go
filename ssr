@@ -4,12 +4,171 @@ export PATH=/usr/local/sbin:/usr/local/bin:/sbin:/bin:/usr/sbin:/usr/bin
 # 检测是否以 root 用户运行
 [ $(id -u) != "0" ] && { echo "Error: You must be root to run this script"; exit 1; }
 
+SSR_restart="/etc/init.d/shadowsocks restart"
 SSRGo_start="bash /usr/local/bin/ssr"
+Change_config="bash /usr/local/bin/ssr change_config"
+Service_mgr="bash /usr/local/bin/ssr service_mgr"
 QR_Code="/root/ssr_qrcode.png"
 Show_Conf="python /usr/local/SSR.Go/connectinfo.py"
 
-echo ""
+# 服务管理 
+service_mgr(){
+    echo ""
+    echo "0.返回上一级"
+    echo "1.启动服务"
+    echo "2.停止服务"
+    echo "3.重启服务"
+    echo "4.运行状态"
+    echo "5.运行日志"
+    echo "按数字键选择功能，按回车键退出"
+    while :; do echo
+            read -n1 -p "请选择： " schoice
+            if [[ ! $schoice =~ ^[0-5]$ ]]; then
+                if [[ -z ${schoice} ]]; then
+                    exit 0
+                fi
+                    echo "输入错误! 请输入正确的数字!"
+            else
+                echo ""
+                break
+            fi
+    done
+    # 返回上一级
+    if [[ ${schoice} == 0 ]]; then
+        ${SSRGo_start}
+    fi
+    # 启动ssr
+    if [[ ${schoice} == 1 ]]; then
+        python /usr/local/SSR.Go/addportrules.py
+        /etc/init.d/shadowsocks start
+        # 这里需要添加生成二维码模块
+        echo "ssrr服务启动成功！"
+        ${Service_mgr}
+    fi
+    if [[ ${schoice} == 2 ]]; then
+        /etc/init.d/shadowsocks stop
+        echo "ssrr服务停止成功！"
+        ${Service_mgr}
+    fi
+    if [[ ${schoice} == 3 ]]; then
+        python /usr/local/SSR.Go/addportrules.py
+        ${SSR_restart}
+        # 这里需要添加生成二维码模块
+        echo "ssrr服务已重启！"
+        ${Service_mgr}
+    fi
+    if [[ ${schoice} == 4 ]]; then
+        /etc/init.d/shadowsocks status
+        ${Service_mgr}
+    fi
+    if [[ ${schoice} == 5 ]]; then
+        echo "按Ctrl + C 以退出日志功能"
+        echo ""
+        tail -f /var/log/shadowsocksr.log
+        ${Service_mgr}
+    fi
+}
 
+# 更改配置
+change_config(){
+    echo ""
+    echo "0.返回上一级"
+    echo "1.更改密码"
+    echo "2.更改端口"
+    echo "3.更改加密方式"
+    echo "4.更改协议"
+    echo "5.更改混淆模式"
+    echo "按数字键选择功能，按回车键退出"
+    while :; do echo
+        read -n1 -p "请选择： " changechoice
+            if [[ ! $changechoice =~ ^[0-5]$ ]]; then
+                if [[ -z ${changechoice} ]];then
+                    exit 0
+                fi
+                echo "输入错误! 请输入正确的数字!"
+            else
+                echo ""  
+                break
+            fi
+    done
+    # 返回上一级
+    if [[ ${changechoice} == 0 ]]; then
+        ${SSRGo_start}
+    fi
+    # 更改密码
+    if [[ ${changechoice} == 1 ]]; then
+        python /usr/local/SSR.Go/changepwd.py
+        ${Show_Conf}
+        echo ""
+        send_qrcode
+        ${SSR_restart}
+        echo ""
+        echo "密码配置已完成！"
+        ${Change_config}
+    fi
+    # 更改端口
+    if [[ ${changechoice} == 2 ]]; then
+        python /usr/local/SSR.Go/changeport.py
+        ${Show_Conf}
+        python /usr/local/SSR.Go/addportrules.py
+        echo ""
+        send_qrcode
+        ${SSR_restart}
+        echo ""
+        echo "端口配置已完成！"
+        ${Change_config}
+    fi
+    # 更改加密
+    if [[ ${changechoice} == 3 ]]; then
+        python /usr/local/SSR.Go/changemethod.py
+        ${Show_Conf}
+        echo ""
+        send_qrcode
+        ${SSR_restart}
+        echo ""
+        echo "加密方式配置已完成！"
+        ${Change_config}
+    fi
+    # 更改协议
+    if [[ ${changechoice} == 4 ]]; then
+        python /usr/local/SSR.Go/changeprotocol.py
+        ${Show_Conf}
+        echo ""
+        send_qrcode
+        ${SSR_restart}
+        echo ""
+        echo "传输协议配置已完成！"
+        ${Change_config}
+    fi
+    # 更改混淆
+    if [[ ${changechoice} == 5 ]]; then
+        python /usr/local/SSR.Go/changeobfs.py
+        ${Show_Conf}
+        echo ""
+        send_qrcode
+        ${SSR_restart}
+        echo ""
+        echo "混淆模式配置已完成！"
+        ${Change_config}
+    fi
+}
+
+# 传送二维码
+send_qrcode(){
+    read -n1 -p  "==是否将 SSR 客户端配置二维码下载到你的电脑？(y/n)==" ans
+    if [[ ${ans} =~ [yY] ]]; then
+        sz /root/ssr_qrcode.png
+        echo -e "\n"
+        echo "SSR 二维码已传送完成！"
+    else
+        echo -e "\n"
+        echo "传送已取消！"
+    fi
+}
+
+"$@"
+
+echo ""
 echo "欢迎使用 ssr.go 管理助手"
 echo ""
 echo "1.服务管理"
@@ -17,7 +176,7 @@ echo "2.更改配置"
 echo "3.查看配置链接/下载手机端二维码"
 echo "4.更新ssr和ssr.go"
 echo "5.更换语言版本（Switch to English version）"
-echo "请输入数字选择功能(按回车键退出)："
+echo "请输入数字选择功能(按 Ctrl+C 退出)："
 
 while :; do echo
     read -n1 -p "请选择： " choice
@@ -25,10 +184,11 @@ while :; do echo
     if [[ -z ${choice} ]];then
         exit 0
     fi
+        echo -e "\n"
         echo "输入错误! 请输入正确的数字!"
     else
-        echo -e "\n"
-        break	
+        echo ""
+        break
     fi
 done
 
@@ -56,144 +216,22 @@ if [[ ${choice} == 5 ]]; then
     fi
 fi
 
-# 服务管理 
+# 服务管理模块
 if [[ ${choice} == 1 ]]; then
-    echo "1.启动服务"
-    echo "2.停止服务"
-    echo "3.重启服务"
-    echo "4.运行状态"
-    echo "5.运行日志"
-    while :; do echo
-	    read -n1 -p "请选择： " schoice
-	    if [[ ! $schoice =~ ^[1-5]$ ]]; then
-            if [[ -z ${schoice} ]];then
-                ${SSRGo_start}
-                exit 0
-            fi
-		    echo "输入错误! 请输入正确的数字!"
-	    else
-            echo -e "\n"
-		    break
-	    fi
-    done
-	# 启动ssr
-    if [[ ${schoice} == 1 ]]; then
-        python /usr/local/SSR.Go/addportrules.py
-        /etc/init.d/shadowsocks start
-        # 这里需要添加生成二维码模块
-        echo "ssrr服务启动成功！"
-        ${SSRGo_start}
-    fi
-    if [[ ${schoice} == 2 ]]; then
-        /etc/init.d/shadowsocks stop
-        echo "ssrr服务停止成功！"
-        ${SSRGo_start}
-    fi
-    if [[ ${schoice} == 3 ]]; then
-        python /usr/local/SSR.Go/addportrules.py
-        /etc/init.d/shadowsocks restart
-        # 这里需要添加生成二维码模块
-        echo "ssrr服务已重启！"
-        ${SSRGo_start}
-    fi
-    if [[ ${schoice} == 4 ]]; then
-        /etc/init.d/shadowsocks status
-        ${SSRGo_start}
-    fi
-    if [[ ${schoice} == 5 ]]; then
-        echo "按Ctrl + C 以退出日志功能"
-        echo ""
-        tail -f /var/log/shadowsocksr.log
-        ${SSRGo_start}
-    fi
+    service_mgr
 fi
 
 # 更改配置模块
 if [[ ${choice} == 2 ]]; then
-    echo ""
-    echo "1.更改密码"
-    echo "2.更改端口"
-    echo "3.更改加密方式"
-    echo "4.更改协议"
-    echo "5.更改混淆模式"
-    echo "请输入数字选择功能："
-
-    while :; do echo
-	    read -n1 -p "请选择： " changechoice
-	    if [[ ! $changechoice =~ ^[1-5]$ ]]; then
-            if [[ -z ${changechoice} ]];then
-                ${SSRGo_start}
-                exit 0
-            fi
-		    echo "输入错误! 请输入正确的数字!"
-	    else
-            echo -e "\n"
-		    break
-	    fi
-    done
-    
-    if [[ ${changechoice} == 1 ]]; then
-        python /usr/local/SSR.Go/changepwd.py
-        ${Show_Conf}
-	/etc/init.d/shadowsocks restart
-        echo ""
-        echo "密码配置已完成！"
-        ${SSRGo_start}
-    fi
-    
-    if [[ ${changechoice} == 2 ]]; then
-        python /usr/local/SSR.Go/changeport.py
-        ${Show_Conf}
-	python /usr/local/SSR.Go/addportrules.py
-	/etc/init.d/shadowsocks restart
-        echo ""
-        echo "端口配置已完成！"
-        ${SSRGo_start}
-    fi
-    
-    if [[ ${changechoice} == 3 ]]; then
-        python /usr/local/SSR.Go/changemethod.py
-        ${Show_Conf}
-	/etc/init.d/shadowsocks restart
-        echo ""
-        echo "加密方式配置已完成！"
-        ${SSRGo_start}
-    fi
-    
-    if [[ ${changechoice} == 4 ]]; then
-        python /usr/local/SSR.Go/changeprotocol.py
-        ${Show_Conf}
-	/etc/init.d/shadowsocks restart
-        echo ""
-        echo "传输协议配置已完成！"
-        ${SSRGo_start}
-    fi
-    
-    if [[ ${changechoice} == 5 ]]; then
-        python /usr/local/SSR.Go/changeobfs.py
-        ${Show_Conf}
-	/etc/init.d/shadowsocks restart
-        echo ""
-        echo "混淆模式配置已完成！"
-        ${SSRGo_start}
-    fi
+    change_config
 fi
 
 # 查看服务信息模块
 if [[ ${choice} == 3 ]]; then
     rm -rf ${QR_Code}
+    echo ""
     ${Show_Conf}
     echo ""
-    read -n1 -p  "==是否将 SSR 客户端配置二维码下载到你的电脑？(y/n)==" ans
-    echo -e "\n"
-    if [[ ${ans} =~ [yY] ]]; then
-        sz /root/ssr_qrcode.png
-        echo -e "\n"
-        echo "SSR 二维码已传送完成！"
-        ${SSRGo_start}
-    else
-        echo "传送已取消！"
-        ${SSRGo_start}
-    fi
+    send_qrcode 
     ${SSRGo_start}
 fi
