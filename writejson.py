@@ -1,8 +1,6 @@
 #! /usr/bin/env python
 # -*- coding: utf-8 -*-
-import os
-import json
-import readjson
+import os, json, readjson
 
 # 打开配置文件
 jsonfile = file("/etc/shadowsocks.json")
@@ -39,4 +37,3 @@ def WriteProtocol(myprotocol):
 def WriteObfs(myobfs):
     config[u"obfs"]=str(myobfs)
     Write()
-
