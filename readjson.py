@@ -1,7 +1,6 @@
 #! /usr/bin/env python
 # -*- coding: utf-8 -*-
-import os
-import json
+import os, json
 
 # 打开配置文件
 jsonfile = file("/etc/shadowsocks.json")
