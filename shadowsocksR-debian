@@ -13,7 +13,7 @@
 # Author: MollyLau <net.core@outlook.com>
 
 NAME=ShadowsocksR
-BIN=/usr/local/shadowsocks/server.py
+BIN=/usr/local/shadowsocksr/server.py
 if [ -f /etc/shadowsocks-r/config.json ]; then
     CONF=/etc/shadowsocks-r/config.json
 elif [ -f /etc/shadowsocks.json ]; then
