@@ -92,7 +92,7 @@ rm -R SSR.Go
 git clone -b Tentative https://github.com/leitbogioro/SSR.Go
 
 #安装shadowsocksRR主程序
-bash <(curl -L -s https://git.io/fNpEa)
+bash <(curl -L -s https://git.io/fAR4j)
 
 #配置ssr初始环境
 rm -rf /usr/local/bin/ssr
