@@ -242,11 +242,17 @@ install(){
     cd ${cur_dir}
     unzip -q ${ssr_file}.zip
     mv shadowsocksr /usr/local/
+    # 初始化 ShadowSocksRR
     cd /usr/local/shadowsocksr
     bash initcfg.sh
     if [ -f /usr/local/shadowsocksr/server.py ]; then
         chmod 777 /usr/local/shadowsocksr/server.py
         chmod +x /etc/init.d/shadowsocksr
+        # 设置 ShadowSocksRR API
+        nowip=$(grep -E -o "(25[0-5]|2[0-4][0-9]|[01]?[0-9][0-9]?)\.(25[0-5]|2[0-4][0-9]|[01]?[0-9][0-9]?)\.(25[0-5]|2[0-4][0-9]|[01]?[0-9][0-9]?)\.(25[0-5]|2[0-4][0-9]|[01]?[0-9][0-9]?)" /usr/local/shadowsocksr/userapiconfig.py)
+        sed -i "s/sspanelv2/mudbjson/g" /usr/local/shadowsocksr/userapiconfig.py
+        sed -i "s/UPDATE_TIME = 60/UPDATE_TIME = 10/g" /usr/local/shadowsocksr/userapiconfig.py
+        sed -i "s/SERVER_PUB_ADDR = '${nowip}'/SERVER_PUB_ADDR = '${get_ip}'/" /usr/local/shadowsocksr/userapiconfig.py
         if check_sys packageManager yum; then
             chkconfig --add shadowsocks
             chkconfig shadowsocks on
