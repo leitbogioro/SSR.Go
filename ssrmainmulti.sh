@@ -243,8 +243,8 @@ install(){
     unzip -q ${ssr_file}.zip
     mv shadowsocksr /usr/local/
     if [ -f /usr/local/shadowsocksr/server.py ]; then
-        chmod 777 /usr/local/shadowsocks/server.py
-        chmod +x /etc/init.d/shadowsocks
+        chmod 777 /usr/local/shadowsocksr/server.py
+        chmod +x /etc/init.d/shadowsocksr
         if check_sys packageManager yum; then
             chkconfig --add shadowsocks
             chkconfig shadowsocks on
@@ -289,7 +289,7 @@ uninstall_shadowsocksr(){
         rm -f /etc/shadowsocks.json
         rm -f /etc/init.d/shadowsocks
         rm -f /var/log/shadowsocks.log
-        rm -rf /usr/local/shadowsocks
+        rm -rf /usr/local/shadowsocksr
         echo "ShadowsocksRR 卸载成功!"
     else
         echo
