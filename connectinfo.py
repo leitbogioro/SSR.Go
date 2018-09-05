@@ -1,10 +1,6 @@
 #! /usr/bin/env python
 # -*- coding: utf-8 -*-
-
-import readjson
-import base64
-import os
-import json
+import readjson, base64, os, json 
 from ssrextra import (is_internal_ip, get_host_ip, look_ip_from, GetSsrUrl, genQR_Code)
 
 # 获取本机IP地址
@@ -44,11 +40,11 @@ def GreenText(string):
     print("\033[0m")
 
 # 输出信息
-print("\n")
-print("==================== SSR 配置链接 ====================")
-print("    你可以复制以下链接分享给你的设备和朋友们使用了！  ")
+print ("")
+print ("==================== SSR 配置链接 ====================")
+print ("    你可以复制以下链接分享给你的设备和朋友们使用了！  ")
 GreenText(ssr_url)
 
 # 生成客户端二维码
 genQR_Code(ssr_url, "/root/ssr_qrcode.png")
-print("======== SSR 二维码已生成并存储在系统根目录！=========")
+print ("======== SSR 二维码已生成并存储在系统根目录！=========")
