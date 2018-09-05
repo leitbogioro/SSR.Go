@@ -241,8 +241,8 @@ install(){
     # 安装 ShadowsocksRR
     cd ${cur_dir}
     unzip -q ${ssr_file}.zip
-    mv shadowsocksr-manyuser/shadowsocks /usr/local/
-    if [ -f /usr/local/shadowsocks/server.py ]; then
+    mv shadowsocksr /usr/local/
+    if [ -f /usr/local/shadowsocksr/server.py ]; then
         chmod 777 /usr/local/shadowsocks/server.py
         chmod +x /etc/init.d/shadowsocks
         if check_sys packageManager yum; then
