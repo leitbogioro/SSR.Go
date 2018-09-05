@@ -1,9 +1,6 @@
 #! /usr/bin/env python
 # -*- coding: utf-8 -*-
-
-import os
-import readjson
-import subprocess
+import os, readjson, subprocess
 
 CurPort=str(readjson.ConfPort)
 TcpPort = "iptables -I INPUT -m state --state NEW -m tcp -p tcp --dport " + CurPort +" -j ACCEPT"
