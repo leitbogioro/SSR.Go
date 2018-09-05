@@ -242,6 +242,8 @@ install(){
     cd ${cur_dir}
     unzip -q ${ssr_file}.zip
     mv shadowsocksr /usr/local/
+    cd /usr/local/shadowsocksr
+    bash initcfg.sh
     if [ -f /usr/local/shadowsocksr/server.py ]; then
         chmod 777 /usr/local/shadowsocksr/server.py
         chmod +x /etc/init.d/shadowsocksr
