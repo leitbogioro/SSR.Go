@@ -13,7 +13,7 @@
 # Author: MollyLau <net.core@outlook.com>
 
 BIN=/usr/local/shadowsocksr
-NAME=shadowsocksr
+NAME=ShadowSocksR
 RUN=/usr/local/shadowsocksr/logrun.sh
 STOP=/usr/local/shadowsocksr/stop.sh
 RETVAL=0
