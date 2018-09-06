@@ -12,13 +12,14 @@
 
 # Author: MollyLau <net.core@outlook.com>
 
+BIN=/usr/local/shadowsocksr
 NAME=shadowsocksr
 RUN=/usr/local/shadowsocksr/logrun.sh
 STOP=/usr/local/shadowsocksr/stop.sh
 RETVAL=0
 
 check_running(){
-    PID=`ps -ef | grep -v grep | grep -i "${NAME}" | awk '{print $2}'`
+    PID=`ps -ef | grep -v grep | grep -i "${BIN}" | awk '{print $2}'`
     if [ ! -z $PID ]; then
         return 0
     else
