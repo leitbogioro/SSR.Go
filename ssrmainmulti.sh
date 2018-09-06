@@ -9,10 +9,11 @@ export PATH
 #   Intro:  https://goo.gl/SjXFKi                                 #
 #=================================================================#
 
-libsodium_file="libsodium-1.0.16"
-libsodium_url="https://github.com/jedisct1/libsodium/releases/download/1.0.16/libsodium-1.0.16.tar.gz"
-ssr_file="manyuser-3.2.2"
-ssr_url="https://github.com/leitbogioro/SSR.Go/releases/download/3.2.2/manyuser-3.2.2.zip"
+libsodium_ver=$(wget -qO- "https://github.com/jedisct1/libsodium/tags"|grep "/jedisct1/libsodium/releases/tag/"|head -1|sed -r 's/.*tag\/(.+)\">.*/\1/')
+libsodium_file="libsodium-${libsodium_ver}"
+libsodium_url="https://github.com/jedisct1/libsodium/releases/download/${libsodium_ver}/libsodium_file.tar.gz"
+ssr_file="multiuser-3.2.2.zip"
+ssr_url="https://github.com/leitbogioro/SSR.Go/releases/download/3.2.2/multiuser-3.2.2.zip"
 
 # Current folder
 cur_dir=`pwd`
