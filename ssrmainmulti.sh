@@ -201,26 +201,23 @@ firewall_set(){
 }
 
 # 配置 ShadowsocksRR
-config_shadowsocks(){
-    cat > /etc/shadowsocks.json<<-EOF
-{
-    "server":"0.0.0.0",
-    "server_ipv6":"[::]",
-    "server_port":${shadowsocksport},
-    "local_address":"127.0.0.1",
-    "local_port":1080,
-    "password":"${shadowsockspwd}",
-    "timeout":300,
-    "method":"chacha20-ietf",
-    "protocol":"auth_akarin_rand",
-    "protocol_param":"",
-    "obfs":"tls1.2_ticket_auth",
-    "obfs_param":"",
-    "redirect":"",
-    "dns_ipv6":false,
-    "fast_open":false,
-    "workers":1
-}
+config_shadowsocksr(){
+    cat > /usr/local/shadowsocksr/mudb.json<<-EOF
+[
+    {
+        "d": 0,
+        "enable": 1,
+        "method": "chacha20-ietf",
+        "obfs": "tls1.2_ticket_auth",
+        "passwd": "${shadowsockspwd}",
+        "port": ${shadowsocksport},
+        "protocol": "auth_akarin_rand",
+        "speed_limit_per_user": 102400,
+        "transfer_enable": 107374182400,
+        "u": 0,
+        "user": "1"
+    }
+]
 EOF
 }
 
@@ -276,7 +273,7 @@ install(){
 # 安装完成后清理
 install_cleanup(){
     cd ${cur_dir}
-    rm -rf manyuser.zip shadowsocksr-manyuser ${libsodium_file}.tar.gz ${libsodium_file}
+    rm -rf ${ssr_file} ${libsodium_file}.tar.gz ${libsodium_file}
 }
 
 # 卸载 ShadowsocksRR
@@ -288,16 +285,14 @@ uninstall_shadowsocksr(){
     if [ "${answer}" == "y" ] || [ "${answer}" == "Y" ]; then
         /etc/init.d/shadowsocks status > /dev/null 2>&1
         if [ $? -eq 0 ]; then
-            /etc/init.d/shadowsocks stop
+            /etc/init.d/shadowsocksr stop
         fi
         if check_sys packageManager yum; then
             chkconfig --del shadowsocks
         elif check_sys packageManager apt; then
             update-rc.d -f shadowsocks remove
         fi
-        rm -f /etc/shadowsocks.json
-        rm -f /etc/init.d/shadowsocks
-        rm -f /var/log/shadowsocks.log
+        rm -f /etc/init.d/shadowsocksr
         rm -rf /usr/local/shadowsocksr
         echo "ShadowsocksRR 卸载成功!"
     else
@@ -312,11 +307,11 @@ install_shadowsocksr(){
     disable_selinux
     pre_install
     download_files
-    config_shadowsocks
     if check_sys packageManager yum; then
         firewall_set
     fi
     install
+    config_shadowsocksr
     install_cleanup
 }
 
