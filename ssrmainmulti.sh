@@ -202,6 +202,7 @@ firewall_set(){
 
 # 配置 ShadowsocksRR
 config_shadowsocksr(){
+    rm -rf /usr/local/shadowsocksr/mudb.json
     cat > /usr/local/shadowsocksr/mudb.json<<-EOF
 [
     {
@@ -257,7 +258,7 @@ install(){
         elif check_sys packageManager apt; then
             update-rc.d -f shadowsocks defaults
         fi
-        /etc/init.d/shadowsocks start
+        /etc/init.d/shadowsocksr start
 
         clear
         echo
@@ -283,7 +284,7 @@ uninstall_shadowsocksr(){
     read -p "(Default: n):" answer
     [ -z ${answer} ] && answer="n"
     if [ "${answer}" == "y" ] || [ "${answer}" == "Y" ]; then
-        /etc/init.d/shadowsocks status > /dev/null 2>&1
+        /etc/init.d/shadowsocksr status > /dev/null 2>&1
         if [ $? -eq 0 ]; then
             /etc/init.d/shadowsocksr stop
         fi
