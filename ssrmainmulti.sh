@@ -253,10 +253,10 @@ install(){
         sed -i "s/UPDATE_TIME = 60/UPDATE_TIME = 10/g" /usr/local/shadowsocksr/userapiconfig.py
         sed -i "s/SERVER_PUB_ADDR = '${nowip}'/SERVER_PUB_ADDR = '${get_ip}'/" /usr/local/shadowsocksr/userapiconfig.py
         if check_sys packageManager yum; then
-            chkconfig --add shadowsocks
-            chkconfig shadowsocks on
+            chkconfig --add shadowsocksr
+            chkconfig shadowsocksr on
         elif check_sys packageManager apt; then
-            update-rc.d -f shadowsocks defaults
+            update-rc.d -f shadowsocksr defaults
         fi
         /etc/init.d/shadowsocksr start
 
@@ -289,9 +289,9 @@ uninstall_shadowsocksr(){
             /etc/init.d/shadowsocksr stop
         fi
         if check_sys packageManager yum; then
-            chkconfig --del shadowsocks
+            chkconfig --del shadowsocksr
         elif check_sys packageManager apt; then
-            update-rc.d -f shadowsocks remove
+            update-rc.d -f shadowsocksr remove
         fi
         rm -f /etc/init.d/shadowsocksr
         rm -rf /usr/local/shadowsocksr
