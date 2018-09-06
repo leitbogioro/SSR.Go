@@ -251,7 +251,7 @@ install(){
         nowip=$(grep -E -o "(25[0-5]|2[0-4][0-9]|[01]?[0-9][0-9]?)\.(25[0-5]|2[0-4][0-9]|[01]?[0-9][0-9]?)\.(25[0-5]|2[0-4][0-9]|[01]?[0-9][0-9]?)\.(25[0-5]|2[0-4][0-9]|[01]?[0-9][0-9]?)" /usr/local/shadowsocksr/userapiconfig.py)
         sed -i "s/sspanelv2/mudbjson/g" /usr/local/shadowsocksr/userapiconfig.py
         sed -i "s/UPDATE_TIME = 60/UPDATE_TIME = 10/g" /usr/local/shadowsocksr/userapiconfig.py
-        sed -i "s/SERVER_PUB_ADDR = '${nowip}'/SERVER_PUB_ADDR = '${get_ip}'/" /usr/local/shadowsocksr/userapiconfig.py
+        sed -i "s/SERVER_PUB_ADDR = '${nowip}'/SERVER_PUB_ADDR = '`get_ip`'/" /usr/local/shadowsocksr/userapiconfig.py
         if check_sys packageManager yum; then
             chkconfig --add shadowsocksr
             chkconfig shadowsocksr on
