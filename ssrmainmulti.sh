@@ -11,7 +11,7 @@ export PATH
 
 libsodium_ver=$(wget -qO- "https://github.com/jedisct1/libsodium/tags"|grep "/jedisct1/libsodium/releases/tag/"|head -1|sed -r 's/.*tag\/(.+)\">.*/\1/')
 libsodium_file="libsodium-${libsodium_ver}"
-libsodium_url="https://github.com/jedisct1/libsodium/releases/download/${libsodium_ver}/libsodium_file.tar.gz"
+libsodium_url="https://github.com/jedisct1/libsodium/releases/download/${libsodium_ver}/${libsodium_file}.tar.gz"
 ssr_file="multiuser-3.2.2.zip"
 ssr_url="https://github.com/leitbogioro/SSR.Go/releases/download/3.2.2/multiuser-3.2.2.zip"
 
