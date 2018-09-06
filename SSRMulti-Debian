@@ -72,8 +72,8 @@ do_status(){
 do_restart(){
     do_stop
     sleep 0.5
-    do_status
     do_start
+    do_status
 }
 
 case "$1" in
