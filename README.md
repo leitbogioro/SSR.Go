@@ -1,15 +1,20 @@
 # 本分支的一些最新说明
 # Something latest explanations about this branch.
+
 1. 这个分支原来是用来存储 ShadowSocksR 单用户版（以下简称“shadowsocksRR”）的一键安装包，文件名是：<a href="https://github.com/leitbogioro/SSR.Go/blob/master/shadowsocksRR.sh">shadowsocksRR.sh</a>，它的安装过程中，会提示用户半自动化设置详细参数；
 <br />
 This branch used to storage single user of ShadowSocksR onekey install and file name is <a href="https://github.com/leitbogioro/SSR.Go/blob/master/shadowsocksRR.sh">shadowsocksRR.sh</a>(hereinafter referred to as "shadowsocksRR").During configuration, it will reminds users to set-up detailed specs by semi-automatic.
+<br />
+<br />
 2. 并且，添加了用来管理 shadowsocksRR 程序进程的 “<a href="https://github.com/leitbogioro/SSR.Go/blob/master/shadowsocksR-debian">shadowsocksR-debian</a>” 和 “<a href="https://github.com/leitbogioro/SSR.Go/blob/master/shadowsocksR-redhat">shadowsocksR-redhat</a>” shell 文件，进程管理文件可以控制 shadowsocksRR 进行启动、停止、重启、查询运行状态的操作，shadowsocksR-debian 可供 apt 包管理方式的 Linux 发行版使用，如 Ubuntu、Debian 等；shadowsocksR-redhat 可供 yum 包管理方式的 Linux 发行版使用，如 CentOS、Red-Hat 等；
 <br />
 And add a shell to provide 4 operations about "start", "stop", "restart", "status" to control shadowsocksRR's main program's running which if used apt package as management such as Ubuntu, Debian(for <a href="https://github.com/leitbogioro/SSR.Go/blob/master/shadowsocksR-debian">shadowsocksR-debian</a>) or CentOS, RedHat(for <a href="https://github.com/leitbogioro/SSR.Go/blob/master/shadowsocksR-redhat">shadowsocksR-redhat</a>) linux release etc.
 <br />
+<br />
 3. 后来，我编写出 SSR.Go，<a href="https://github.com/leitbogioro/SSR.Go/blob/master/ssrmain.sh">ssrmain.sh</a>是一个不带参数设置提示的 shadowsocksR 安装程序（<a href="https://github.com/leitbogioro/SSR.Go/blob/master/ssrinstallEn.sh">ssrinstallEn.sh</a>是对应的英文版）、<a href="https://github.com/leitbogioro/SSR.Go/blob/master/python_for_centos6.sh">python_for_centos6.sh</a> 是一个用来给 CentOS 6 做 python 版本更新和兼容性适配的外挂脚本文件。它们隶属于部署 SSR.Go 的预运行环境文件————“<a href="https://github.com/leitbogioro/SSR.Go/blob/Dev/ssrinstall">ssrinstall</a>”。
 <br />
 And then, I developed SSR.Go, <a href="https://github.com/leitbogioro/SSR.Go/blob/master/ssrmain.sh">ssrmain.sh</a> is an none-pre-configurated shadowsocksR install program(<a href="https://github.com/leitbogioro/SSR.Go/blob/master/ssrinstallEn.sh">ssrinstallEn.sh</a> is a corresponding English version), <a href="https://github.com/leitbogioro/SSR.Go/blob/master/python_for_centos6.sh">python_for_centos6.sh</a> is a shell file which is used to update default python version about CentOS 6 to adapt compatibility. These 2 files are all belong to pre-deploy-environment for SSR.Go————<a href="https://github.com/leitbogioro/SSR.Go/blob/Dev/ssrinstall">ssrinstall</a>。
+<br />
 <br />
 4. 现在，多用户版的 shadowsocksR 管理工具正在开发中，<a href="https://github.com/leitbogioro/SSR.Go/blob/master/ssrmainmulti.sh"> ssrmainmulti.sh </a>是用来安装 shadowsocksR 多用户版预运行环境的 shell 脚本。<a href="https://github.com/leitbogioro/SSR.Go/blob/master/SSRMulti-Debian"> SSRMulti-Debian </a> 和 <a href="https://github.com/leitbogioro/SSR.Go/blob/master/SSRMulti-Redhat"> SSRMulti-Redhat </a>分别可供 apt 包管理方式的 Ubuntu、Debian 等和 yum 包管理方式的 CentOS、Red-Hat Linux 发行版使用，用来控制 shadowsocksR 多用户版主程序运行状态。<a href="https://github.com/leitbogioro/SSR.Go/blob/master/ssrmainmulti.sh">ssrmainmulti.sh</a>
 <br />
