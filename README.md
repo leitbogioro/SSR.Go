@@ -16,7 +16,7 @@
 <li>现在，多用户版的 shadowsocksR 管理工具正在开发中，<a href="https://github.com/leitbogioro/SSR.Go/blob/master/ssrmainmulti.sh"> ssrmainmulti.sh </a>是用来安装 shadowsocksR 多用户版预运行环境的 shell 脚本。<a href="https://github.com/leitbogioro/SSR.Go/blob/master/SSRMulti-Debian"> SSRMulti-Debian </a> 和 <a href="https://github.com/leitbogioro/SSR.Go/blob/master/SSRMulti-Redhat"> SSRMulti-Redhat </a>分别可供 apt 包管理方式的 Ubuntu、Debian 等和 yum 包管理方式的 CentOS、Red-Hat Linux 发行版使用，用来控制 shadowsocksR 多用户版主程序运行状态。<a href="https://github.com/leitbogioro/SSR.Go/blob/master/ssrmainmulti.sh">ssrmainmulti.sh</a></li>
 <p>Now, ShadowsocksR management tools for multi user edition is developing. <a href="https://github.com/leitbogioro/SSR.Go/blob/master/ssrmainmulti.sh"> ssrmainmulti.sh </a>is a shell about install shadowsocksR multi user pre-running-environment. <a href="https://github.com/leitbogioro/SSR.Go/blob/master/SSRMulti-Debian"> SSRMulti-Debian </a> and <a href="https://github.com/leitbogioro/SSR.Go/blob/master/SSRMulti-Redhat"> SSRMulti-Redhat </a> are provided separately to which if used apt package as management such as Ubuntu, Debian or CentOS, RedHat linux release etc.</p>
 </ul>
-
+<br />
 # 大新闻
 # Big News
 本脚本项目已不再更新，请移步我的新分支项目————SSR.Go：https://git.io/fNpR5
