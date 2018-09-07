@@ -202,7 +202,7 @@ firewall_set(){
 
 # 配置 ShadowsocksRR
 config_shadowsocksr(){
-    rm -rf /usr/local/shadowsocksr/mudb.json
+    if [[ -f /usr/local/shadowsockr/mudb.json ]]; then
     cat > /usr/local/shadowsocksr/mudb.json<<-EOF
 [
     {
