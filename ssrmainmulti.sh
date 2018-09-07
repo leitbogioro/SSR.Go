@@ -220,6 +220,7 @@ config_shadowsocksr(){
     }
 ]
 EOF
+    fi
 }
 
 # 安装 ShadowsocksRR
