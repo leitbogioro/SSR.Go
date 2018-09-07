@@ -15,6 +15,7 @@
 <p>Now, ShadowsocksR management tools for multi user edition is developing. <a href="https://github.com/leitbogioro/SSR.Go/blob/master/ssrmainmulti.sh"> ssrmainmulti.sh </a>is a shell about install shadowsocksR multi user pre-running-environment. <a href="https://github.com/leitbogioro/SSR.Go/blob/master/SSRMulti-Debian"> SSRMulti-Debian </a> and <a href="https://github.com/leitbogioro/SSR.Go/blob/master/SSRMulti-Redhat"> SSRMulti-Redhat </a> are provided separately to which if used apt package as management such as Ubuntu, Debian or CentOS, RedHat linux release etc.</p>
 </ul>
 <br />
+
 # 大新闻
 # Big News
 本脚本项目已不再更新，请移步我的新分支项目————SSR.Go：https://git.io/fNpR5
@@ -23,6 +24,7 @@
 I decide to begin a new project which belong to another branch————SSR.Go: https://git.io/fNpR5
 </br>
 </br>
+
 # 简介
 # Introduce
 一个可以突破中国互联网审查的强力代理工具。
