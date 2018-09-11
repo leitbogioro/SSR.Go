@@ -204,21 +204,23 @@ firewall_set(){
 config_shadowsocksr(){
     if [[ ! -f /usr/local/shadowsockr/mudb.json ]]; then
     cat > /usr/local/shadowsocksr/mudb.json<<-EOF
-[
-    {
-        "d": 0,
-        "enable": 1,
-        "method": "chacha20-ietf",
-        "obfs": "tls1.2_ticket_auth",
-        "passwd": "${shadowsockspwd}",
-        "port": ${shadowsocksport},
-        "protocol": "auth_akarin_rand",
-        "speed_limit_per_user": 102400,
-        "transfer_enable": 107374182400,
-        "u": 0,
-        "user": "1"
-    }
-]
+{
+    "configs": [
+        {
+            "d": 0,
+            "enable": 1,
+            "method": "chacha20-ietf",
+            "obfs": "tls1.2_ticket_auth",
+            "passwd": "${shadowsockspwd}",
+            "port": ${shadowsocksport},
+            "protocol": "auth_akarin_rand",
+            "speed_limit_per_user": 102400,
+            "transfer_enable": 107374182400,
+            "u": 0,
+            "user": "1"
+        }
+    ]
+}
 EOF
     fi
 }
