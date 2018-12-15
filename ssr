@@ -82,7 +82,7 @@ change_config(){
     echo "按数字键选择功能，按回车键退出"
     while :; do echo
         read -n1 -p "请选择： " changechoice
-            if [[ ! $changechoice =~ ^[0-5]$ ]]; then
+            if [[ ! $changechoice =~ ^[0-6]$ ]]; then
                 if [[ -z ${changechoice} ]];then
                     exit 0
                 fi
