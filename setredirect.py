@@ -4,4 +4,4 @@ from readjson import ConfRedirect
 import writejson
 from ssrextra import Show_conf
 
-Show_conf("当前重定向参数为", ConfRedirect)
+Show_conf("当前重定向参数", ConfRedirect)
