@@ -78,6 +78,7 @@ change_config(){
     echo "3.更改加密方式"
     echo "4.更改协议"
     echo "5.更改混淆模式"
+    echo "6.设置重定向"
     echo "按数字键选择功能，按回车键退出"
     while :; do echo
         read -n1 -p "请选择： " changechoice
@@ -149,6 +150,17 @@ change_config(){
         ${SSR_restart}
         echo ""
         echo "混淆模式配置已完成！"
+        ${Change_config}
+    fi
+    # 设置重定向
+    if [[ ${changechoice} == 6 ]]; then
+        python /usr/local/SSR.Go/setredirect.py
+        ${Show_Conf}
+        echo ""
+        send_qrcode
+        ${SSR_restart}
+        echo ""
+        echo "重定向配置已完成！"
         ${Change_config}
     fi
 }
