@@ -37,3 +37,8 @@ def WriteProtocol(myptc):
 def WriteObfs(myobfs):
     config[u"obfs"]=str(myobfs)
     Write()
+
+# 写入重定向参数函数 
+def WriteRedirect(myrdt): 
+    config[u"redirect"]=list(myrdt) 
+    Write()
