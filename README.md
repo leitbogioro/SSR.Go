@@ -85,6 +85,8 @@
 
 <h2><a id="Updates">更新日志（Updates）：</a></h2>
 <ul>
+<li>添加安装后删除 /usr/local/shadowsocksr 多用户版冗余目录的逻辑。（2018.12.16）</li>
+<p>Add a logic about remove direction -- "/usr/local/shadowsocksr", it is not useful for ShadowSocksR single user.</p>
 <li>增加卸载 SSR.Go 和 ShadowSocksR 功能，修改 ssrmain.sh 脚本的卸载逻辑（2018.12.16）</li>
 <p>Add an uninstallation of SSR.Go and ShadowSocksR, change uninstallation strategy in shell ssrmain.sh.(2018.12.16)</p>
 <li>优化 ssr 主程序结构。（2018.12.16）</li>
