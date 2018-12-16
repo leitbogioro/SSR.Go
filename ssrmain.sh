@@ -272,30 +272,20 @@ install_cleanup(){
 
 # 卸载 ShadowsocksRR
 uninstall_shadowsocksr(){
-    printf "你想卸载 ShadowsocksRR 吗? (y/n)"
-    printf "\n"
-    read -p "(Default: n):" answer
-    [ -z ${answer} ] && answer="n"
-    if [ "${answer}" == "y" ] || [ "${answer}" == "Y" ]; then
-        /etc/init.d/shadowsocks status > /dev/null 2>&1
-        if [ $? -eq 0 ]; then
-            /etc/init.d/shadowsocks stop
-        fi
-        if check_sys packageManager yum; then
-            chkconfig --del shadowsocks
-        elif check_sys packageManager apt; then
-            update-rc.d -f shadowsocks remove
-        fi
-        rm -f /etc/shadowsocks.json
-        rm -f /etc/init.d/shadowsocks
-        rm -f /var/log/shadowsocks.log
-        rm -rf /usr/local/shadowsocks
-        echo "ShadowsocksRR 卸载成功，期待下次与您再会！"
-    else
-        echo
-        echo "卸载已取消, 未执行任何操作..."
-        echo
+    /etc/init.d/shadowsocks status > /dev/null 2>&1
+    if [ $? -eq 0 ]; then
+        /etc/init.d/shadowsocks stop
     fi
+    if check_sys packageManager yum; then
+        chkconfig --del shadowsocks
+    elif check_sys packageManager apt; then
+        update-rc.d -f shadowsocks remove
+    fi
+    rm -f /etc/shadowsocks.json
+    rm -f /etc/init.d/shadowsocks
+    rm -f /var/log/shadowsocks.log
+    rm -rf /usr/local/shadowsocks
+    echo "ShadowsocksRR 卸载成功，期待下次与您再会！"
 }
 
 # 安装 ShadowsocksRR
