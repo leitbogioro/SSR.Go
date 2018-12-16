@@ -13,29 +13,27 @@ def Write():
     openjsonfile.writelines(myjsondump) # writelines方法用于向文件写入一个序列字符串列表
     openjsonfile.close() # close方法表示关闭文件。关闭后文件不能再进行读写操作。
 
-# 写入密码
+# 写入密码函数
 def WritePwd(mypwd):
     config[u"password"]=str(mypwd)
     Write()
 
-# 写入端口
+# 写入端口函数
 def WritePort(myport):
     config[u"server_port"]=int(myport)
     Write()
 
-# 写入加密方式
+# 写入加密方式函数
 def WriteMethod(mymethod):
     config[u"method"]=str(mymethod)
     Write()
 
-# 写入传输协议
+# 写入传输协议函数
 def WriteProtocol(myprotocol):
     config[u"protocol"]=str(myprotocol)
     Write()
 
-# 写入混淆模式
+# 写入混淆模式函数
 def WriteObfs(myobfs):
     config[u"obfs"]=str(myobfs)
     Write()
-
-# 
