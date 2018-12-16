@@ -5,6 +5,7 @@ export PATH=/usr/local/sbin:/usr/local/bin:/sbin:/bin:/usr/sbin:/usr/bin
 [ $(id -u) != "0" ] && { echo "Error: You must be root to run this script"; exit 1; }
 
 SSR_restart="/etc/init.d/shadowsocks restart"
+SSR_stop="/etc/init.d/shadowsocks stop"
 SSRGo_start="bash /usr/local/bin/ssr"
 Change_config="bash /usr/local/bin/ssr change_config"
 Service_mgr="bash /usr/local/bin/ssr service_mgr"
@@ -22,7 +23,8 @@ ApplyConf() {
 }
 
 Uninstall_SSR.Go() {
-    echo ""
+    echo "停止 ssrr 服务....."
+    ${SSR_stop}
     wget -qO- https://github.com/leitbogioro/SSR.Go/raw/master/ssrmain.sh && bash ssrmain.sh uninstall
     cd /usr/local/
     rm -rf SSR.Go
@@ -60,19 +62,19 @@ service_mgr(){
         python /usr/local/SSR.Go/addportrules.py
         /etc/init.d/shadowsocks start
         # 这里需要添加生成二维码模块
-        echo "ssrr服务启动成功！"
+        echo "ssrr 服务启动成功！"
         ${Service_mgr}
     fi
     if [[ ${schoice} == 2 ]]; then
-        /etc/init.d/shadowsocks stop
-        echo "ssrr服务停止成功！"
+        ${SSR_stop}
+        echo "ssrr 服务停止成功！"
         ${Service_mgr}
     fi
     if [[ ${schoice} == 3 ]]; then
         python /usr/local/SSR.Go/addportrules.py
         ${SSR_restart}
         # 这里需要添加生成二维码模块
-        echo "ssrr服务已重启！"
+        echo "ssrr 服务已重启！"
         ${Service_mgr}
     fi
     if [[ ${schoice} == 4 ]]; then
@@ -80,7 +82,7 @@ service_mgr(){
         ${Service_mgr}
     fi
     if [[ ${schoice} == 5 ]]; then
-        echo "按Ctrl + C 以退出日志功能"
+        echo "按 Ctrl + C 以退出日志功能"
         echo ""
         tail -f /var/log/shadowsocksr.log
         ${Service_mgr}
@@ -197,6 +199,8 @@ if [[ ${choice} == 5 ]]; then
     read -n1 -p "Only one version of simplified Chinese or English version of SSR.Go can run, surely it? (y/n)" ans
     echo -e "\n"
     if [[ ${ans} =~ [yY] ]]; then
+        echo "停止 ssrr 服务....."
+        ${SSR_stop}
         cd /usr/local/
         rm -R SSR.Go
         git clone -b En https://github.com/leitbogioro/SSR.Go
