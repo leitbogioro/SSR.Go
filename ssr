@@ -23,11 +23,21 @@ ApplyConf() {
 }
 
 Uninstall_SSR.Go() {
-    echo "停止 ssrr 服务....."
-    ${SSR_stop}
-    wget -qO- https://github.com/leitbogioro/SSR.Go/raw/master/ssrmain.sh && bash ssrmain.sh uninstall
-    cd /usr/local/
-    rm -rf SSR.Go
+    printf "你想卸载 ShadowsocksRR 吗? (y/n)"
+    printf "\n"
+    read -p "(Default: n):" response
+    [ -z ${response} ] && response="n"
+    if [ "${response}" == "y" ] || [ "${response}" == "Y" ]; then
+        echo "停止 ssrr 服务....."
+        ${SSR_stop}
+        wget -qO- https://github.com/leitbogioro/SSR.Go/raw/master/ssrmain.sh && bash ssrmain.sh uninstall
+        cd /usr/local/
+        rm -rf SSR.Go
+    else
+        echo
+        echo "卸载已取消, 未执行任何操作..."
+        echo
+    fi
 }
 
 # 服务管理 
@@ -43,7 +53,7 @@ service_mgr(){
     echo "按数字键选择功能，按回车键退出"
     while :; do echo
             read -n1 -p "请选择： " schoice
-            if [[ ! $schoice =~ ^[0-5]$ ]]; then
+            if [[ ! $schoice =~ ^[0-6]$ ]]; then
                 if [[ -z ${schoice} ]]; then
                     exit 0
                 fi
@@ -86,6 +96,9 @@ service_mgr(){
         echo ""
         tail -f /var/log/shadowsocksr.log
         ${Service_mgr}
+    fi
+    if [[ ${schoice} == 6 ]]; then
+        Uninstall_SSR.Go
     fi
 }
 
