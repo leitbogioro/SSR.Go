@@ -110,8 +110,8 @@ change_config(){
     # 更改端口
     if [[ ${changechoice} == 2 ]]; then
         python /usr/local/SSR.Go/changeport.py
-        ${Show_Conf}
         python /usr/local/SSR.Go/addportrules.py
+        ${Show_Conf}
         echo ""
         send_qrcode
         ${SSR_restart}
