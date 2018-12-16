@@ -47,3 +47,31 @@ print ("0.返回上一级")
 print ("1.一键将访问本地的 80、443 端口重定向到本机某端口")
 print ("2.取消重定向操作")
 pick = raw_input()
+
+if ( not is_number(pick) ):
+    print ("输入错误，请检查你输入的内容！")
+    runpy(sr)
+else:
+    if (pick=="0"):
+        runshell("/usr/local/bin/ssr", "change_config")
+    elif (pick=="1"):
+        print ("请输入需要重定向到本机的目标端口：")
+        newport = raw_input()
+        while not (is_number(newport)) or int(newport) < 0 or int(newport) > 65535:
+            print ("输入错误，请输入 1 至 65535 之间的数字！")
+            print ("")
+            print ("请输入新端口：")
+            newport = raw_input()
+        Redirect1="*:80#"+lh+":"+newport
+        Redirect2="*:443#"+lh+":"+newport
+        Redirectlist=[Redirect1, Redirect2]
+        writejson.WriteRedirect(Redirectlist)
+        print ("操作已完成")
+        runpy(sr)
+    elif (pick=="2"):
+        writejson.WriteRedirect("")
+        print ("操作已完成")
+        runpy(sr)
+    else:
+        print ("输入错误，请按 0 到 2 之间的数字！")
+        runpy(sr)
