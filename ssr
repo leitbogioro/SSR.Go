@@ -23,7 +23,7 @@ ApplyConf() {
 }
 
 Uninstall_SSR.Go() {
-    printf "你想卸载 ShadowsocksRR 吗? (y/n)"
+    printf "您想同时卸载 ShadowsocksRR 和 SSR.Go 吗? (y/n)"
     printf "\n"
     read -p "(Default: n):" response
     [ -z ${response} ] && response="n"
