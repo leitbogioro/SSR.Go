@@ -109,69 +109,33 @@ change_config(){
     # 更改密码
     if [[ ${changechoice} == 1 ]]; then
         python /usr/local/SSR.Go/changepwd.py
-        ${Show_Conf}
-        echo ""
-        send_qrcode
-        ${SSR_restart}
-        echo ""
-        echo "密码配置已完成！"
-        ${Change_config}
+        ApplyConf "密码配置已完成！"
     fi
     # 更改端口
     if [[ ${changechoice} == 2 ]]; then
         python /usr/local/SSR.Go/changeport.py
         python /usr/local/SSR.Go/addportrules.py
-        ${Show_Conf}
-        echo ""
-        send_qrcode
-        ${SSR_restart}
-        echo ""
-        echo "端口配置已完成！"
-        ${Change_config}
+        ApplyConf "端口配置已完成！"
     fi
     # 更改加密
     if [[ ${changechoice} == 3 ]]; then
         python /usr/local/SSR.Go/changemethod.py
-        ${Show_Conf}
-        echo ""
-        send_qrcode
-        ${SSR_restart}
-        echo ""
-        echo "加密方式配置已完成！"
-        ${Change_config}
+        ApplyConf "加密方式配置已完成！"
     fi
     # 更改协议
     if [[ ${changechoice} == 4 ]]; then
         python /usr/local/SSR.Go/changeprotocol.py
-        ${Show_Conf}
-        echo ""
-        send_qrcode
-        ${SSR_restart}
-        echo ""
-        echo "传输协议配置已完成！"
-        ${Change_config}
+        ApplyConf "传输协议配置已完成！"
     fi
     # 更改混淆
     if [[ ${changechoice} == 5 ]]; then
         python /usr/local/SSR.Go/changeobfs.py
-        ${Show_Conf}
-        echo ""
-        send_qrcode
-        ${SSR_restart}
-        echo ""
-        echo "混淆模式配置已完成！"
-        ${Change_config}
+        ApplyConf "混淆模式配置已完成！"
     fi
     # 设置重定向
     if [[ ${changechoice} == 6 ]]; then
         python /usr/local/SSR.Go/setredirect.py
-        ${Show_Conf}
-        echo ""
-        send_qrcode
-        ${SSR_restart}
-        echo ""
-        echo "重定向配置已完成！"
-        ${Change_config}
+        ApplyConf "重定向配置已完成！"
     fi
 }
 
