@@ -1,6 +1,7 @@
 #! /usr/bin/env python
 # -*- coding: utf-8 -*-
 import os, json
+from ssrextra import byteify
 
 # 打开配置文件
 jsonfile = file("/etc/shadowsocks.json")
