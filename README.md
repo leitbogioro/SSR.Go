@@ -85,6 +85,12 @@
 
 <h2><a id="Updates">更新日志（Updates）：</a></h2>
 <ul>
+<li>增加卸载 SSR.Go 和 ShadowSocksR 功能，修改 ssrmain.sh 脚本的卸载逻辑（2018.12.16）</li>
+<p>Add an uninstallation of SSR.Go and ShadowSocksR, change uninstallation strategy in shell ssrmain.sh.(2018.12.16)</p>
+<li>优化 ssr 主程序结构。（2018.12.16）</li>
+<p>Optimize main construction of ssr's main program.(2018.12.16)</p>
+<li>加入设置重定向参数的功能。（2018.12.15）</li>
+<p>Add a function about configurate parameters of redirect.(2018.12.15)</p>
 <li>优化脚本交互逻辑，使用某级列表下的功能后仍将返回到某级列表。（2018.9.2）</li>
 <p>Optimized script interaction logic, When you explor some function in one list which you will come back this list.(2018.9.2)</p>
 <li>使 CentOS 7 上的二维码生成功能可用。（2018.8.27）</li>
