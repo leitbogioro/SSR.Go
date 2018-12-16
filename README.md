@@ -33,7 +33,7 @@
 <p>You need to consider that <b>only one version of simplified Chinese or English version of SSR.Go can run on your environment</b>.</p>
 <p>老用户升级过程中，会出现以下提示，这是由于旧的安装脚本，先将主程序解压到本地 /usr/local/目录中，再将 shadowsocksr 目录中的单用户版 ssr 程序目录：shadowsocks 移动到上一级目录后，没有清理存储在 shadowsocksr 目录中的 gitclone 缓存导致的，你只需要输入大写的 A ，继续即可。新版本的脚本已对这一问题做了调整。</p>
 <p>Old users should notice that the following reminds because the former installation unzipped "manyusr.zip" to /usr/local direction created a "shadowsocksr" folder and then shell moved ssr single user's main program which included in many-user(shadowsocksr) to /usr/local, so this folder contains two folders: "shadowsocks" and "shadowsocksr". Cache belongs to gitclone had been storaged in shadowsocksr before so when it updates, Git will ask you whether replace shadowsocksr/.gitingnore. Just press "A: will be okay.</p>
-![6](6.jpg)
+![6](6.png)
 <br />
 
 <h2><a id="Spec">特性（Specs）</a></h2>
