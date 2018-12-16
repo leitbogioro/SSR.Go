@@ -24,13 +24,13 @@ def WritePort(myport):
     Write()
 
 # 写入加密方式函数
-def WriteMethod(mymethod):
-    config[u"method"]=str(mymethod)
+def WriteMethod(mymtd):
+    config[u"method"]=str(mymtd)
     Write()
 
 # 写入传输协议函数
-def WriteProtocol(myprotocol):
-    config[u"protocol"]=str(myprotocol)
+def WriteProtocol(myptc):
+    config[u"protocol"]=str(myptc)
     Write()
 
 # 写入混淆模式函数
