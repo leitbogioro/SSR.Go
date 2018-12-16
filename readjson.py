@@ -6,6 +6,7 @@ from ssrextra import byteify
 # 打开配置文件
 jsonfile = file("/etc/shadowsocks.json")
 config = json.load(jsonfile)
+config = byteify(config)
 
 # 读取传入配置细则
 ConfPort=config[u"server_port"]
