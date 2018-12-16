@@ -215,7 +215,7 @@ config_shadowsocks(){
     "protocol_param":"",
     "obfs":"tls1.2_ticket_auth",
     "obfs_param":"",
-    "redirect":"",
+    "redirect":[],
     "dns_ipv6":false,
     "fast_open":false,
     "workers":1
