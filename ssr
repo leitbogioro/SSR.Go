@@ -11,6 +11,16 @@ Service_mgr="bash /usr/local/bin/ssr service_mgr"
 QR_Code="/root/ssr_qrcode.png"
 Show_Conf="python /usr/local/SSR.Go/connectinfo.py"
 
+ApplyConf() {
+    ${Show_Conf}
+    echo ""
+    send_qrcode
+    ${SSR_restart}
+    echo ""
+    echo $1
+    ${Change_config}
+}
+
 # 服务管理 
 service_mgr(){
     echo ""
