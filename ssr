@@ -21,6 +21,13 @@ ApplyConf() {
     ${Change_config}
 }
 
+Uninstall_SSR.Go() {
+    echo ""
+    wget -qO- https://github.com/leitbogioro/SSR.Go/raw/master/ssrmain.sh && bash ssrmain.sh uninstall
+    cd /usr/local/
+    rm -rf SSR.Go
+}
+
 # 服务管理 
 service_mgr(){
     echo ""
