@@ -39,6 +39,6 @@ def WriteObfs(myobfs):
     Write()
 
 # 写入重定向参数函数 
-def WriteRedirect(myrdt): 
-    config[u"redirect"]=list(myrdt) 
+def WriteRedirect(myrdrt): 
+    config[u"redirect"]=list(myrdrt) 
     Write()
