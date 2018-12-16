@@ -30,6 +30,7 @@ service_mgr(){
     echo "3.重启服务"
     echo "4.运行状态"
     echo "5.运行日志"
+    echo "6.卸载 SSR.Go"
     echo "按数字键选择功能，按回车键退出"
     while :; do echo
             read -n1 -p "请选择： " schoice
