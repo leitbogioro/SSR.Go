@@ -2,7 +2,7 @@
 # -*- coding: utf-8 -*-
 from readjson import ConfRedirect
 import writejson
-from ssrextra import Show_conf
+from ssrextra import (Show_conf, is_number, runpy, runshell)
 
 print ("须知：设置重定向，意味着当来访请求不符合 ShadowSocksR 数据包类型的时候，ShadowSocksR 会自动将该请求
 重定向到另一个本机的或其他域的空间。")
