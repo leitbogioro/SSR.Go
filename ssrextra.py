@@ -2,6 +2,17 @@
 # -*- coding: utf-8 -*-
 import os, random, string, socket, urllib2, base64, qrcode, subprocess
 
+# 格式化读取数组呈现的内容
+def byteify(input, encoding='utf-8'):
+    if isinstance(input, dict):
+        return {byteify(key): byteify(value) for key, value in input.iteritems()}
+    elif isinstance(input, list):
+        return [byteify(element) for element in input]
+    elif isinstance(input, unicode):
+        return input.encode(encoding)
+    else:
+        return input
+
 # 运行 python 脚本
 def runpy(ssrfile):
     os.system("python /usr/local/SSR.Go/"+ssrfile+".py")
