@@ -290,7 +290,7 @@ uninstall_shadowsocksr(){
         rm -f /etc/init.d/shadowsocks
         rm -f /var/log/shadowsocks.log
         rm -rf /usr/local/shadowsocks
-        echo "ShadowsocksRR 卸载成功!"
+        echo "ShadowsocksRR 卸载成功，期待下次与您再会！"
     else
         echo
         echo "卸载已取消, 未执行任何操作..."
