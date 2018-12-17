@@ -39,7 +39,7 @@ else:
     elif (newobfs=="5"):
         Whether("该模式的作用与 http_simple 一致，可兼容原版 shadowsocks 协议，是否要选择？(y/n)", "y", "n", writejson.WriteObfs, "混淆", "http_post_compatible", "混淆选择", co)
     elif (newobfs=="6"):
-        Whether("此项默认推荐，但在 ssr 被 GFW 大规模针对的今天，过度伪装反而可能会把自己更精准地暴露给敌人，是否要选择？(y/n)", "y", "n", writejson.WriteObfs, "混淆", "tls1.2_ticket_auth", "混淆选择", co)
+        Whether("此项默认推荐，但在 ssr 被 GFW 大规模针对的今天，过度伪装反而可能会把自己更精准地暴露给捕食者，是否要选择？(y/n)", "y", "n", writejson.WriteObfs, "混淆", "tls1.2_ticket_auth", "混淆选择", co)
     elif (newobfs=="7"):
         Whether("该模式的作用与 tls1.2_ticket_auth 一致，可兼容原版 shadowsocks 协议，是否要选择？(y/n)", "y", "n", writejson.WriteObfs, "混淆", "tls1.2_ticket_auth_compatible", "混淆选择", co)
     elif (newobfs=="8"):
