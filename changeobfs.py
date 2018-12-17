@@ -47,7 +47,7 @@ else:
     elif (newobfs=="9"):
         Whether("该模式的作用与 tls1.2_ticket_fastauth 一致，可兼容原版 shadowsocks 协议，是否要选择？(y/n)", "y", "n", writejson.WriteObfs, "混淆", "tls1.2_ticket_fastauth_compatible", "混淆选择", co)
     elif (newobfs=="10"):
-        Whether("该模式通讯前会发送随机数据包，但包的末尾特征明显，容易被防火长城干扰，之后是协议数据流，是否要选择？(y/n)", "y", "n", writejson.WriteObfs, "混淆", "random_head", "混淆选择", co)
+        Whether("该模式通讯前会发送随机数据包，但包的末尾特征明显，容易被防火长城干扰，之后传递协议数据流，是否要选择？(y/n)", "y", "n", writejson.WriteObfs, "混淆", "random_head", "混淆选择", co)
     else:
 	print("请按 1 到 10 之间的数字！")
         runpy(co)
