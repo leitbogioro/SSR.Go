@@ -35,17 +35,17 @@ else:
     elif (newobfs=="3"):
         Whether("该模式的作用与 http_simple 一致，可兼容原版 shadowsocks 协议，是否要选择？(y/n)", "y", "n", writejson.WriteObfs, "混淆", "http_simple_compatible", "混淆选择", co)
     elif (newobfs=="4"):
-        Whether("该模式的作用和 http_simple 类似，区别在于制造的是 POST 请求头，建议配合最新协议使用，是否要选择？(y/n)", "y", "n", writejson.WriteObfs, "混淆", "http_post", "混淆选择", co)
+        Whether("该模式的作用与 http_simple 类似，区别在于制造的是 POST 请求头，建议配合最新协议使用，是否要选择？(y/n)", "y", "n", writejson.WriteObfs, "混淆", "http_post", "混淆选择", co)
     elif (newobfs=="5"):
-        Whether("该模式的作用和 http_simple 一致，可兼容原版 shadowsocks 协议，是否要选择？(y/n)", "y", "n", writejson.WriteObfs, "混淆", "http_post_compatible", "混淆选择", co)
+        Whether("该模式的作用与 http_simple 一致，可兼容原版 shadowsocks 协议，是否要选择？(y/n)", "y", "n", writejson.WriteObfs, "混淆", "http_post_compatible", "混淆选择", co)
     elif (newobfs=="6"):
         Whether("此项默认推荐，但在 ssr 被 GFW 大规模针对的今天，过度伪装反而可能会把自己更精准地暴露给敌人，是否要选择？(y/n)", "y", "n", writejson.WriteObfs, "混淆", "tls1.2_ticket_auth", "混淆选择", co)
     elif (newobfs=="7"):
-        Whether("该模式的作用和 tls1.2_ticket_auth 一致，可兼容原版 shadowsocks 协议，是否要选择？(y/n)", "y", "n", writejson.WriteObfs, "混淆", "tls1.2_ticket_auth_compatible", "混淆选择", co)
+        Whether("该模式的作用与 tls1.2_ticket_auth 一致，可兼容原版 shadowsocks 协议，是否要选择？(y/n)", "y", "n", writejson.WriteObfs, "混淆", "tls1.2_ticket_auth_compatible", "混淆选择", co)
     elif (newobfs=="8"):
         Whether("该模式和 tls1.2_ticket_auth 区别是，它不会等待服务端的响应，可有效降低延迟，是否要选择？(y/n)", "y", "n", writejson.WriteObfs, "混淆", "tls1.2_ticket_fastauth", "混淆选择", co)
     elif (newobfs=="9"):
-        Whether("该模式的作用和 tls1.2_ticket_fastauth 一致，可兼容原版 shadowsocks 协议，是否要选择？(y/n)", "y", "n", writejson.WriteObfs, "混淆", "tls1.2_ticket_fastauth_compatible", "混淆选择", co)
+        Whether("该模式的作用与 tls1.2_ticket_fastauth 一致，可兼容原版 shadowsocks 协议，是否要选择？(y/n)", "y", "n", writejson.WriteObfs, "混淆", "tls1.2_ticket_fastauth_compatible", "混淆选择", co)
     elif (newobfs=="10"):
         Whether("该模式通讯前会发送随机数据包，但包的末尾特征明显，容易被防火长城干扰，之后是协议数据流，是否要选择？(y/n)", "y", "n", writejson.WriteObfs, "混淆", "random_head", "混淆选择", co)
     else:
