@@ -31,9 +31,9 @@ else:
     elif (newobfs=="1"):
         Whether("该模式表示不做任何混淆，无论配合何种协议，在内卷国大部分地区都会被运营商直接阻断，是否要选择？(y/n)", "y", "n", writejson.WriteObfs, "混淆", "plain", "混淆选择", co)
     elif (newobfs=="2"):
-        Whether("该模式仅制造一次 GET 请求和回应包，中途依旧不采用混淆模式通信，建议配合最新协议使用，是否要选择？(y/n)", "y", "n", writejson.WriteObfs, "混淆", "http_simple", "混淆选择", co)
+        Whether("该模式仅制造一次 GET 请求和回应包，中途传递的流量不做任何混淆，建议配合最新协议使用，是否要选择？(y/n)", "y", "n", writejson.WriteObfs, "混淆", "http_simple", "混淆选择", co)
     elif (newobfs=="3"):
-        Whether("该模式的作用和 http_simple 一致，可兼容原版 shadowsocks 协议，是否要选择？(y/n)", "y", "n", writejson.WriteObfs, "混淆", "http_simple_compatible", "混淆选择", co)
+        Whether("该模式的作用与 http_simple 一致，可兼容原版 shadowsocks 协议，是否要选择？(y/n)", "y", "n", writejson.WriteObfs, "混淆", "http_simple_compatible", "混淆选择", co)
     elif (newobfs=="4"):
         Whether("该模式的作用和 http_simple 类似，区别在于制造的是 POST 请求头，建议配合最新协议使用，是否要选择？(y/n)", "y", "n", writejson.WriteObfs, "混淆", "http_post", "混淆选择", co)
     elif (newobfs=="5"):
