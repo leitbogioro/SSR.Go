@@ -29,7 +29,7 @@ else:
     if (newobfs=="0"):
         runshell("/usr/local/bin/ssr", "change_config")
     elif (newobfs=="1"):
-        Whether("该模式表示不做任何混淆，无论配合何种协议，在内卷国大部分地区都会被运营商直接阻断，是否要选择？(y/n)", "y", "n", writejson.WriteObfs, "混淆", "plain", "混淆选择", co)
+        Whether("该模式表示不做任何混淆，无论配合何种协议和加密方法做通信，在中国大陆大部分地区都会被运营商直接阻断，是否要选择？(y/n)", "y", "n", writejson.WriteObfs, "混淆", "plain", "混淆选择", co)
     elif (newobfs=="2"):
         Whether("该模式仅制造一次 GET 请求和回应包，中途传递的流量不做任何混淆，建议配合最新协议使用，是否要选择？(y/n)", "y", "n", writejson.WriteObfs, "混淆", "http_simple", "混淆选择", co)
     elif (newobfs=="3"):
