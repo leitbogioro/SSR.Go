@@ -269,6 +269,7 @@ install_cleanup(){
     cd ${cur_dir}
     rm -rf manyuser.zip shadowsocksr-manyuser ${libsodium_file}.tar.gz ${libsodium_file}
     rm -rf /usr/local/shadowsocksr
+    rm -rf /usr/local/${ssr_file}.zip
 }
 
 # 卸载 ShadowsocksRR
