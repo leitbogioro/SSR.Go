@@ -66,6 +66,7 @@ else:
         Redirect2="*:443#"+lh+":"+newport
         Redirectlist=[Redirect1, Redirect2]
         writejson.WriteRedirect(Redirectlist)
+        writejson.WritePort(443)
         print ("操作已完成")
         runpy(sr)
     elif (pick=="2"):
