@@ -90,6 +90,8 @@
 
 <h2><a id="Updates">更新日志（Updates）：</a></h2>
 <ul>
+<li>修复设置重定向参数后，主端口为设置成 443 的问题。（2018.12.17）</li>
+<p>Repair program doesn't set main port with 443 after setting redirection.(2018.12.17)</p>
 <li>添加安装后删除 /usr/local/shadowsocksr 多用户版冗余目录的逻辑。（2018.12.16）</li>
 <p>Add a logic about remove direction -- "/usr/local/shadowsocksr", it is not useful for ShadowSocksR single user.</p>
 <li>增加卸载 SSR.Go 和 ShadowSocksR 功能，修改 ssrmain.sh 脚本的卸载逻辑（2018.12.16）</li>
