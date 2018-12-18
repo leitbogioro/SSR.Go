@@ -1,10 +1,7 @@
 #! /usr/bin/env python
 # -*- coding: utf-8 -*-
-import readjson
-import writejson
-import ssrextra
-from ssrextra import is_number
-from ssrextra import Whether
+import readjson, writejson, ssrextra
+from ssrextra import (is_number, Whether)
 
 print ("Current encryption method is: %s") % str(readjson.ConfMethod)
 print ("Please choose a new method: ")
