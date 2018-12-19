@@ -4,7 +4,7 @@ import readjson, writejson, ssrextra
 from ssrextra import (is_number, Whether)
 
 print ("Current encryption method is: %s") % str(readjson.ConfMethod)
-print ("Please choose a new method: ")
+print ("Choose a new method: ")
 print ("1.none")
 print ("2.aes-256-cfb")
 print ("3.aes-256-cfb8")
