@@ -62,6 +62,7 @@
 <p>设置好重定向功能后，ShadowSocksR 的主通信端口会被还原为 443，若曾用过本脚本设置重定向，取消配置后主端口仍为 443。</p>
 </p>
 <p>Once after configuring redirection, Request datatype ingress to server which don't correspond with ShadowSocksR will be redirected to localhost or another domain automatically.</p>
+<p>A default configuration is setting all ingress request by 80/443 port redirect to localhost by some-port which you have configurated and then let a web server(Apache, Nginx or Caddy) to listen to it so you can achieve ShadowSocksR hide behind in an normal website or set up reverse proxy.</p>
 <br />
 
 <h2><a id="Sample">使用示例（Sample）</a></h2>
