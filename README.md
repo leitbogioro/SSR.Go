@@ -53,6 +53,13 @@
 <br />
 <p>5. <b>专为 CentOS 6/7 解决了复杂的二维码生成组件配置环境（你知道我 TM 花了多大劲吗！）</b>，你可以在 CentOS 系统上愉快地使用它们。</p>
 <p><b>Especially complained a complex compatibility problem about qrcode generation library on CentOS 6/7（do you know how much fuckin difficult I had suffered!）</b>, now you can have a perfect experience on CentOS.</p>
+<p>6. 有关新特性————“重定向”参数的一些说明：</p>
+<p>设置重定向，意味着<b>当来访的请求不符合 ShadowSocksR 数据包类型的时候，ShadowSocksR 会自动将该请求重定向到本机的或其他域的空间</b>。</p>
+<p>典型的配置，是将外界访问本机 80、443 端口且不符合以上规则的请求，全部重定向到本机的某个端口，然后由 Apache、Nginx 或 Caddy 来监听该端口，实现 ShadowSocksR 在正常网站背后的隐藏或反代功能。</p>
+<p>由于无法完全确定您使用了何种 Web 服务器，何种配置，本功能仅对 ShadowSocksR 配置文件中的重定向参数进行设置，本来有引入一键安装 Caddy 并申请加密证书的计划。但 Web 服务器的用途广泛，配置、需求不一，为了尽量避免对您的生产环境造成干扰，造成配置絮乱，烦请您后续还要手动在 Web 服务器里做好相应的监听设置，敬请谅解</p>
+<p>本脚本除了在安装、卸载功能里，添加可供 ShadowSocksR 所有正常功能运行的全部依赖以外，在日常配置的过程中，仅对 ShadowSocksR 的配置文件进行修改，不会干涉您运行环境中其他组件的组织和运行。</p>
+<p>设置好重定向功能后，ShadowSocksR 的主通信端口会被还原为 443，若曾用过本脚本设置重定向，取消配置后主端口仍为 443。</p>
+</p>
 <br />
 
 <h2><a id="Sample">使用示例（Sample）</a></h2>
