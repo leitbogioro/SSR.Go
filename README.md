@@ -102,6 +102,8 @@
 
 <h2><a id="Updates">更新日志（Updates）：</a></h2>
 <ul>
+<li>添加重定向功能的英文描述（2018.12.20）</li>
+<p>Add English explanation about redirection(2018.12.20).</p>
 <li>修复设置重定向参数后，主端口为设置成 443 的问题。（2018.12.17）</li>
 <p>Repair program doesn't set main port with 443 after setting redirection.(2018.12.17)</p>
 <li>添加安装后删除 /usr/local/shadowsocksr 多用户版冗余目录的逻辑。（2018.12.16）</li>
