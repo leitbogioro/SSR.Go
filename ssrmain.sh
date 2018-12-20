@@ -9,6 +9,25 @@ export PATH
 #   Intro:  https://goo.gl/SjXFKi                                 #
 #=================================================================#
 
+# 脚本字体颜色
+red='\033[0;31m'
+green='\033[0;32m'
+yellow='\033[0;33m'
+plain='\033[0m'
+
+agentwatch=`ps aux | grep 'agentwatch'`
+aliyunsrv=`ps aux | grep 'aliyun'`
+AliYunDun=`ps aux | grep 'AliYunDun'`
+AliHids=`ps aux | grep 'AliHids'`
+AliYunDunUpdate=`ps aux | grep 'AliYunDunUpdate'`
+if [ -d /usr/local/aegis ] || [ -f "/etc/init.d/aegis" ] || [[ -n $agentwatch ]] || [[ -n $aliyunsrv ]] || [[ -n $AliYunDun ]] || [[ -n $AliHids ]] || [[ -n $AliYunDunUpdate ]]; then
+    echo -e "[${red}Error${plain}] 检测到您的系统中存在阿里云的相关监控服务进程，如继续安装，会导致您的机器被社会主义的铁拳封禁！！！"
+    echo "可行的解决办法（以下采用一种即可）："
+    echo "1. 使用我的脚本，卸载阿里云的监控服务：https://github.com/leitbogioro/Fuck_Aliyun"
+    echo "2. 使用我的脚本，重新安装纯净的 Linux 系统：https://github.com/leitbogioro/Tools"
+    exit 1
+fi
+
 libsodium_file="libsodium-1.0.16"
 libsodium_url="https://github.com/jedisct1/libsodium/releases/download/1.0.16/libsodium-1.0.16.tar.gz"
 ssr_file="manyuser-3.2.2"
@@ -20,12 +39,6 @@ cur_dir=`pwd`
 # 参见:
 # https://github.com/shadowsocksrr/shadowsocks-rss/blob/master/readme.md
 # https://github.com/shadowsocksrr/shadowsocks-rss/wiki/config.json
-
-# 脚本字体颜色
-red='\033[0;31m'
-green='\033[0;32m'
-yellow='\033[0;33m'
-plain='\033[0m'
 
 # 必须以 root 用户运行该脚本
 [[ $EUID -ne 0 ]] && echo -e "[${red}Error${plain}] This script must be run as root!" && exit 1
