@@ -15,6 +15,7 @@ green='\033[0;32m'
 yellow='\033[0;33m'
 plain='\033[0m'
 
+# 如果检查到运行环境中存在阿里云服务，安装将立即终止
 agentwatch=`ps aux | grep 'agentwatch'`
 aliyunsrv=`ps aux | grep 'aliyun'`
 AliYunDun=`ps aux | grep 'AliYunDun'`
