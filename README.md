@@ -64,7 +64,7 @@
 <p>Once after configuring redirection, Request datatype ingress to server which don't correspond with ShadowSocksR will be redirected to localhost or another domain automatically.</p>
 <p>A default configuration is setting all ingress request by 80/443 port redirect to localhost by some-port which you have configurated and then let a web server(Apache, Nginx or Caddy) to listen to it so you can achieve ShadowSocksR hide behind in an normal website or set up reverse proxy.</p>
 <p>Because this shell can't distinguish that which web server you had installed and which configuration you had set, I originally have a plan to provide caddy's one-key installation and apply https certificate at the begging. But I found that there are so many different web servers and various configurations, according to cause less consequence to your normal production environment or do not disturb your formal configuration. I'm sorry to explain and hope you to config Nginx listen to somewhere redirected by ShadowSocksR for example manually.</p>
-<p></p>
+<p>My aims to write this shell is to set up ShadowSocksR's config and as far as possible to reduce any accident(regardless of profits or consequence) influence to your execute environment with many important componets.</p>
 <br />
 
 <h2><a id="Sample">使用示例（Sample）</a></h2>
