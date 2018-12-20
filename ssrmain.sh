@@ -21,7 +21,7 @@ AliYunDun=`ps aux | grep 'AliYunDun'`
 AliHids=`ps aux | grep 'AliHids'`
 AliYunDunUpdate=`ps aux | grep 'AliYunDunUpdate'`
 if [ -d /usr/local/aegis ] || [ -f "/etc/init.d/aegis" ] || [[ -n $agentwatch ]] || [[ -n $aliyunsrv ]] || [[ -n $AliYunDun ]] || [[ -n $AliHids ]] || [[ -n $AliYunDunUpdate ]]; then
-    echo -e "[${red}Error${plain}] 检测到您的系统中存在阿里云的相关监控服务进程，如继续安装，会导致您的机器被社会主义的铁拳封禁！！！"
+    echo -e "[${red}Error${plain}] 检测到您的系统中存在阿里云的相关监控服务进程，如继续安装，你会尝到被社会主义的铁拳打击的滋味！！！"
     echo "可行的解决办法（以下采用一种即可）："
     echo "1. 使用我的脚本，卸载阿里云的监控服务：https://github.com/leitbogioro/Fuck_Aliyun"
     echo "2. 使用我的脚本，重新安装纯净的 Linux 系统：https://github.com/leitbogioro/Tools"
