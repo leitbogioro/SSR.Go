@@ -15,20 +15,6 @@ green='\033[0;32m'
 yellow='\033[0;33m'
 plain='\033[0m'
 
-# 如果检查到运行环境中存在阿里云服务，安装将立即终止
-agentwatch=`ps aux | grep 'agentwatch'`
-aliyunsrv=`ps aux | grep 'aliyun'`
-AliYunDun=`ps aux | grep 'AliYunDun'`
-AliHids=`ps aux | grep 'AliHids'`
-AliYunDunUpdate=`ps aux | grep 'AliYunDunUpdate'`
-if [ -d /usr/local/aegis ] || [[ -f /etc/init.d/aegis ]] || [[ -n $agentwatch ]] || [[ -n $aliyunsrv ]] || [[ -n $AliYunDun ]] || [[ -n $AliHids ]] || [[ -n $AliYunDunUpdate ]]; then
-    echo -e "[${red}Error${plain}] 检测到您的系统中存在阿里云的相关监控服务进程，如继续安装，你会尝到被社会主义的铁拳打击的滋味！！！"
-    echo "可行的解决办法（以下采用一种即可）："
-    echo "1. 使用我的脚本，卸载阿里云的监控服务：https://github.com/leitbogioro/Fuck_Aliyun"
-    echo "2. 使用我的脚本，重新安装纯净的 Linux 系统：https://github.com/leitbogioro/Tools"
-    exit 1
-fi
-
 libsodium_file="libsodium-1.0.16"
 libsodium_url="https://github.com/jedisct1/libsodium/releases/download/1.0.16/libsodium-1.0.16.tar.gz"
 ssr_file="manyuser-3.2.2"
