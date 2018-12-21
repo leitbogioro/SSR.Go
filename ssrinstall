@@ -17,6 +17,7 @@ if [ -d /usr/local/aegis ] || [[ -f /etc/init.d/aegis ]] || [[ ! -n $agentwatch 
     echo "可行的解决办法（以下采用一种即可）："
     echo "1. 使用我的脚本，卸载阿里云的监控服务：https://github.com/leitbogioro/Fuck_Aliyun"
     echo "2. 使用我的脚本，重新安装纯净的 Linux 系统：https://github.com/leitbogioro/Tools"
+    rm -rf ssrinstall
     exit 1
 fi
 
