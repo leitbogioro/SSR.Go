@@ -1,13 +1,27 @@
 #!/bin/bash
 export PATH=/usr/local/sbin:/usr/local/bin:/sbin:/bin:/usr/sbin:/usr/bin
 
-#检查是否为Root
-[ $(id -u) != "0" ] && { echo "发生错误，你必须以 root 用户执行此安装程序"; exit 1; }
-
 # 脚本字体颜色
 green='\033[0;32m'
 red='\033[0;31m'
 plain='\033[0m'
+
+# 如果检查到运行环境中存在阿里云服务，安装将立即终止
+agentwatch=`ps aux | grep 'agentwatch'`
+aliyunsrv=`ps aux | grep 'aliyun'`
+AliYunDun=`ps aux | grep 'AliYunDun'`
+AliHids=`ps aux | grep 'AliHids'`
+AliYunDunUpdate=`ps aux | grep 'AliYunDunUpdate'`
+if [ -d /usr/local/aegis ] || [[ -f /etc/init.d/aegis ]] || [[ ! -n $agentwatch ]] || [[ ! -n $aliyunsrv ]] || [[ ! -n $AliYunDun ]] || [[ ! -n $AliHids ]] || [[ ! -n $AliYunDunUpdate ]]; then
+    echo -e "[${red}Error${plain}] 检测到您的系统中存在阿里云的相关监控服务进程，如继续安装，你会尝到被社会主义的铁拳打击的滋味！！！"
+    echo "可行的解决办法（以下采用一种即可）："
+    echo "1. 使用我的脚本，卸载阿里云的监控服务：https://github.com/leitbogioro/Fuck_Aliyun"
+    echo "2. 使用我的脚本，重新安装纯净的 Linux 系统：https://github.com/leitbogioro/Tools"
+    exit 1
+fi
+
+#检查是否为Root
+[ $(id -u) != "0" ] && { echo "发生错误，你必须以 root 用户执行此安装程序"; exit 1; }
 
 #检查系统信息
 if [ -f /etc/redhat-release ];then
