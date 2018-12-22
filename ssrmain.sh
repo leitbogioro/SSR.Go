@@ -264,6 +264,16 @@ install(){
     fi
 }
 
+# 写入定时任务
+execute_ssr_work() {
+    if ! grep '/etc/init.d/shadowsocks restart' /etc/crontab; then
+        systemctl enable cron.service
+        systemctl start cron.service
+        echo "0  0    * * *   root    /etc/init.d/shadowsocks restart" >> /etc/crontab
+        /etc/init.d/cron restart
+    fi
+}
+
 # 安装完成后清理
 install_cleanup(){
     cd ${cur_dir}
@@ -301,6 +311,7 @@ install_shadowsocksr(){
         firewall_set
     fi
     install
+    execute_ssr_work
     install_cleanup
 }
 
