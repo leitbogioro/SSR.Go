@@ -86,6 +86,7 @@
 <li>Debian 7+(8/9)</li> 
 <li>Ubuntu 14</li>
 <li><b>Ubuntu 16（推荐 Recommend）</b></li>
+<li>Ubuntu 18</li>
 <li>CentOS 6/7</li>
 </ul>
 <br />
