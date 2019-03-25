@@ -15,8 +15,8 @@ green='\033[0;32m'
 yellow='\033[0;33m'
 plain='\033[0m'
 
-libsodium_file="libsodium-1.0.16"
-libsodium_url="https://github.com/jedisct1/libsodium/releases/download/1.0.16/libsodium-1.0.16.tar.gz"
+libsodium_file="libsodium-1.0.17"
+libsodium_url="https://github.com/jedisct1/libsodium/releases/download/1.0.17/libsodium-1.0.17.tar.gz"
 ssr_file="manyuser-3.2.2"
 ssr_url="https://github.com/leitbogioro/SSR.Go/releases/download/3.2.2/manyuser-3.2.2.zip"
 
