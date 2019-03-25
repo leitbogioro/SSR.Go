@@ -27,8 +27,8 @@ if [[ ${ans} =~ [yY] ]]; then
 else
     echo -e "\n"
 
-libsodium_file="libsodium-1.0.16"
-libsodium_url="https://github.com/jedisct1/libsodium/releases/download/1.0.16/libsodium-1.0.16.tar.gz"
+libsodium_file="libsodium-1.0.17"
+libsodium_url="https://github.com/jedisct1/libsodium/releases/download/1.0.17/libsodium-1.0.17.tar.gz"
 
 # Current folder
 cur_dir=`pwd`
@@ -479,7 +479,7 @@ install(){
 # 安装完成后清理
 install_cleanup(){
     cd ${cur_dir}
-    rm -rf manyuser.zip shadowsocksr-manyuser libsodium-1.0.16.tar.gz libsodium-1.0.16
+    rm -rf manyuser.zip shadowsocksr-manyuser ${libsodium_file}.tar.gz ${libsodium_file}
 }
 
 
