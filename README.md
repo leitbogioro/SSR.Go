@@ -103,6 +103,9 @@
 
 <h2><a id="Updates">更新日志（Updates）：</a></h2>
 <ul>
+<li>更新 libsodium 组件至 1.0.17。（2019.3.25）</li>
+<p>Update libsodium componet to 1.0.17.(2019.3.25)</p>
+<li>添加重定向功能的英文描述（2018.12.20）</li>
 <li>添加检测阿里云进程的逻辑，一旦您尝试在预装了阿里云监控服务的环境中安装，安装会立即退出。（2018.12.21）</li>
 <p>Add a function to doubt whether your environment has installed Aliyun/AlibabaCloud's monitor process and once these has been detected, installation of ShadowSocksR will been suspend.(2018.12.21)</p>
 <li>添加重定向功能的英文描述（2018.12.20）</li>
