@@ -1,6 +1,6 @@
 #! /usr/bin/env python
 # -*- coding: utf-8 -*-
-import os, random, string, socket, urllib2, base64, qrcode, subprocess
+import os, random, string, socket, urllib2, base64, qrcode, subprocess, ssl
 
 # 格式化读取数组呈现的内容
 def byteify(input, encoding='utf-8'):
@@ -100,7 +100,8 @@ if __name__ == '__main__':
 
 # 如果是内网 IP 需要进行的操作
 def look_ip_from():
-    thisip = urllib2.urlopen('https://ipv4.icanhazip.com/').read()
+    context = ssl._create_unverified_context()
+    thisip = urllib2.urlopen('https://ipv4.icanhazip.com/', context=context).read()
     thisip = thisip.strip()
     return thisip
 
