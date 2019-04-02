@@ -103,6 +103,8 @@
 
 <h2><a id="Updates">更新日志（Updates）：</a></h2>
 <ul>
+<li>修复了通过 https 网站调用 IP 地址时脚本出错的问题。（2019.4.2）</li>
+<p>Fix a bug that when getting IP address from a https website, there will go a wrong with script.(2019.4.2)</p>
 <li>更新 libsodium 组件至 1.0.17。（2019.3.25）</li>
 <p>Update libsodium componet to 1.0.17.(2019.3.25)</p>
 <li>添加重定向功能的英文描述（2018.12.20）</li>
