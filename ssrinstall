@@ -26,7 +26,7 @@ fi
 [ $(id -u) != "0" ] && { echo "发生错误，你必须以 root 用户执行此安装程序"; exit 1; }
 
 #检查系统信息
-if [ -f /etc/redhat-release ] && [ `cat /etc/redhat-release > /dev/null 2>&1 | grep -i 'centos'` ]; then
+if [ -f /etc/redhat-release ] && [[ `grep -i 'centos' /etc/redhat-release` ]]; then
     OS='CentOS'
     elif [ ! -z "`cat /etc/issue | grep bian`" ]; then
         OS='Debian'
