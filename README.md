@@ -103,6 +103,8 @@
 
 <h2><a id="Updates">更新日志（Updates）：</a></h2>
 <ul>
+<li>修复了因判断逻辑错误，CentOS 无法正确安装的问题。（2019.4.10）</li>
+<p>Fix a bug that can't install on CentOS.(2019.4.10)</p>
 <li>修复了通过 https 网站调用 IP 地址时脚本出错的问题。（2019.4.2）</li>
 <p>Fix a bug that when getting IP address from a https website, there will go a wrong with script.(2019.4.2)</p>
 <li>更新 libsodium 组件至 1.0.17。（2019.3.25）</li>
