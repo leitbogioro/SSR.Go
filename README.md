@@ -103,6 +103,10 @@
 
 <h2><a id="Updates">更新日志（Updates）：</a></h2>
 <ul>
+<li>Update config UUID.(2019.6.2)</li>
+<p>更新自定义 UUID 的功能。(2019.6.2)</p>    
+<li>Update config path parameter in websocket transport mode.(2019.6.2)</li>
+<p>更新 Websocket 模式下添加 path 参数的功能。(2019.6.2)</p>
 <li>修复了因判断逻辑错误，CentOS 无法正确安装的问题。（2019.4.10）</li>
 <p>Fix a bug that can't install on CentOS.(2019.4.10)</p>
 <li>修复了通过 https 网站调用 IP 地址时脚本出错的问题。（2019.4.2）</li>
