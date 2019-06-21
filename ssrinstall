@@ -62,7 +62,7 @@ install_py3.7(){
 # 判断是否需要安装 python3.7
 py_main_ver=`python3 -V | awk '{print $2}' | cut -d '.' -f 1`
 py_branch_ver=`python3 -V | awk '{print $2}' | cut -d '.' -f 2`
-if [ $py_main_ver -eq 3 ] || [ py_branch_ver -lt 7 ]; then
+if [ $py_main_ver -eq 3 ] || [ $py_branch_ver -lt 7 ]; then
     install_py3.7()
 fi
 
