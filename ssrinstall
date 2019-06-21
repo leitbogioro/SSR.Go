@@ -47,6 +47,17 @@ fi
 System_CentOS=`rpm -q centos-release|cut -d- -f1`
 CentOS_Version=`cat /etc/redhat-release|sed -r 's/.* ([0-9]+)\..*/\1/'`
 
+install_py3.7(){
+    apt-get install build-essential checkinstall -y
+    apt-get install libreadline-gplv2-dev libncursesw5-dev libssl-dev libffi-dev libsqlite3-dev tk-dev libgdbm-dev libc6-dev libbz2-dev -y
+    cd /usr/src
+    wget https://www.python.org/ftp/python/3.7.3/Python-3.7.3.tgz
+    tar xzf Python-3.7.3.tgz
+    cd Python-3.7.3
+    ./configure --enable-optimizations
+    make altinstall
+}
+
 # CentOS 6 专用 python
 py_for_centos="https://raw.githubusercontent.com/leitbogioro/SSR.Go/master/python_for_centos6.sh"
 py_intall="python_for_centos6.sh"
