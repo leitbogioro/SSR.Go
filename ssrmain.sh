@@ -266,10 +266,13 @@ install(){
 
 # 写入定时任务
 execute_ssr_work() {
+    if [[ `grep -i "/etc/init.d/shadowsocks restart" /etc/crontab` ]]; then
+        sed -e '/etc/init.d/shadowsocks restart' /etc/crontab
+    fi
     if ! grep '/etc/init.d/shadowsocks restart' /etc/crontab; then
         systemctl enable cron.service
         systemctl start cron.service
-        echo "0  0    * * *   root    /etc/init.d/shadowsocks restart" >> /etc/crontab
+        echo "30  4    * * 0   root    /etc/init.d/shadowsocks restart" >> /etc/crontab
         /etc/init.d/cron restart
     fi
 }
