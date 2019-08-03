@@ -272,7 +272,7 @@ execute_ssr_work() {
     if ! grep '/etc/init.d/shadowsocks restart' /etc/crontab; then
         systemctl enable cron.service
         systemctl start cron.service
-        echo "30  4    * * 0   root    /etc/init.d/shadowsocks restart" >> /etc/crontab
+        echo "30 4    * * 0   root    /etc/init.d/shadowsocks restart" >> /etc/crontab
         /etc/init.d/cron restart
     fi
 }
