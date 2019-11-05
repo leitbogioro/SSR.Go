@@ -103,6 +103,8 @@
 
 <h2><a id="Updates">更新日志（Updates）：</a></h2>
 <ul>
+<li>检测是否已有配置文件，有则在升级前备份，并在升级后恢复，以防程序升级后原有配置被重写造成错乱。(2019.11.7)</li>
+<p>Check if the configuration existes, installer will backup it before update and restore it after update instead of configuration will be rewrited by update program and causes confusion.(2019.11.7)</p>
 <li>安装程序逻辑错误修复(2019.11.6)</li>
 <p>Fix installer illogical bugs.(2019.11.6)</p>
 <li>经测试，如果长时间多终端一起使用，该程序的日志文件体积会快速膨胀并大量占用主机磁盘空间，故在维护组件里加入每周清空程序日志的功能。(2019.11.6)</li>
