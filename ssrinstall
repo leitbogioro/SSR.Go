@@ -84,12 +84,12 @@ py_qrcode(){
 #安装依赖
 if [[ ${OS} == 'CentOS' ]] && [[ ${CentOS_Version} -eq "7" ]]; then
     yum update -y
-    yum install epel-release curl unzip git ntp ntpdate lrzsz -y
+    yum install epel-release wget curl vixie-cron crontabs unzip git ntp ntpdate lrzsz -y
     install_python_for_CentOS7
     py_qrcode
 elif [[ ${OS} == 'CentOS' ]] && [[ ${CentOS_Version} -eq "6" ]]; then
     yum update -y
-    yum install epel-release wget unzip git ntp ntpdate lrzsz -y
+    yum install epel-release wget curl vixie-cron crontabs unzip git ntp ntpdate lrzsz -y
     install_python_for_CentOS6
     py_qrcode
 elif [[ ${OS} == 'CentOS' ]] && [[ ${CentOS_Version} -le "5" ]]; then
@@ -98,7 +98,7 @@ elif [[ ${OS} == 'CentOS' ]] && [[ ${CentOS_Version} -le "5" ]]; then
 else
     curl sudo -E bash -
 	apt-get update
-	apt-get install curl unzip git ntp wget ntpdate python python-pip socat lrzsz -y
+	apt-get install curl wget cron unzip git ntp ntpdate python python-pip socat lrzsz -y
 	py_qrcode
 fi
 
@@ -125,6 +125,7 @@ fi
 if [[ ! `grep -i "SSR.Go/maintain.sh" /etc/crontab` ]]; then
     sed -i '$i 30 4    * * 0   root    bash /usr/local/SSR.Go/maintain.sh' /etc/crontab
 fi
+/etc/init.d/cron restart
 
 clear
 
