@@ -118,6 +118,14 @@ chmod +x /etc/init.d/shadowsocks
 chmod +x /usr/local/shadowsocks/
 /etc/init.d/shadowsocks start
 
+# 删除旧的维护策略并写入新的
+if [[ `grep -i "/etc/init.d/shadowsocks restart" /etc/crontab` ]]; then
+    sed -i '/shadowsocks/d' /etc/crontab
+fi
+if [[ ! `grep -i "SSR.Go/maintain.sh" /etc/crontab` ]]; then
+    sed -i '$i 30 4    * * 0   root    bash /usr/local/SSR.Go/maintain.sh' /etc/crontab
+fi
+
 clear
 
 echo "SSR.Go 和 ShadowSocksR 安装成功！"
