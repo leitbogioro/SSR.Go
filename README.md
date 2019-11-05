@@ -103,10 +103,16 @@
 
 <h2><a id="Updates">更新日志（Updates）：</a></h2>
 <ul>
+<li>安装程序逻辑错误修复(2019.11.6)</li>
+<p>Fix installer illogical bugs.(2019.11.6)</p>
+<li>经测试，如果长时间多终端一起使用，该程序的日志文件体积会快速膨胀并大量占用主机磁盘空间，故在维护组件里加入每周清空程序日志的功能。(2019.11.6)</li>
+<p>If there are many devices connect to one ShadowSocksR server for a long time, the log on server will occupy an inconceivable disk space. So I add an function about log purge in maintain component which executes weekly.(2019.11.6)</p>
+<li>将计划任务中的每周重启一次任务整合至维护组件内运行(2019.11.5)</li>
+<p>Put restart command into a component calls 'maintain' and it will execute weekly.(2019.11.5)</p>
+<li>Withdraw config UUID.(2019.6.3)</li>
+<p>撤销修改 UUID 功能。(2019.6.3)</p>
 <li>Update config UUID.(2019.6.2)</li>
 <p>更新自定义 UUID 的功能。(2019.6.2)</p>    
-<li>Update config path parameter in websocket transport mode.(2019.6.2)</li>
-<p>更新 Websocket 模式下添加 path 参数的功能。(2019.6.2)</p>
 <li>修复了因判断逻辑错误，CentOS 无法正确安装的问题。（2019.4.10）</li>
 <p>Fix a bug that can't install on CentOS.(2019.4.10)</p>
 <li>修复了通过 https 网站调用 IP 地址时脚本出错的问题。（2019.4.2）</li>
