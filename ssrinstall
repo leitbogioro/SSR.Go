@@ -125,14 +125,6 @@ if [ ! -d ${SSR_backup} ]; then
     mv ${SSR_backup} ${SSR_config}
 fi
 
-#配置ssr初始环境
-rm -rf /usr/local/bin/ssr
-ln -sf /usr/local/SSR.Go/ssr /usr/local/bin
-chmod +x /usr/local/bin/ssr
-chmod +x /etc/init.d/shadowsocks
-chmod +x /usr/local/shadowsocks/
-/etc/init.d/shadowsocks start
-
 # 删除旧的维护策略并写入新的
 if [[ `grep -i "/etc/init.d/shadowsocks restart" /etc/crontab` ]]; then
     sed -i '/shadowsocks/d' /etc/crontab
@@ -141,6 +133,14 @@ if [[ ! `grep -i "SSR.Go/maintain.sh" /etc/crontab` ]]; then
     sed -i '$i 30 4    * * 0   root    bash /usr/local/SSR.Go/maintain.sh' /etc/crontab
 fi
 /etc/init.d/cron restart
+
+#配置ssr初始环境
+rm -rf /usr/local/bin/ssr
+ln -sf /usr/local/SSR.Go/ssr /usr/local/bin
+chmod +x /usr/local/bin/ssr
+chmod +x /etc/init.d/shadowsocks
+chmod +x /usr/local/shadowsocks/
+/etc/init.d/shadowsocks restart
 
 clear
 
