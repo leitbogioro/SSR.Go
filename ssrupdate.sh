@@ -1,11 +1,6 @@
 #!/bin/bash
 export PATH=/usr/local/sbin:/usr/local/bin:/sbin:/bin:/usr/sbin:/usr/bin
 
-# 脚本字体颜色
-green='\033[0;32m'
-red='\033[0;31m'
-plain='\033[0m'
-
 # 如果检查到运行环境中存在阿里云服务，安装将立即终止
 agentwatch=`ps aux | grep 'agentwatch'`
 aliyunsrv=`ps aux | grep 'aliyun'`
