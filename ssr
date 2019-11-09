@@ -203,7 +203,7 @@ done
 
 # 更新ssr和ssr.go的操作
 if [[ ${choice} == 4 ]]; then
-    bash -c "$(curl -fsSL https://git.io/fNpuL)"
+    bash -c "$(curl -fsSL https://git.io/JeVEg)"
 fi 
 
 # 切换语言版本
