@@ -104,13 +104,6 @@ else
 	py_qrcode
 fi
 
-#如果检测到已有配置，则将改配置转换成备份文件
-SSR_config="/etc/shadowsocks.json"
-SSR_backup="/etc/shadowsocks.backup"
-if [ ! -d ${SSR_config} ]; then
-    mv ${SSR_config} ${SSR_backup}
-fi
-
 #克隆ssr.go项目
 cd /usr/local/
 rm -R SSR.Go
@@ -118,12 +111,6 @@ git clone https://github.com/leitbogioro/SSR.Go
 
 #安装shadowsocksRR主程序
 bash <(curl -L -s https://git.io/fNpEa)
-
-#如果检测到配置备份文件，则将该备份的配置文件替换成正式配置文件
-if [ ! -d ${SSR_backup} ]; then
-    rm -rf ${SSR_config}
-    mv ${SSR_backup} ${SSR_config}
-fi
 
 # 删除旧的维护策略并写入新的
 if [[ `grep -i "/etc/init.d/shadowsocks restart" /etc/crontab` ]]; then
