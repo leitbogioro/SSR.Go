@@ -27,83 +27,6 @@ fi
 
 /etc/init.d/shadowsocks stop
 
-#检查系统信息
-if [ -f /etc/redhat-release ] && [[ `grep -i 'centos' /etc/redhat-release` ]]; then
-    OS='CentOS'
-    elif [ ! -z "`cat /etc/issue | grep bian`" ]; then
-        OS='Debian'
-    elif [ ! -z "`cat /etc/issue | grep Ubuntu`" ]; then
-        OS='Ubuntu'
-    else
-        echo "你的操作系统不受支持，请选择在 Ubuntu/Debian/CentOS 操作系统上安装！"
-        exit 1
-fi
-
-#禁用SELinux
-if [ -s /etc/selinux/config ] && grep 'SELINUX=enforcing' /etc/selinux/config; then
-    sed -i 's/SELINUX=enforcing/SELINUX=disabled/g' /etc/selinux/config
-    setenforce 0
-fi
-
-# 输出 centos 系统大版本号
-System_CentOS=`rpm -q centos-release|cut -d- -f1`
-CentOS_Version=`cat /etc/redhat-release|sed -r 's/.* ([0-9]+)\..*/\1/'`
-
-# CentOS 6 专用 python
-py_for_centos="https://raw.githubusercontent.com/leitbogioro/SSR.Go/master/python_for_centos6.sh"
-py_intall="python_for_centos6.sh"
-install_python_for_CentOS6(){
-    yum install wget -y
-    wget ${py_for_centos}
-    if ! wget ${py_for_centos}; then
-        echo -e "[${red}错误${plain}] ${py_file} 下载失败，请检测你的网络！"
-        exit 1
-    fi
-    bash ${py_intall}
-    rm -rf /root/${py_intall}
-}
-
-# CentOS 7 专用 pip 源
-pip_file="get-pip.py"
-pip_url="https://bootstrap.pypa.io/get-pip.py"
-install_python_for_CentOS7(){
-    yum install curl python -y
-    curl ${pip_url} -o ${pip_file}
-    if ! curl ${pip_url} -o ${pip_file}; then
-        echo -e "[${red}错误${plain}] ${pip_file} 下载失败，请检测你的网络！"
-        exit 1
-    fi
-    python ${pip_file}
-    rm -rf /root/${pip_file}
-}
-
-# Python QRCode 依赖
-py_qrcode(){
-    pip install pillow
-    pip install qrcode
-}
-
-#安装依赖
-if [[ ${OS} == 'CentOS' ]] && [[ ${CentOS_Version} -eq "7" ]]; then
-    yum update -y
-    yum install epel-release wget curl vixie-cron crontabs unzip git ntp ntpdate lrzsz -y
-    install_python_for_CentOS7
-    py_qrcode
-elif [[ ${OS} == 'CentOS' ]] && [[ ${CentOS_Version} -eq "6" ]]; then
-    yum update -y
-    yum install epel-release wget curl vixie-cron crontabs unzip git ntp ntpdate lrzsz -y
-    install_python_for_CentOS6
-    py_qrcode
-elif [[ ${OS} == 'CentOS' ]] && [[ ${CentOS_Version} -le "5" ]]; then
-    echo "您的系统版本是（${System_CentOS} ${CentOS_Version}），此系统不受支持，SSR.Go 安装程序即将退出！"
-    exit 1
-else
-    curl sudo -E bash -
-	apt-get update
-	apt-get install curl wget cron unzip git ntp ntpdate python python-pip socat lrzsz -y
-	py_qrcode
-fi
-
 #如果检测到已有配置，则将改配置转换成备份文件
 SSR_config="/etc/shadowsocks.json"
 SSR_backup="/etc/shadowsocks.backup"
@@ -144,5 +67,5 @@ chmod +x /usr/local/shadowsocks/
 
 clear
 
-echo "SSR.Go 和 ShadowSocksR 安装成功！"
+echo "SSR.Go 和 ShadowSocksR 更新成功！"
 echo "输入 ssr 并回车即可使用"
