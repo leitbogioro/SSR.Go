@@ -1,0 +1,148 @@
+#!/bin/bash
+export PATH=/usr/local/sbin:/usr/local/bin:/sbin:/bin:/usr/sbin:/usr/bin
+
+# 脚本字体颜色
+green='\033[0;32m'
+red='\033[0;31m'
+plain='\033[0m'
+
+# 如果检查到运行环境中存在阿里云服务，安装将立即终止
+agentwatch=`ps aux | grep 'agentwatch'`
+aliyunsrv=`ps aux | grep 'aliyun'`
+AliYunDun=`ps aux | grep 'AliYunDun'`
+AliHids=`ps aux | grep 'AliHids'`
+AliYunDunUpdate=`ps aux | grep 'AliYunDunUpdate'`
+if [ -d /usr/local/aegis ] || [[ -f /etc/init.d/aegis ]] || [[ ! -n $agentwatch ]] || [[ ! -n $aliyunsrv ]] || [[ ! -n $AliYunDun ]] || [[ ! -n $AliHids ]] || [[ ! -n $AliYunDunUpdate ]]; then
+    echo -e "[${red}Error${plain}] 检测到您的系统中存在阿里云的相关监控服务进程，如继续使用，你会尝到被社会主义铁拳捅进菊花里的滋味！！！"
+    echo "安装程序立即终止"
+    echo "可行的解决办法（以下采用一种即可）："
+    echo "1. 使用我的脚本，卸载阿里云的监控服务：https://github.com/leitbogioro/Fuck_Aliyun"
+    echo "2. 使用我的脚本，重新安装纯净的 Linux 系统：https://github.com/leitbogioro/Tools"
+    rm -rf ssrinstall
+    exit 1
+fi
+
+#检查是否为Root
+[ $(id -u) != "0" ] && { echo "发生错误，你必须以 root 用户执行此安装程序"; exit 1; }
+
+/etc/init.d/shadowsocks stop
+
+#检查系统信息
+if [ -f /etc/redhat-release ] && [[ `grep -i 'centos' /etc/redhat-release` ]]; then
+    OS='CentOS'
+    elif [ ! -z "`cat /etc/issue | grep bian`" ]; then
+        OS='Debian'
+    elif [ ! -z "`cat /etc/issue | grep Ubuntu`" ]; then
+        OS='Ubuntu'
+    else
+        echo "你的操作系统不受支持，请选择在 Ubuntu/Debian/CentOS 操作系统上安装！"
+        exit 1
+fi
+
+#禁用SELinux
+if [ -s /etc/selinux/config ] && grep 'SELINUX=enforcing' /etc/selinux/config; then
+    sed -i 's/SELINUX=enforcing/SELINUX=disabled/g' /etc/selinux/config
+    setenforce 0
+fi
+
+# 输出 centos 系统大版本号
+System_CentOS=`rpm -q centos-release|cut -d- -f1`
+CentOS_Version=`cat /etc/redhat-release|sed -r 's/.* ([0-9]+)\..*/\1/'`
+
+# CentOS 6 专用 python
+py_for_centos="https://raw.githubusercontent.com/leitbogioro/SSR.Go/master/python_for_centos6.sh"
+py_intall="python_for_centos6.sh"
+install_python_for_CentOS6(){
+    yum install wget -y
+    wget ${py_for_centos}
+    if ! wget ${py_for_centos}; then
+        echo -e "[${red}错误${plain}] ${py_file} 下载失败，请检测你的网络！"
+        exit 1
+    fi
+    bash ${py_intall}
+    rm -rf /root/${py_intall}
+}
+
+# CentOS 7 专用 pip 源
+pip_file="get-pip.py"
+pip_url="https://bootstrap.pypa.io/get-pip.py"
+install_python_for_CentOS7(){
+    yum install curl python -y
+    curl ${pip_url} -o ${pip_file}
+    if ! curl ${pip_url} -o ${pip_file}; then
+        echo -e "[${red}错误${plain}] ${pip_file} 下载失败，请检测你的网络！"
+        exit 1
+    fi
+    python ${pip_file}
+    rm -rf /root/${pip_file}
+}
+
+# Python QRCode 依赖
+py_qrcode(){
+    pip install pillow
+    pip install qrcode
+}
+
+#安装依赖
+if [[ ${OS} == 'CentOS' ]] && [[ ${CentOS_Version} -eq "7" ]]; then
+    yum update -y
+    yum install epel-release wget curl vixie-cron crontabs unzip git ntp ntpdate lrzsz -y
+    install_python_for_CentOS7
+    py_qrcode
+elif [[ ${OS} == 'CentOS' ]] && [[ ${CentOS_Version} -eq "6" ]]; then
+    yum update -y
+    yum install epel-release wget curl vixie-cron crontabs unzip git ntp ntpdate lrzsz -y
+    install_python_for_CentOS6
+    py_qrcode
+elif [[ ${OS} == 'CentOS' ]] && [[ ${CentOS_Version} -le "5" ]]; then
+    echo "您的系统版本是（${System_CentOS} ${CentOS_Version}），此系统不受支持，SSR.Go 安装程序即将退出！"
+    exit 1
+else
+    curl sudo -E bash -
+	apt-get update
+	apt-get install curl wget cron unzip git ntp ntpdate python python-pip socat lrzsz -y
+	py_qrcode
+fi
+
+#如果检测到已有配置，则将改配置转换成备份文件
+SSR_config="/etc/shadowsocks.json"
+SSR_backup="/etc/shadowsocks.backup"
+if [ ! -d ${SSR_config} ]; then
+    mv ${SSR_config} ${SSR_backup}
+fi
+
+#克隆ssr.go项目
+cd /usr/local/
+rm -R SSR.Go
+git clone https://github.com/leitbogioro/SSR.Go
+
+#安装shadowsocksRR主程序
+bash <(curl -L -s https://git.io/fNpEa)
+
+#如果检测到配置备份文件，则将该备份的配置文件替换成正式配置文件
+if [ ! -d ${SSR_backup} ]; then
+    rm -rf ${SSR_config}
+    mv ${SSR_backup} ${SSR_config}
+fi
+
+# 删除旧的维护策略并写入新的
+if [[ `grep -i "/etc/init.d/shadowsocks restart" /etc/crontab` ]]; then
+    sed -i '/shadowsocks/d' /etc/crontab
+fi
+if [[ ! `grep -i "SSR.Go/maintain.sh" /etc/crontab` ]]; then
+    sed -i '$i 30 4    * * 0   root    bash /usr/local/SSR.Go/maintain.sh' /etc/crontab
+fi
+/etc/init.d/cron restart
+
+#配置ssr初始环境
+rm -rf /usr/local/bin/ssr
+ln -sf /usr/local/SSR.Go/ssr /usr/local/bin
+chmod +x /usr/local/bin/ssr
+chmod +x /etc/init.d/shadowsocks
+chmod +x /usr/local/shadowsocks/
+/etc/init.d/shadowsocks restart
+
+clear
+
+echo "SSR.Go 和 ShadowSocksR 安装成功！"
+echo "输入 ssr 并回车即可使用"
