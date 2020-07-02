@@ -103,6 +103,8 @@
 
 <h2><a id="Updates">更新日志（Updates）：</a></h2>
 <ul>
+<li>更新 libsodium 组件至 1.0.18。（2020.7.1）</li>
+<p>Update libsodium componet to 1.0.18.(2020.7.1)</p>
 <li>检测是否已有配置文件，有则在升级前备份，并在升级后恢复，以防程序升级后原有配置被重写造成错乱。(2019.11.7)</li>
 <p>Check if the configuration existes, installer will backup it before update and restore it after update instead of configuration will be rewrited by update program and causes confusion.(2019.11.7)</p>
 <li>安装程序逻辑错误修复。(2019.11.6)</li>
